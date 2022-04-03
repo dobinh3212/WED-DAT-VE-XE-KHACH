@@ -1,0 +1,95 @@
+@font-face {
+    font-family: GoogleSansRegular;
+    src: url("fonts/GoogleSans-Regular.ttf");
+    font-weight: normal;
+  }
+  @font-face {
+    font-family: GoogleSansBold;
+    src: url("fonts/GoogleSans-Bold.ttf");
+    font-weight: normal;
+  }
+  
+  body {
+    font-family: GoogleSansRegular;
+    background: #fff;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-size: 15px;
+    height: 100vh;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: GoogleSansBold;
+  }
+  
+  .h3-title2 {
+    margin-bottom: 20px;
+    /* color: #27659b; */
+    /* margin-top: 20px; */
+    font-size: 15px;
+  }
+  
+  
+  .footer_web {
+    background-color: #f6f6f6cc;
+    padding-bottom: 15px;
+    padding-top: 25px;
+  }
+  .footer_web ul {
+    padding-left: 3px;
+    margin-top: -10px;
+  }
+  
+  .footer_web .container ul li {
+    list-style: none;
+    line-height: 23px;
+  }
+  
+  .footer_web ul li a {
+    text-decoration: none;
+    color: #313131;
+  }
+  
+  .vinaseco_about {
+      padding-top: 4px;
+  }
+  
+  .vinaseco_about li {
+    display: inline;
+    padding-right: 15px;
+    font-size: 14px;
+  }
+  
+  .vinaseco_info a {
+    font-size: 14px;
+    /* line-height: 15px; */
+  }
+  
+  .vinaseco_about_image {
+    padding-top: 9px;
+  }
+  
+  .vinaseco_about_image li {
+    display: inline;
+    padding-right: 10px;
+  }
+  
+  .vinaseco_about_image img {
+    height: 35px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .vinaseco_info {
+      margin-bottom: 10px;
+    }
+  
+    .h3-title {
+      line-height: 25px;
+    }
+  }
