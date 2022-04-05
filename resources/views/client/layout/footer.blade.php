@@ -5,7 +5,7 @@
                         <h4>LIÊN HỆ</h4>
                         <h5 style="margin-top: 25px;">Hỗ trợ trực tuyến 24/7</h5>
                         <div class="fa fa-home" aria-hidden="true"> Đại Học Tài Nguyên và Mội Trường Hà Nội</div ><br>
-                        <div class="fa fa-phone" aria-hidden="true"> 0372471772</div><br>
+                        <div class="fa fa-phone" aria-hidden="true"> 0372 471 772</div><br>
                         <div class="fa fa-envelope-o" aria-hidden="true"> dobinh111999@gmail.com</div>
                     </li>
                     <li>
