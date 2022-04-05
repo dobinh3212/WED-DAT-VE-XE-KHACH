@@ -84,26 +84,7 @@
 @yield('content')
         <div style="clear: both;"></div>
     <!-- Phần footer -->
-        <main class="main">
-            <div class="footer">
-                <ul>
-                    <li>
-                        <h3>Liên Hệ</h3>
-                        <i class="fa fa-home" aria-hidden="true"></i>
-                        <i>Đại Học Tài Nguyên và Mội Trường Hà Nội</i><br>
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <i>0372471772</i><br>
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <i>dobinh111999@gmail.com</i>
-                    </li>
-                    <li>
-                        <h4> &copy; Bản Quyền Thuộc Về Đại Học Tài Nguyên Hà Nội </h4>
-                        <h4>&#9679; Thiết Kế Bởi: </h4>
-                        <strong>Đỗ Văn Bình - 1811060120</strong><br>
-                    </li>
-                </ul>
-            </div>
-        </main>
+        @include('client.layout.footer')
     <!-- Kết phần footer -->
 @yield('excontent')
 @extends('client.website.login')

@@ -1,19 +1,22 @@
-*{
+* {
 	padding: 0px;
 	margin: 0px;
 }
-a{
+
+a {
 	text-decoration: none;
 }
+
 /*header*/
-.header{
+.header {
 	min-height: 40px;
 	width: 100%;
 	background: #1c614c;
 	padding-right: 3em;
-	
+
 }
-.header button{
+
+.header button {
 	background: #002835;
 	color: #FFF;
 	border: none;
@@ -22,43 +25,52 @@ a{
 	margin-top: 2.5px;
 	transition: all 1s ease-in-out;
 }
-.header img{
+
+.header img {
 	position: absolute;
 	margin-left: 5em;
 	float: left;
 }
-.headerlogo:hover{
+
+.headerlogo:hover {
 	cursor: pointer;
 }
-.header button:hover{
+
+.header button:hover {
 	background: #FFF;
 	color: #CCC;
 }
-.header ul{
+
+.header ul {
 	list-style-type: none;
 	margin: 0;
 }
-.header ul li{
+
+.header ul li {
 	float: right;
 	margin-left: 0.5em;
 }
+
 /*menu*/
-.menu{
+.menu {
 	width: 100%;
 	min-height: 50px;
 	background: rgb(46 66 31);
 }
-.menu ul{
+
+.menu ul {
 	list-style-type: none;
 	line-height: 50px;
 	margin: 0px;
 	margin-left: 5em;
 }
-.menu ul li{
+
+.menu ul li {
 	float: left;
 	margin-right: 3em;
 }
-.menu span{
+
+.menu span {
 	color: #FFF;
 	font-size: 16px;
 	font-weight: 500;
@@ -67,55 +79,97 @@ a{
 	border-bottom: 1px solid #FFF;
 	transition: all 1.8s ease-in-out;
 }
-.menu i{
+
+.menu i {
 	font-size: 18px;
-    padding: 0;
-    color: #FFF;
-    transition: all 1s ease-in-out;
+	padding: 0;
+	color: #FFF;
+	transition: all 1s ease-in-out;
 }
-.menu a:hover{
+
+.menu a:hover {
 	text-decoration: none;
 }
-.menu a:hover i{
+
+.menu a:hover i {
 	color: #F3AD45;
 }
-.menu a:hover span{
+
+.menu a:hover span {
 	color: #F3AD45;
 	border-bottom: 1px solid #F3AD45;
 }
-.menu i{
+
+.menu i {
 	animation: hieuungvaotrang 0.5s ease-in;
 }
+
 /*hiệu ứng vào trang*/
-@keyframes hieuungvaotrang{
-				0%{transform: scale(0);}
-				10%{transform: scale(0.1);}
-				20%{transform: scale(0.2);}
-				30%{transform: scale(0.3);}
-				40%{transform: scale(0.4);}
-				50%{transform: scale(0.5);}
-				60%{transform: scale(0.6);}
-				70%{transform: scale(0.7);}
-				80%{transform: scale(0.8);}
-				90%{transform: scale(0.9);}
-				100%{transform: scale(1);}
-			}
+@keyframes hieuungvaotrang {
+	0% {
+		transform: scale(0);
+	}
+
+	10% {
+		transform: scale(0.1);
+	}
+
+	20% {
+		transform: scale(0.2);
+	}
+
+	30% {
+		transform: scale(0.3);
+	}
+
+	40% {
+		transform: scale(0.4);
+	}
+
+	50% {
+		transform: scale(0.5);
+	}
+
+	60% {
+		transform: scale(0.6);
+	}
+
+	70% {
+		transform: scale(0.7);
+	}
+
+	80% {
+		transform: scale(0.8);
+	}
+
+	90% {
+		transform: scale(0.9);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
 /*main*/
-.main{
+.main {
 	width: 100%;
 	margin: auto;
 	position: relative;
 }
+
 /*left*/
-.mainleft{
+.mainleft {
 	width: 100%;
 	min-height: 400px;
 }
-.mainleft:hover{
+
+.mainleft:hover {
 	cursor: pointer;
 }
+
 /*right*/
-.mainright{
+.mainright {
 	width: 28%;
 	min-height: 300px;
 	position: absolute;
@@ -125,34 +179,40 @@ a{
 	background: #004963;
 	padding-bottom: 10px;
 }
+
 /*tìm chuyến đi*/
-.timchuyendi{
+.timchuyendi {
 	width: 100%;
 	margin: auto;
 	border: 1px solid #f57812;
 	text-align: center;
-	border-radius: 0.5em 0.5em 0  0;
+	border-radius: 0.5em 0.5em 0 0;
 	background: #f57812;
 }
-.timchuyendi h4{
+
+.timchuyendi h4 {
 	color: #FFF;
 }
+
 /*địa điểm*/
-.diadiem{
+.diadiem {
 	width: 90%;
 	margin: auto;
 	margin-top: 1.5em;
 }
-.the{
+
+.the {
 	position: relative;
 }
-.diadiem i{
+
+.diadiem i {
 	/* position: absolute;
 	top: 8px;
 	margin-left: 10px; */
 	color: #f57812;
 }
-.diadiem span{
+
+.diadiem span {
 	cursor: pointer;
 	background: #FFF;
 	border: none;
@@ -160,7 +220,8 @@ a{
 
 	/* box-shadow: 0 3px #F3AD45;  */
 }
-.diadiem select{
+
+.diadiem select {
 	cursor: pointer;
 	width: 100%;
 	/* padding-left: 5px; */
@@ -168,24 +229,29 @@ a{
 	border: none;
 	/* box-shadow: 0 3px #F3AD45;  */
 }
+
 /*ngày đi*/
-.ngaydi{
+.ngaydi {
 	width: 90%;
 	margin: auto;
 	margin-top: 1.5em;
 }
-.mainright label{
+
+.mainright label {
 	color: #FFF;
 	font-weight: bold;
 }
-.mainright input{
+
+.mainright input {
 	border: none;
 	border-radius: 0;
 }
-.ngaydi #datepicker{
-	width:300px; 
+
+.ngaydi #datepicker {
+	width: 300px;
 }
-.ngaydi span{
+
+.ngaydi span {
 	cursor: pointer;
 	background: #FFF;
 	border: none;
@@ -193,90 +259,107 @@ a{
 
 	/* box-shadow: 0 3px #F3AD45;  */
 }
-.ngaydi #datepicker > span:hover{
+
+.ngaydi #datepicker>span:hover {
 	cursor: pointer;
 }
+
 /*button tìm vé*/
-.tim{
+.tim {
 	margin-top: 3em;
 	text-align: center;
 	position: relative;
 }
-.tim button{
+
+.tim button {
 	width: 150px;
 	background: #F3AD45;
 	transition: all 1.8s ease-in-out;
 }
-.tim:hover button{
+
+.tim:hover button {
 	background: #f57812;
 }
-.tim i{
+
+.tim i {
 	position: absolute;
 	color: #FFF;
 	padding-top: 8px;
 	padding-left: 4px;
-	background:#f57812;
+	background: #f57812;
 	height: 100%;
 	width: 33px;
 }
-.tim a{
+
+.tim a {
 	color: #FFF;
 }
-.tim a:hover{
+
+.tim a:hover {
 	color: #FFF;
 	text-decoration: none;
 }
+
 /*dich vu nổi bật*/
-.dichvu{
+.dichvu {
 	width: 100%;
 	height: 300px;
 	font-style: italic;
 	margin-top: 6em;
 }
-.dichvu h4{
+
+.dichvu h4 {
 	font-size: 26px;
 	color: #696969;
 	margin-left: 20%;
 }
-.dichvu h2{
+
+.dichvu h2 {
 	font-size: 30px;
 	font-weight: bold;
 	color: #4F4F4F;
-	margin-left:40%;
-	
+	margin-left: 40%;
+
 }
-.dv{
+
+.dv {
 	width: 30%;
 	height: 100%;
 	margin-left: 3%;
 	float: left;
 
 }
-.dv img{
+
+.dv img {
 	width: 70%;
 	height: 70%;
 	margin-left: 15%;
 	margin-bottom: 1em;
 }
-.dv strong{
+
+.dv strong {
 	font-size: 24px;
 	margin-left: 15%;
 
 }
+
 /*tin tức*/
-.tintuc{
+.tintuc {
 	width: 100%;
 	min-height: 450px;
 	margin-top: 1em;
 	position: relative;
 }
+
 img {
-  transition: all 0.5s ease-in;
+	transition: all 0.5s ease-in;
 }
-.tintuc li:hover img{
+
+.tintuc li:hover img {
 	transform: scale(0.98);
 }
-.tentintuc{
+
+.tentintuc {
 	background-color: #f57812;
 	border-radius: 0 30px 0 30px;
 	width: 20%;
@@ -287,18 +370,21 @@ img {
 	top: 0.5em;
 	left: 3%;
 }
-.tentintuc > h3{
+
+.tentintuc>h3 {
 	position: absolute;
 	top: -25%;
 	left: 20%;
 }
-.tintuc ul{
+
+.tintuc ul {
 	list-style-type: none;
 	padding-top: 5em;
 	width: 98%;
 	margin: auto;
 }
-.tintuc li{
+
+.tintuc li {
 	width: 30%;
 	height: 400px;
 	margin-left: 3%;
@@ -306,42 +392,49 @@ img {
 	text-align: left;
 	background: #FFF;
 	border-radius: 0.5em;
-	background: rgb(245,245,245);
+	background: rgb(245, 245, 245);
 	padding-bottom: 3px;
 }
-.tintuc li img{
+
+.tintuc li img {
 	width: 100%;
 	height: 270px;
 	padding-left: 2px;
 	margin-bottom: 3em;
-	
+
 }
-.tintuc ul a{
+
+.tintuc ul a {
 	color: #000;
 	padding: 10px;
 	font-size: 15px;
-    color: #222222;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 15px 0;
-    display: block;
+	color: #222222;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin: 0 0 15px 0;
+	display: block;
 
 }
-.tintuc li img:hover{
+
+.tintuc li img:hover {
 	cursor: pointer;
 }
-.tintuc  ul a:hover{
+
+.tintuc ul a:hover {
 	color: #f57812;
 	cursor: pointer;
 	text-decoration: none;
 }
-.tintucbutton{
+
+.tintucbutton {
 	text-align: center;
 }
-.tintucbutton a{
-	color: rgb(128,128,128);
+
+.tintucbutton a {
+	color: rgb(128, 128, 128);
 }
-.tintucbutton button{
+
+.tintucbutton button {
 	margin-top: 3em;
 	width: 200px;
 	border: 0.5px;
@@ -349,67 +442,74 @@ img {
 	background: #FFF;
 	border: 2px solid #DDD;
 }
-.tintucbutton button:hover{
+
+.tintucbutton button:hover {
 	background: #f57812;
 	border: none;
 }
-.tintucbutton button:hover a{
+
+.tintucbutton button:hover a {
 	text-decoration: none;
 	color: #FFF;
 }
+
 /*footer*/
-.footer{
+.footer {
 	margin-top: 1em;
-	background: rgb(0,64,87);
+	background: rgb(5, 21, 27);
 	min-height: 170px;
 
 }
-.footer ul{
- 	list-style-type: none; 
- 	padding-top: 2em;
- 	margin: 0;
+
+.footer ul {
+	list-style-type: none;
+	padding-top: 2em;
+	margin: 0;
 }
-.footer ul li{
-	width: 49%;
+
+.footer ul li {
 	float: left;
 	text-align: left;
-	padding-left: 10%;
+	padding-left: 8%;
 	color: #FFF;
 }
-.footer h3{
+
+.footer strong {
 	padding-left: 10%;
 }
-.footer strong{
-	padding-left: 10%;
-}
+
 /*đặt vé*/
-.maindatve{
+.maindatve {
 	width: 100%;
 	min-height: 400px;
 }
 
 /*địa điểm đặt vé*/
-.diadiemdatve{
+.diadiemdatve {
 	width: 100%;
 	margin: auto;
 	margin-top: 1em;
 	margin-left: 2em;
 }
-.diaiemdatve .the{
+
+.diaiemdatve .the {
 	position: relative;
 }
-.diadiemdatve label{
+
+.diadiemdatve label {
 	margin-left: 20%;
 	font-size: 20px;
 	color: #004963;
 }
-.diadiemdatve i{
+
+.diadiemdatve i {
 	position: absolute;
 	top: 8px;
 	margin-left: 5px;
-	color:#f57812; 
+	color: #f57812;
 }
-.diadiemdatve input[type = text]{
+
+.diadiemdatve input[type=text] {
 	width: 80%;
 	height: 30px;
 	padding-left: 2em;
@@ -417,112 +517,132 @@ img {
 	color: #004963;
 
 	border: none;
-	box-shadow: 0 3px #F3AD45; 
+	box-shadow: 0 3px #F3AD45;
 }
-.timchuyendidatve{
+
+.timchuyendidatve {
 	width: 40%;
 	margin: auto;
 	border-radius: 5% 30% 5% 30%;
 	border: 1px solid #CCC;
 	text-align: center;
 	margin-top: 1em;
-	background:#f57812; 
-	}
-.timchuyendidatve h3{
+	background: #f57812;
+}
+
+.timchuyendidatve h3 {
 	color: #FFF;
 	font-weight: bold;
 
 }
+
 /*chọn ngày đi*/
-.ngaydidatve{
+.ngaydidatve {
 	width: 100%;
 	margin: auto;
 	margin-top: 1em;
 	margin-left: 2em;
 }
-.ngaydidatve label{
+
+.ngaydidatve label {
 	margin-left: 20%;
 	font-size: 20px;
 	color: #004963;
 }
-.ngaydidatve #datepicker{
-	width:300px; 
+
+.ngaydidatve #datepicker {
+	width: 300px;
 }
-.ngaydidatve #datepicker > span:hover{
+
+.ngaydidatve #datepicker>span:hover {
 	cursor: pointer;
 }
-.ngaydidatve a{
+
+.ngaydidatve a {
 	color: #FFF;
 }
-.ngaydidatve a:hover{
+
+.ngaydidatve a:hover {
 	color: #FFF;
 	text-decoration: none;
 }
+
 /*button tìm*/
-.timdatve{
+.timdatve {
 	margin-top: 3em;
 	text-align: center;
 }
-.timdatve button{
+
+.timdatve button {
 	width: 150px;
 }
+
 /*chọn loại xe*/
-.chonloaixe{
+.chonloaixe {
 	margin-top: 2em;
 	padding-top: 1em;
 	border: 1px solid #F3AD45;
 	background: #FFF;
 	font-weight: bold;
 	width: 80%;
-	
+
 	border-radius: 1em;
 	text-align: left;
 	padding-left: 20%;
 }
-.chonloaixe input:hover{
+
+.chonloaixe input:hover {
 	cursor: pointer;
 }
-.chonloaixe p{
+
+.chonloaixe p {
 	font-size: 20px;
 	color: #004963;
 }
+
 /*chuyến xe*/
-.chuyenxemain{
+.chuyenxemain {
 	width: 100%;
 	margin-top: 1em;
 	min-height: 400px;
 	padding-top: 2em;
 	padding-bottom: 2em;
 }
-.chuyenxemain table{
+
+.chuyenxemain table {
 	width: 90%;
 	margin: auto;
 	text-align: center;
 	font-family: arial, sans-serif;
-    border-collapse: collapse;
+	border-collapse: collapse;
 }
-.chuyenxemain th{
+
+.chuyenxemain th {
 	border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-    position: relative;
-    background: #f57812;
-    color: #FFF;
+	text-align: left;
+	padding: 8px;
+	text-align: center;
+	position: relative;
+	background: #f57812;
+	color: #FFF;
 }
-.chuyenxemain td{
+
+.chuyenxemain td {
 	border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-    position: relative;
+	text-align: left;
+	padding: 8px;
+	text-align: center;
+	position: relative;
 }
-.chuyenxemain tr{
+
+.chuyenxemain tr {
 	height: 40px;
 }
+
 .chuyenxemain tr:nth-child(even) {
-    background-color: #dddddd;
+	background-color: #dddddd;
 }
+
 /* .chuyenxechon{
 	width: 40%;
 	color: #FFF;
@@ -533,36 +653,42 @@ img {
 	margin-bottom: 1em;
 	background: #f57812;
 } */
-.chuyenxetim{
+.chuyenxetim {
 	text-align: center;
 	position: relative;
 }
-.chuyenxetim button{
+
+.chuyenxetim button {
 	width: 200px;
-	background:#e0ab39;
+	background: #e0ab39;
 }
-.chuyenxetim i{
+
+.chuyenxetim i {
 	position: absolute;
 	color: #FFF;
 	padding-top: 8px;
 	padding-left: 4px;
-	background:#e09a39;
+	background: #e09a39;
 	height: 100%;
 	width: 33px;
 }
-.chuyenxetim a{
+
+.chuyenxetim a {
 	color: #FFF;
 }
-.chuyenxetim a:hover{
+
+.chuyenxetim a:hover {
 	color: #FFF;
 	text-decoration: none;
 }
+
 /*chọn vé xe*/
-.chonvemain{
+.chonvemain {
 	width: 90%;
 	margin: auto;
 }
-.chonveleft{
+
+.chonveleft {
 	width: 33%;
 	min-height: 300px;
 	border-radius: 0.5em;
@@ -574,21 +700,26 @@ img {
 	font-weight: bold;
 	font-size: 18px;
 }
-.chonveleft h3{
+
+.chonveleft h3 {
 	text-align: center;
 	color: #000;
 }
-.chonveleft button{
+
+.chonveleft button {
 	width: 200px;
-	margin-left:calc(50% - 100px - 1em);
+	margin-left: calc(50% - 100px - 1em);
 }
-.chonvemain i{
+
+.chonvemain i {
 	color: #F3AD45;
 }
-.chonvemain span{
+
+.chonvemain span {
 	color: #F3AD45;
 }
-.chonveright{
+
+.chonveright {
 	width: 65%;
 	min-height: 500px;
 	border-radius: 0.5em;
@@ -596,25 +727,29 @@ img {
 	float: left;
 	margin-left: 2%;
 }
-.chonveright h3{
+
+.chonveright h3 {
 	text-align: center;
 	color: #000;
 	margin: 5px;
 }
+
 /* .chonveright table{
 	background: rgb(0,64,87);
 } */
-.chonveright ul{
+.chonveright ul {
 	list-style-type: none;
 	margin-left: 1em;
 	margin-top: 1em;
 }
-.chonveright li{
+
+.chonveright li {
 	display: inline-block;
 	margin-left: 2em;
-	
+
 }
-.chonveright table{
+
+.chonveright table {
 	width: 46%;
 	margin: auto;
 	border-spacing: 0.5em;
@@ -622,59 +757,66 @@ img {
 	border-radius: 1em;
 	box-shadow: 0 0 2em #CCC;
 	font-weight: bold;
-	transform: translate(-50%,-50%) rotateZ(-90deg);
+	transform: translate(-50%, -50%) rotateZ(-90deg);
 	transform-origin: center;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 }
-.chonveright td{
+
+.chonveright td {
 	transform: rotate(90deg);
 }
 
 /*loại ghế/giường*/
-.loaigheban{
-    background-color: #CCC;
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 0.2em #000;
+.loaigheban {
+	background-color: #CCC;
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 0.2em #000;
 }
-.loaighetrong{
-    background-color: #FFF;
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 0.2em #000;
+
+.loaighetrong {
+	background-color: #FFF;
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 0.2em #000;
 }
-.loaighechon{
-    background-color: green;
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 0.2em #000;
+
+.loaighechon {
+	background-color: green;
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 0.2em #000;
 }
-.loaighecochon{
+
+.loaighecochon {
 	background-color: #c3e9f4;
-    padding: 5px 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 0.2em #000;
+	padding: 5px 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 0.2em #000;
 }
-.tengiuong{
+
+.tengiuong {
 	width: 100%;
 }
 
 /*ghe*/
 /*tầng ghế*/
-.chuygiuong{
+.chuygiuong {
 	width: 100%;
 }
-.tang{
+
+.tang {
 	width: 40px;
 	position: absolute;
 	margin: auto;
-	top:0;
+	top: 0;
 	left: 3em;
 }
+
 /*chontang*/
-.duoi{
+.duoi {
 	width: 40px;
 	height: 150px;
 	border: none;
@@ -683,14 +825,16 @@ img {
 	background: #f57812;
 	margin-bottom: 20px;
 }
-.tren{
+
+.tren {
 	border: none;
 	width: 40px;
 	height: 150px;
 	border-radius: 5px;
 	color: #000;
 }
-.dexuat{
+
+.dexuat {
 	width: 100px;
 	height: 40px;
 	border: none;
@@ -700,8 +844,9 @@ img {
 	margin-bottom: 20px;
 	cursor: pointer;
 }
+
 /*sodogiuong*/
-.sodogiuong{
+.sodogiuong {
 	width: 100%;
 	margin-right: 30px;
 	height: 300px;
@@ -709,31 +854,36 @@ img {
 	padding: 0px;
 	position: relative;
 }
-.sodogiuong table{
+
+.sodogiuong table {
 	height: 600px;
 	left: 60%;
-	
+
 }
+
 /*sodoghe*/
-.sodoghe{
+.sodoghe {
 	width: 100%;
-	height: 300px;	
+	height: 300px;
 	margin-top: 4em;
 	padding: 0px;
 	position: relative;
 }
-.tangtren{
+
+.tangtren {
 	display: none;
 }
+
 /**/
 
-.bangve img{
+.bangve img {
 	width: 50%;
 	margin-left: 22%;
 	margin-top: 5px;
 }
+
 /*loại ghế*/
-.ghe{
+.ghe {
 	height: 2em;
 	background: #CCC;
 	border: none;
@@ -741,17 +891,20 @@ img {
 	box-shadow: 0 0 0.2em #000;
 	cursor: not-allowed;
 }
-.ghetaixe{
+
+.ghetaixe {
 	height: 3.6em;
 	border: none;
 	border-radius: 1em;
 	box-shadow: 0 0 0.2em #000;
 }
-.ghetrong{
+
+.ghetrong {
 	height: 2em;
 	border: none;
 }
-.ghecontrong{
+
+.ghecontrong {
 	height: 2em;
 	background: #FFF;
 	box-shadow: 0 0 0.2em #000;
@@ -759,34 +912,39 @@ img {
 	border-radius: 1em;
 	cursor: pointer;
 }
-.ghecochon{
+
+.ghecochon {
 	height: 2em;
 	background: #c3e9f4;
 	border: none;
 	border-radius: 1em;
 	cursor: not-allowed;
 }
-.ghedangchon{
+
+.ghedangchon {
 	height: 2em;
 	background: green;
 	border: none;
 	border-radius: 1em;
 	cursor: pointer;
 }
+
 /*Tên ghế*/
-.content{
-    text-align: center;
-    font-size: 10px;
+.content {
+	text-align: center;
+	font-size: 10px;
 }
+
 /*giuong*/
-.giuong{
+.giuong {
 	background: #CCC;
 	border: none;
 	border-radius: 1em;
 	box-shadow: 0 0 0.2em #000;
 	cursor: not-allowed;
 }
-.giuongtaixe{
+
+.giuongtaixe {
 	background-image: url(../images/ghetaixe2.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -795,12 +953,14 @@ img {
 	box-shadow: 0 0 0.2em #000;
 	height: 4em;
 }
-.giuongtrong{
+
+.giuongtrong {
 	border: none;
 	height: 5em;
-	
+
 }
-.giuongcontrong{
+
+.giuongcontrong {
 	background: #FFF;
 	box-shadow: 0 0 0.2em #000;
 	border: none;
@@ -808,7 +968,8 @@ img {
 	cursor: pointer;
 	height: 5em;
 }
-.giuongcochon{
+
+.giuongcochon {
 	background: #c3e9f4;
 	border: none;
 	border-radius: 1em;
@@ -817,34 +978,40 @@ img {
 	height: 5em;
 
 }
-.giuongdangchon{
+
+.giuongdangchon {
 	background: green;
 	border: none;
 	border-radius: 1em;
 	cursor: pointer;
 	height: 5em;
 }
-.contentgiuong{
-    text-align: center;
+
+.contentgiuong {
+	text-align: center;
 }
+
 /*trang tin tức*/
-.maintintuc{
+.maintintuc {
 	width: 100%;
 	margin: auto;
 	border-radius: 1em;
 	margin-top: 1em;
 	position: relative;
 }
-.maintintuc ul{
+
+.maintintuc ul {
 	list-style-type: none;
 }
-.trangtintuc{
+
+.trangtintuc {
 	width: 100%;
 	min-height: 450px;
 	margin-top: 1em;
 	position: relative;
 }
-.trangtentintuc{
+
+.trangtentintuc {
 	background-color: #f57812;
 	border-radius: 0 30px 0 30px;
 	width: 20%;
@@ -854,24 +1021,29 @@ img {
 	position: absolute;
 	top: 0.5em;
 }
-.trangtentintuc > h2{
+
+.trangtentintuc>h2 {
 	position: absolute;
 	top: -30%;
 	left: 25%;
 }
+
 img {
-  transition: all 0.5s ease-in;
+	transition: all 0.5s ease-in;
 }
-.trangtintuc li:hover img{
+
+.trangtintuc li:hover img {
 	transform: scale(0.98);
 }
-.trangtintuc ul{
+
+.trangtintuc ul {
 	list-style-type: none;
 	padding-top: 3em;
 	width: 100%;
 	margin: auto;
 }
-.trangtintuc li{
+
+.trangtintuc li {
 	width: 30%;
 	height: 400px;
 	margin-left: 2.5%;
@@ -880,37 +1052,42 @@ img {
 	text-align: left;
 	background: #FFF;
 	border-radius: 0.5em;
-	background: rgb(245,245,245);
+	background: rgb(245, 245, 245);
 	padding-bottom: 3px;
 }
-.trangtintuc li img{
+
+.trangtintuc li img {
 	width: 100%;
 	height: 70%;
 	padding-left: 2px;
 	margin-bottom: 3em;
-	
+
 }
-.trangtintuc ul a{
+
+.trangtintuc ul a {
 	color: #000;
 	padding: 10px;
 	font-size: 15px;
-    color: #222222;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 15px 0;
-    display: block;
+	color: #222222;
+	text-transform: uppercase;
+	font-weight: 700;
+	margin: 0 0 15px 0;
+	display: block;
 
 }
-.trangtintuc li img:hover{
+
+.trangtintuc li img:hover {
 	cursor: pointer;
 }
-.trangtintuc  ul a:hover{
+
+.trangtintuc ul a:hover {
 	color: #f57812;
 	cursor: pointer;
 	text-decoration: none;
 }
+
 /*trang giới thiệu*/
-.maingioithieu{
+.maingioithieu {
 	width: 90%;
 	margin: auto;
 	min-height: 500px;
@@ -920,33 +1097,38 @@ img {
 	position: relative;
 	padding: 1em;
 }
+
 /*bước*/
-.buoc{
+.buoc {
 	width: 100%;
 	padding: 0em;
 }
-.buoc ul{
+
+.buoc ul {
 	list-style-type: none;
 	width: 80%;
 	margin: auto;
 }
-.buoc li.tay:hover{
+
+.buoc li.tay:hover {
 	cursor: pointer;
 }
-.buoc ul li:not([class~='stay']){
+
+.buoc ul li:not([class~='stay']) {
 	width: calc(70% / 3);
 	float: left;
 	height: 50px;
 	background: #f4f4f4;
 	margin-left: 5%;
 	margin-right: 5%;
-	margin-top:1em;
+	margin-top: 1em;
 	text-align: center;
 	line-height: 50px;
 	font-size: 18px;
 	margin-bottom: 1em;
 	position: relative;
 }
+
 .buoc ul li:not([class~='stay'])::before {
 	content: "";
 	position: absolute;
@@ -955,9 +1137,10 @@ img {
 	border-style: solid;
 	top: 0;
 	right: 100%;
-	border-width: 25px 0 25px 45px ;
+	border-width: 25px 0 25px 45px;
 	border-color: #f4f4f4 #f4f4f4 #f4f4f4 transparent;
 }
+
 .buoc ul li:not([class~='stay'])::after {
 	content: "";
 	position: absolute;
@@ -966,24 +1149,26 @@ img {
 	border-style: solid;
 	top: 0;
 	left: 100%;
-	border-width: 25px 0 25px 45px ;
+	border-width: 25px 0 25px 45px;
 	border-color: transparent transparent transparent #f4f4f4;
 }
-.stay{
+
+.stay {
 	width: calc(70% / 3);
 	float: left;
 	height: 50px;
-	background: #f57812; 
+	background: #f57812;
 	color: #FFF;
 	margin-left: 5%;
 	margin-right: 5%;
-	margin-top:1em; 
+	margin-top: 1em;
 	text-align: center;
 	line-height: 50px;
 	font-size: 18px;
 	margin-bottom: 1em;
 	position: relative;
 }
+
 .stay::before {
 	content: "";
 	position: absolute;
@@ -992,9 +1177,10 @@ img {
 	border-style: solid;
 	top: 0;
 	right: 100%;
-	border-width: 25px 0 25px 45px ;
+	border-width: 25px 0 25px 45px;
 	border-color: #f57812 #f57812 #f57812 transparent;
 }
+
 .stay::after {
 	content: "";
 	position: absolute;
@@ -1003,11 +1189,12 @@ img {
 	border-style: solid;
 	top: 0;
 	left: 100%;
-	border-width: 25px 0 25px 45px ;
+	border-width: 25px 0 25px 45px;
 	border-color: transparent transparent transparent #f57812;
 }
+
 /*thông tin vé*/
-.mainthongtinve{
+.mainthongtinve {
 	width: 60%;
 	min-height: 450px;
 	margin: auto;
@@ -1018,60 +1205,73 @@ img {
 	padding-top: 1em;
 	padding-left: 10%;
 }
-.mainthongtinve h3{
+
+.mainthongtinve h3 {
 	margin-left: 15%;
 	color: #000;
 }
-.mainthongtinve button{
+
+.mainthongtinve button {
 	width: 200px;
 }
-.mainthongtinve i{
+
+.mainthongtinve i {
 	color: #F3AD45;
 }
-.mainthongtinve span{
+
+.mainthongtinve span {
 	color: #F3AD45;
 }
-.hienloi{
+
+.hienloi {
 	padding-top: 1em;
 	width: 95%;
 	margin: auto;
 	text-align: center;
 	color: red;
 }
-.hienloi .alert{
+
+.hienloi .alert {
 	padding: 0.5em;
-	margin:0.3em;
+	margin: 0.3em;
 }
-.close{
+
+.close {
 	transition: all 0.5s ease-in-out;
 }
+
 /*hiện thông tin vé*/
-#thongtinve span{
+#thongtinve span {
 	background: #FFF;
 	border: none;
-	color: rgb(0,64,87);
+	color: rgb(0, 64, 87);
 	font-weight: bold;
 	width: 150px;
 }
-#thongtinve input{
+
+#thongtinve input {
 	background: #FFF;
-	border: none; 
+	border: none;
 	box-shadow: none;
 }
-#thongtinve textarea{
+
+#thongtinve textarea {
 	background: #FFF;
-	border: none; 
+	border: none;
 	box-shadow: none;
 }
+
 /*close*/
-	.close:hover{
-		transform: rotate(90deg);
-	}
+.close:hover {
+	transform: rotate(90deg);
+}
+
 /*thông tin khách*/
-.thongtinkhach1{
+.thongtinkhach1 {
 	width: 100%;
 }
-.mainthongtinkhach{
+
+.mainthongtinkhach {
 	width: 40%;
 	min-height: 465px;
 	float: left;
@@ -1080,48 +1280,57 @@ img {
 	box-shadow: 0 0 2em #CCC;
 	border-radius: 1em;
 }
-.tenthongtinkhach{
+
+.tenthongtinkhach {
 	width: 100%;
 	margin: auto;
 	height: 50px;
 	border: 1px solid #f57812;
 	text-align: center;
 	background: #f57812;
-	border-radius:  1em 1em 0 0;
+	border-radius: 1em 1em 0 0;
 }
-.tenthongtinkhach h3{
+
+.tenthongtinkhach h3 {
 	color: #FFF;
 	line-height: 15px;
 
 }
-.mainthongtinkhach td{
+
+.mainthongtinkhach td {
 	padding: 17.5px;
 	padding-right: 40px;
 }
-.mainthongtinkhach tr{
+
+.mainthongtinkhach tr {
 	border-bottom: 1px solid #DDD;
 }
-.mainthongtinkhach tr:hover{
+
+.mainthongtinkhach tr:hover {
 	border-right: 1px solid #DDD;
 	cursor: pointer;
 }
-.mainthongtinkhach span{
+
+.mainthongtinkhach span {
 	color: #CCC;
 }
-.mainthongtinkhach button{
+
+.mainthongtinkhach button {
 	background: #f57812;
 	color: #FFF;
-	border:none;
+	border: none;
 }
 
-.buttondoithongtin :hover{
+.buttondoithongtin :hover {
 	background: #ff3300;
 }
-.buttondoimatkhau :hover{
+
+.buttondoimatkhau :hover {
 	background: #ff3300;
 }
+
 /*lịch sử đi*/
-.lichsudi{
+.lichsudi {
 	width: 56%;
 	min-height: 485px;
 	box-shadow: 0 0 2em #CCC;
@@ -1131,170 +1340,206 @@ img {
 	margin-top: 1em;
 }
 
-.lichsudi table{
+.lichsudi table {
 	width: 100%;
 	margin: auto;
 	margin-top: 5px;
 	text-align: center;
 	font-family: arial, sans-serif;
-    border-collapse: collapse;
+	border-collapse: collapse;
 }
-.lichsudi th{
+
+.lichsudi th {
 	border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-    position: relative;
-    background: #f57812;
-    color: #FFF;
+	text-align: left;
+	padding: 8px;
+	text-align: center;
+	position: relative;
+	background: #f57812;
+	color: #FFF;
 }
-.lichsudi td{
+
+.lichsudi td {
 	border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    text-align: center;
-    position: relative;
+	text-align: left;
+	padding: 8px;
+	text-align: center;
+	position: relative;
 }
-.lichsudi tr{
+
+.lichsudi tr {
 	height: 40px;
 }
+
 .lichsudi tr:nth-child(even) {
-    background-color: #dddddd;
+	background-color: #dddddd;
 }
+
 /*chọn loại đề xuất*/
-.dexuatbt{
+.dexuatbt {
 	background: #f57812;
 }
-.ghedangchon .text1{
+
+.ghedangchon .text1 {
 	position: absolute;
 	z-index: 0.8;
-	top:30%;
+	top: 30%;
 	left: 20%;
 	width: 100%;
 	color: #000;
 	height: 15px;
 	color: #FFF;
 }
-.ghecochon .text1{
+
+.ghecochon .text1 {
 	position: absolute;
 	z-index: 0.8;
-	top:30%;
+	top: 30%;
 	left: 20%;
 	width: 100%;
 	color: #000;
 	height: 15px;
 	color: #000;
 }
-.ghecontrong .text1{
+
+.ghecontrong .text1 {
 	display: none;
 }
-.giuongdangchon .text1{
+
+.giuongdangchon .text1 {
 	position: absolute;
 	z-index: 0.8;
-	top:37%;
+	top: 37%;
 	left: 30%;
 	width: 100%;
 	color: #000;
 	height: 15px;
 	color: #FFF;
 }
-.giuongcochon .text1{
+
+.giuongcochon .text1 {
 	position: absolute;
 	z-index: 0.8;
-	top:37%;
+	top: 37%;
 	left: 30%;
 	width: 100%;
 	color: #000;
 	height: 15px;
 	color: #000;
 }
-.giuongcontrong .text1{
+
+.giuongcontrong .text1 {
 	display: none;
 }
+
 /*trang chi tiết tin tức*/
-.mainviewtintuc{
+.mainviewtintuc {
 	width: 90%;
 	margin: auto;
 	min-height: 400px;
 }
-.mainviewtintuc i{
+
+.mainviewtintuc i {
 	color: #969696;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
-.mainviewtintuc span{
+
+.mainviewtintuc span {
 	font-weight: bold;
-	}
+}
+
 /*Đễ xuất*/
-.vitridx{
+.vitridx {
 	margin-left: 10%;
 }
-.vitridx strong{
+
+.vitridx strong {
 	margin-left: 10px;
 	max-width: 100px;
 }
-.vitridx button{
+
+.vitridx button {
 	background: #f57812;
 	color: #FFF;
 }
-.vitridx button:hover{
+
+.vitridx button:hover {
 	color: #DDD;
 }
-.giuvedx{
+
+.giuvedx {
 	margin-left: 50px;
 	display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
-.huygiudx{
+
+.huygiudx {
 	margin-left: 50px;
 	display: none;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
 }
+
 @-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+	from {
+		opacity: .4
+	}
+
+	to {
+		opacity: 1
+	}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+	from {
+		opacity: .4
+	}
+
+	to {
+		opacity: 1
+	}
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+
+	.prev,
+	.next,
+	.text {
+		font-size: 11px
+	}
 }
