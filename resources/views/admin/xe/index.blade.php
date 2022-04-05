@@ -8,7 +8,7 @@
                 <h1>Xe khách</h1>
             </div>
             <div class="col-sm-6">
-                <a class="btn btn-primary float-right" href="{{ route('coach.create') }}">
+                <a style="margin-left: 440px;margin-top: 30px;" class="btn btn-primary float-right" href="{{ route('coach.create') }}">
                     Thêm mới
                 </a>
             </div>

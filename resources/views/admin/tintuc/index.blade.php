@@ -8,7 +8,7 @@
                 <h1>Tin tức</h1>
             </div>
             <div class="col-sm-6">
-                <a class="btn btn-primary float-right" href="{{ route('news.create') }}">
+                <a style="margin-left: 440px;margin-top: 30px;" class="btn btn-primary float-right" href="{{ route('news.create') }}">
                     Thêm mới
                 </a>
             </div>

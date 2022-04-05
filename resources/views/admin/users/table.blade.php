@@ -25,13 +25,11 @@
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('users.show', [$user->id]) }}" class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
                         <a href="{{ route('users.edit', [$user->id]) }}" class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
+                                 Sửa 
                         </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Bạn có chắc muốn xoá?')"]) !!}
+                        {!! Form::button('<i class="far fa-trash-alt"></i> Xóa', ['type' => 'submit', 'class' => 'btn
+                        btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
                 </td>
