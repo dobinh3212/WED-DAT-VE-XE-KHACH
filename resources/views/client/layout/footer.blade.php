@@ -26,7 +26,7 @@
                         <h5>Điều khoản sử dụng</h5>
                     </li>
                 </ul>
-                <div style="margin-left: 135px;" class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
+                <div style="margin-left: 210px;" class="col-md-3 w3_footer_grid agile_footer_grids_w3_footer">
                 <div class="w3_footer_grid_bottom">
                     <ul class="agileits_social_icons">
                         <li><a href="https://www.facebook.com/byt3212/" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

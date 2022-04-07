@@ -3,6 +3,13 @@
     Trang chủ
 @endsection
 @section('content')
+    <link rel="stylesheet" href="fontend/css3/owl.carousel.css"> 
+    <link rel="stylesheet" href="fontend/style.css">
+    <link rel="stylesheet" href="fontend/css3/responsive.css">
+    <script src="fontend/js/jquery-1.11.2.min.js"></script>
+    <script src="fontend/js3/owl.carousel.min.js"></script>
+    <script src="fontend/js3/jquery.sticky.js"></script>
+    <script src="fontend/js3/main.js"></script>
     <div class="main">
       <!--  Slide -->
          <div class="mainleft">
@@ -22,7 +29,7 @@
                 </ol>
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" style="height: 400px;">
-                  <div class="item active" onclick="location.href='{{url("showtintuc")}}/{{$slide[0]->id}}';">
+                  <div class="item active" onclick="location.href='{{url("tintuc")}}/{{$slide[0]->id}}';">
                     <img src="upload/{{$slide[0]->image}}"   style="width:100%; height: 400px;">
                     <div class="carousel-caption">
                       <h3 style="width: 50%; margin-bottom: 5em;"><i>{{$slide[0]->title}}</i></h3>
@@ -31,7 +38,7 @@
                   <?php $i =0; ?>
                   @foreach($slide as $slides)
                     @if($i !=0)
-                      <div class="item" onclick="location.href='{{url("showtintuc")}}/{{$slides->id}}';">
+                      <div class="item" onclick="location.href='{{url("tintuc")}}/{{$slides->id}}';">
                         <img src="upload/{{$slides->image}}"  style="width:100%; height: 400px;">
                         <div class="carousel-caption">
                         <h3 style="width: 50%;margin-bottom: 5em;"><i>{{$slides->title}}</i></h3>
@@ -99,14 +106,108 @@
             </div>
           <div style="clear: left;"></div>
         <!-- Kết phần tìm vé ở trang chủ -->
-        
+        <!-- Tuyến phổ biến -->
+       
+        <div class="tintuc">
+            <div class="tentintuc"><h3>Tuyết xe phổ biến</h3></div>
+        <div class="maincontent-area">
+            <div class="zigzag-bottom"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="latest-product">
+                            <div class="product-carousel">
+                              
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                    <img src="image/ip0.png" alt="">
+                                        <div class="product-hover">
+                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                                        </div>
+                                    </div>
 
+                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
+                                    </div>
+                                </div>
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                    <img src="image/ip0.png" alt="">
+                                        <div class="product-hover">
+                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                                        </div>
+                                    </div>
+
+                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
+                                    </div>
+                                </div>
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                    <img src="image/ip0.png" alt="">
+                                        <div class="product-hover">
+                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                                        </div>
+                                    </div>
+
+                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
+                                    </div>
+                                </div>
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                    <img src="image/ip0.png" alt="">
+                                        <div class="product-hover">
+                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                                        </div>
+                                    </div>
+
+                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
+                                    </div>
+                                </div>
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                    <img src="image/ip0.png" alt="">
+                                        <div class="product-hover">
+                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                                        </div>
+                                    </div>
+
+                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
+
+                                    <div class="product-carousel-price">
+                                        <ins >{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        </div><!-- End main content area -->
+    
            <!-- Phần tin tức -->
+           <hr>
            <div class="tintuc">
                 <div class="tentintuc"><h3>Tin Tức Nổi Bật</h3></div>
                 <ul>
                   @foreach($tintuc as $y)
-                    <li onclick="location.href='{{url("showtintuc")}}/{{$y->id}}';" >     
+                    <li onclick="location.href='{{url("tintuc")}}/{{$y->id}}';" >     
                         <img src="upload/{{$y->image}}">
                         <a><strong>{{$y->title}}</strong></a>
                     </li>
@@ -165,7 +266,7 @@
     </div>
 @endsection
 @section('script')
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
          /*Xử lý input date của chọn ngày đi*/
         function chonngay(){
             var d = new Date();
@@ -238,5 +339,5 @@
                 }
             });     
          });
-    </script>
+    </script> -->
 @endsection
