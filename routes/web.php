@@ -10,9 +10,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 
 Route::resource('/', 'ClientController');
 Route::get('/gioithieu', 'ClientController@introduce');
-Route::get('/lienhe', function () {
-  return view('client.lienhe.lienhe');
-});
+Route::get('/lienhe','ClientController@contact')->name('lienhe');
 Route::resource('tintuc','ClientNewsController');
 
 Auth::routes([
@@ -42,6 +40,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::resource('news','NewsController');
   Route::resource('province','ProvinceController');
   Route::resource('route_bus','RouteBusController');
+  Route::resource('setting', 'SettingController');
   Route::get('change_password', 'ChangePasswordController@changePassword')->name('change_password');
   Route::post('update_password', 'ChangePasswordController@updatePassword')->name('update_password');
 });

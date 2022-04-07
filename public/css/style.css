@@ -62,7 +62,7 @@ a {
 	list-style-type: none;
 	line-height: 50px;
 	margin: 0px;
-	margin-left: 5em;
+	margin-left: 24em;
 }
 
 .menu ul li {
@@ -76,7 +76,7 @@ a {
 	font-weight: 500;
 	margin-left: 0.5em;
 	padding-bottom: 3px;
-	border-bottom: 1px solid #FFF;
+	/* border-bottom: 1px solid #FFF; */
 	transition: all 1.8s ease-in-out;
 }
 
@@ -176,7 +176,7 @@ a {
 	top: 10px;
 	right: 130px;
 	border-radius: 0.5em;
-	background: #004963;
+	background: #20611f;
 	padding-bottom: 10px;
 }
 

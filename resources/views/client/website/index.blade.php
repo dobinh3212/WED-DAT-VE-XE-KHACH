@@ -20,7 +20,6 @@
                     @endif
                   @endforeach
                 </ol>
-
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" style="height: 400px;">
                   <div class="item active" onclick="location.href='{{url("showtintuc")}}/{{$slide[0]->id}}';">
@@ -56,13 +55,13 @@
               </div>
             </div>
         <!-- Kết slide -->
-        <!-- Phần tìm vé trang chủ
+         <!-- Phần tìm vé trang chủ -->
             <div class="mainright">
                 <div class="timchuyendi"><h4>ĐẶT VÉ TRỰC TUYẾN</h4></div>
-                Form tìm vé
+                <!-- Form tìm vé -->
                 <form name="timve" action="#" method="POST">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    Chọn nơi đi 
+                    <!-- Chọn nơi đi  -->
                       <div class="diadiem">
                           <label>Chọn Nơi Khởi Hành: </label>
                           <div class="input-group" style="box-shadow: 0 3px #F3AD45;">
@@ -70,7 +69,7 @@
                                <input type="text" name="noidi" class="form-control txtnoidi" list="diadiem" placeholder="Nơi đi">        
                           </div>
                       </div>
-                    Chọn nơi đến
+                    <!-- Chọn nơi đến -->
                       <div class="diadiem">
                           <label>Chọn Nơi Đến </label>
                           <div class="input-group" style="box-shadow: 0 3px #F3AD45;">
@@ -78,7 +77,7 @@
                                <input type="text" name="noiden" class="form-control txtnoiden" list="diadiem" placeholder="Nơi đến">
                           </div>
                       </div>
-                    Chọn ngày đi
+                    <!-- Chọn ngày đi -->
                     <div class="ngaydi">
                         <label>Chọn ngày đi: </label>
                             <div class="form-group" style="box-shadow: 0 3px #F3AD45;">
@@ -89,20 +88,21 @@
                                     <input type='date' class="form-control txtngaydi" name="Ngaydi" id="txtdate" style="padding-left: 0" />
                                 </div>
                              </div>
-                        Button tìm vé 
+                        <!-- Button tìm vé  -->
                         <div class="tim">
                             <i class="fa fa-ticket icon-flat bg-btn-actived"></i>
                             <button type="button" class="btn" id="timchuyendimain"><a>Tìm vé</a></button>
                         </div>
                     </div>
                   </form>
-                  Kết form tìm vé
+                  <!-- Kết form tìm vé -->
             </div>
-          <div style="clear: left;"></div> -->
+          <div style="clear: left;"></div>
         <!-- Kết phần tìm vé ở trang chủ -->
         
-        <!-- Phần tin tức -->
-            <div class="tintuc">
+
+           <!-- Phần tin tức -->
+           <div class="tintuc">
                 <div class="tentintuc"><h3>Tin Tức Nổi Bật</h3></div>
                 <ul>
                   @foreach($tintuc as $y)
@@ -119,8 +119,8 @@
             </div>
             <div style="clear: left;"></div>
         <!-- Kết phần tin tức -->
-        <!-- Dịch vụ nổi bật -->
-            <div class="dichvu">
+                <!-- Dịch vụ nổi bật -->
+                <div class="dichvu">
                 <h4>" Hãy đến với chúng tôi "</h4>
                 <h2>Để Nhận Dịch Vụ Tốt Nhất !</h2>
                <div class="dv">

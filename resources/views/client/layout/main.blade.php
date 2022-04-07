@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{asset('/lienhe')}}">
+                    <a href="{{route('lienhe')}}">
                         <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
                         <span>LIÊN HỆ</span>
                     </a>
@@ -84,6 +84,7 @@
 @yield('content')
         <div style="clear: both;"></div>
     <!-- Phần footer -->
+  
         @include('client.layout.footer')
     <!-- Kết phần footer -->
 @yield('excontent')

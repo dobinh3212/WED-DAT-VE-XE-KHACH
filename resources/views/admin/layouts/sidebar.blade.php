@@ -26,7 +26,7 @@
             <li><a href="{{route('news.index')}}"><i class="fa fa-file-text"></i> <span>QL Tin tức</span></a></li>
             <li><a href="{{route('province.index')}}"><i class="fa fa-fire"></i> <span>QL Tỉnh thành</span></a></li>
             <li><a href="{{route('users.index')}}"><i class="fa fa-user"></i> <span>QL Người dùng</span></a></li>
-            <li><a href=""><i class="fa fa-cog"></i> <span>Cấu hình Website</span></a></li>
+            <li><a href="{{route('setting.index')}}"><i class="fa fa-cog"></i> <span>Cấu hình Website</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

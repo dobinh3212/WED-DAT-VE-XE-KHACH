@@ -4,9 +4,9 @@
                     <li>
                         <h4>LIÊN HỆ</h4>
                         <h5 style="margin-top: 25px;">Hỗ trợ trực tuyến 24/7</h5>
-                        <div class="fa fa-home" aria-hidden="true"> Đại Học Tài Nguyên và Mội Trường Hà Nội</div ><br>
-                        <div class="fa fa-phone" aria-hidden="true"> 0372 471 772</div><br>
-                        <div class="fa fa-envelope-o" aria-hidden="true"> dobinh111999@gmail.com</div>
+                        <div class="fa fa-home" aria-hidden="true">  {{$setting->address}}</div ><br>
+                        <div class="fa fa-phone" aria-hidden="true">  {{$setting->phone}}</div><br>
+                        <div class="fa fa-envelope-o" aria-hidden="true"> {{$setting->email}}</div>
                     </li>
                     <li>
                         <h4>THÔNG TIN</h4>

@@ -12,15 +12,15 @@
 				<div class="col-md-4 agileinfo_mail_grid_left">
 					<ul>
 						<li><i class="fa fa-home" aria-hidden="true"></i></li>
-						<li>Địa chỉ<span>Thạch Thất - Hà Nội</span></li>
+						<li>Địa chỉ<span>{{$setting->address??''}}</span></li>
 					</ul>
 					<ul>
 						<li><i class="fa fa-envelope" aria-hidden="true"></i></li>
-						<li>email<span><a href="mailto:dobinh111999@gmail.com">dobinh111999@gmail.com</a></span></li>
+						<li>email<span><a href="mailto:{{$setting->email??''}}">{{$setting->email??''}}</a></span></li>
 					</ul>
 					<ul>
 						<li><i class="fa fa-phone" aria-hidden="true"></i></li>
-						<li>Điện thoại<span>0372471772</span></li>
+						<li>Điện thoại<span>{{$setting->phone??''}}</span></li>
 					</ul>
 				</div>
 				<div class="col-md-8 agileinfo_mail_grid_right">
@@ -35,8 +35,8 @@
 						</div>
 						<div class="clearfix"> </div>
 						<textarea  name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nội dung';}" required="">Nội dung</textarea>
-						<input type="submit" value="Gửi">
-						<input type="reset" value="Nhập lại">
+						<input style="background: #19980b;" type="submit" value="Gửi">
+						<input style="background: red" type="reset" value="Nhập lại">
 					</form>
 				</div>
 				<div class="clearfix"> </div>
