@@ -33,6 +33,17 @@ class NewsController extends Controller
     public function store(CreateNewsRequest $request)
     {
         $input = $request->all();
+        $file_name_time = null;
+        if ($request->hasFile('image')) {
+            $file_name = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $request->image->getClientOriginalExtension();
+            $name_slug = Str::slug($file_name, '_');
+            $file_name_time = $name_slug . '_' . time() . '.' . $extension;
+            $path = public_path('/upload/new/');
+            $request->file('image')->move($path, $file_name_time);
+        }
+
+        $input['image'] = $file_name_time;
         $news = $this->newsRepository->create($input);
         Flash::success('Thêm tin tức thành công.');
         return redirect(route('news.index'));

@@ -5,9 +5,10 @@
             <th style="text-align: center;" colspan="3">Thao tác</th>
                 <th>ID</th>
                 <th>Tiêu đề</th>
+                <th>Nội dung</th>
                 <th>Ảnh</th>
                 <th>Giới thiệu</th>
-                <th>Nội dung</th>
+              
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
