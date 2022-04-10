@@ -14,9 +14,9 @@
             @foreach($route_bus as $route_buss)
             <tr>
                 <td><a href="{{ route('route_bus.edit', [$route_buss->id]) }}">{{ $route_buss->id}}</a></td>
-                <td>{{$route_buss->diemxuatphat->name  }}</td>
-                <td>{{$route_buss->diemketthuc->name}}</td>
-                <td>{{$route_buss->bus_stop->name}}</td>
+                <td>{{$route_buss->diemxuatphat->name??'' }}</td>
+                <td>{{$route_buss->diemketthuc->name??''}}</td>
+                <td>{{$route_buss->bus_stop->name??''}}</td>
                 <td>{{$route_buss->time_intend}} tiếng</td>
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['route_bus.destroy', $route_buss->id], 'method' => 'delete']) !!}

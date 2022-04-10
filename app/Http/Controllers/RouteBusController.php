@@ -10,6 +10,7 @@ use App\Models\TypeBuses;
 use App\Models\RouteBus;
 use App\Repositories\RouteBusRepository;
 use Flash;
+use Str;
 use Illuminate\Http\Request;
 
 class RouteBusController extends Controller
@@ -39,6 +40,17 @@ class RouteBusController extends Controller
     public function store(CreateRouteBusRequest $request)
     {
         $input = $request->all();
+        $file_name_time = null;
+        if ($request->hasFile('image')) {
+            $file_name = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $request->image->getClientOriginalExtension();
+            $name_slug = Str::slug($file_name, '_');
+            $file_name_time = $name_slug . '_' . time() . '.' . $extension;
+            $path = public_path('/image/');
+            $request->file('image')->move($path, $file_name_time);
+        }
+
+        $input['image'] = $file_name_time;
         $route_bus = $this->route_busRepository->create($input);
 
         Flash::success('Thêm lộ trình thành công.');
@@ -66,13 +78,23 @@ class RouteBusController extends Controller
     {
         $route_bus = $this->route_busRepository->find($id);
         $input = $request->all();
+        $file_name_time = null;
+        if ($request->hasFile('image')) {
+            $file_name = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $request->image->getClientOriginalExtension();
+            $name_slug = Str::slug($file_name, '_');
+            $file_name_time = $name_slug . '_' . time() . '.' . $extension;
+            $path = public_path('/image/');
+            $request->file('image')->move($path, $file_name_time);
+        }
+        $input['image'] = $file_name_time;
         if (empty($route_bus)) {
             Flash::error('Lộ trình trống');
 
             return redirect(route('route_bus.index'));
         }
 
-        $xe = $this->route_busRepository->update($input, $id);
+       $this->route_busRepository->update($input, $id);
 
         Flash::success('Cập nhật lộ trình thành công.');
 

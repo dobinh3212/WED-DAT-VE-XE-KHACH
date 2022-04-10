@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use App\Models\Province;
+use App\Models\RouteBus;
 use App\Models\Setting;
 use Illuminate\Support\Facades\DB;
 
@@ -13,9 +14,10 @@ class ClientController extends Controller
     {
             $setting = Setting::first();
             $tinh = Province::get();
+            $lo_trinhs = RouteBus::where('hot',1)->get(); //lấy ra lộ trình phổ biến
             $tintuc = News::orderBy('id','desc')->limit(3)->get();
             $slide = News::where('check_slide',1)->select('image','title','id')->get();
-            return view('client.website.index',["tinh" => $tinh,"tintuc"=>$tintuc, "slide"=>$slide,"setting"=> $setting]);
+            return view('client.website.index',["tinh" => $tinh,"tintuc"=>$tintuc, "slide"=>$slide,"setting"=> $setting,"lo_trinhs"=> $lo_trinhs]);
     }
     public function introduce()
     {

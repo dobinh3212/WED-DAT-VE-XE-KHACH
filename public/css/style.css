@@ -346,7 +346,7 @@ a {
 /*tin tức*/
 .tintuc {
 	width: 100%;
-	min-height: 450px;
+	/* min-height: 450px; */
 	margin-top: 1em;
 	position: relative;
 }

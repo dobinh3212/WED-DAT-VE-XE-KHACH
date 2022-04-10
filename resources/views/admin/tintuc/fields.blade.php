@@ -17,7 +17,7 @@
     @else
         <img id="previewImg" src="{{ url('/upload/no_image/image.png') }}" >
     @endif
-</div>
+    </div>
 
     <div class="form-group col-sm-12">
         {!! Form::label('introduce', 'Giới thiệu:') !!}

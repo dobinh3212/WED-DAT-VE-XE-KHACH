@@ -16,6 +16,7 @@ class RouteBus extends Model
         'rest_stops',
         'time_intend',
         'user_update',
+        'image',
         'user_create'
     ];
 

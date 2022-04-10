@@ -117,82 +117,38 @@
                     <div class="col-md-12">
                         <div class="latest-product">
                             <div class="product-carousel">
-                              
+                            @foreach($lo_trinhs as $lo_trinh)
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                    <img src="image/ip0.png" alt="">
+                                    @if (isset($lo_trinh) && $lo_trinh->image != null)
+                                    <img src="image/{{$lo_trinh->image??'' }}" alt="">
                                         <div class="product-hover">
                                             <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
-                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
                                         </div>
+                                   @else
+                                   <img src="image/no_image.png" alt="">
+                                        <div class="product-hover">
+                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                        </div>
+                                   @endif                               
                                     </div>
+                                    <div style="margin-top: 7px;" class="col-md-12 d-flex">
+                                      <div class="col-md-6 fa fa-map-marker icon">
+                                        {{$lo_trinh->km}} Km
+                                      </div>
+                                     <div class="col-md-6 fa fa-clock-o icon">
+                                         {{$lo_trinh->time_intend}}h
+                                      </div>
+                                    </div>
+                                    <h2 style=" margin-top: 30px; font-weight: bold;text-align: center;"><a href="#">{{$lo_trinh->diemxuatphat->name}} - {{$lo_trinh->diemketthuc->name}}</a></h2>
 
-                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
-
-                                    <div class="product-carousel-price">
+                                    <!-- <div class="product-carousel-price">
                                         <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
-                                    </div>
+                                    </div> -->
+
                                 </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                    <img src="image/ip0.png" alt="">
-                                        <div class="product-hover">
-                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
-                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
-                                        </div>
-                                    </div>
+                            @endforeach
 
-                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
-                                    </div>
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                    <img src="image/ip0.png" alt="">
-                                        <div class="product-hover">
-                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
-                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
-                                    </div>
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                    <img src="image/ip0.png" alt="">
-                                        <div class="product-hover">
-                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
-                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
-                                    </div>
-                                </div>
-                                <div class="single-product">
-                                    <div class="product-f-image">
-                                    <img src="image/ip0.png" alt="">
-                                        <div class="product-hover">
-                                            <a  href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
-                                            <a href="#" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
-                                        </div>
-                                    </div>
-
-                                    <h2><a href="#">Hà Nội - Hải Phòng</a></h2>
-
-                                    <div class="product-carousel-price">
-                                        <ins >{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
