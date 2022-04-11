@@ -104,7 +104,7 @@
                   </form>
                   <!-- Kết form tìm vé -->
             </div>
-          <div style="clear: left;"></div> -->
+          <div style="clear: left;"></div> 
         <!-- Kết phần tìm vé ở trang chủ -->
 
         <!-- Tuyến phổ biến -->

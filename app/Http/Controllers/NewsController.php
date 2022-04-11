@@ -7,6 +7,7 @@ use App\Http\Requests\CreateNewsRequest;
 use App\Models\News;
 use App\Repositories\NewsRepository;
 use Flash;
+use Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
