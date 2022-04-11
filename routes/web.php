@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 Route::resource('/', 'ClientController');
 Route::get('/gioithieu', 'ClientController@introduce');
 Route::get('/lienhe','ClientController@contact')->name('lienhe');
+Route::get('/datve','ClientBookingController@datve')->name('datve');
+Route::get('/chonchuyen','ClientBookingController@chonchuyen')->name('chonchuyen');
 Route::resource('tintuc','ClientNewsController');
 
 Auth::routes([

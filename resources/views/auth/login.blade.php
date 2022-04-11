@@ -7,6 +7,9 @@
     }
     .backgroud_login{
          background-image: url("https://cdn.thukyluat.vn/nhch-images//Images/uploaded/moi/xe%20kh%C3%A1ch.jpg");
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         background-size: cover;
 }
 
     .right-column {
@@ -15,7 +18,7 @@
 </style>
 <div class="section_web backgroud_login">
     <div class="container">
-            <div class="col-md-6" style="margin-left: 260px; margin-top: 100px;">
+            <div class="col-md-6" style="margin-left: 260px; margin-top: -70px;">
                 <div class="card">
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -73,77 +76,3 @@
         </div>
     </div>
 </div>
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CSS Blurred Transparent Background</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-</head>
-<style>
-body{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-section{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(https://cdn.thukyluat.vn/nhch-images//Images/uploaded/moi/xe%20kh%C3%A1ch.jpg);
-    background-attachment: fixed;
-    height: 100vh;
-
-}
-
-section .box{
-    position: relative;
-    max-width: 600px;
-    padding: 50px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    color: #000; 
-    /* sửa color để đổi màu chữ bên trong box trong suốt */
-}
-
-section .box:before{
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background: url(https://cdn.thukyluat.vn/nhch-images//Images/uploaded/moi/xe%20kh%C3%A1ch.jpg);
-    background-attachment: fixed;
-    filter: blur(4px);
-}
-
-section .box h2{
-    position: relative;
-    margin: 0 0 20px;
-    padding: 0;
-    font-size: 48px;
-    text-transform: uppercase;
-    z-index: 2;
-}
-
-section .box p{
-    position: relative;
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
-    z-index: 2;
-}</style>
-<body>
-    <section>
-        <div class="box">
-            <h2>CSS Blurred Glass / Transparent Div</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis soluta architecto ad corporis molestiae maiores cumque id eligendi quos quo! Magnam consectetur expedita sint necessitatibus veniam maxime suscipit sit quidem?<br><br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consectetur reiciendis ut totam commodi nostrum odit ex similique veritatis beatae quibusdam vero earum mollitia blanditiis, sapiente magni nisi cum! Nihil!</p>
-        </div>
-    </section>
-</body>
-</html> -->

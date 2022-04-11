@@ -1,4 +1,4 @@
-@extends('tttn-web.main')
+@extends('client.layout.main')
 @section('title')
     Đặt vé
 @endsection
@@ -15,7 +15,7 @@
     <!-- Phần tìm vé -->
         <div class="maindatve row">
             <!-- Form thông tin -->
-            <form name="formdatve" action="{{route('chuyenxe1')}}" method="POST">
+            <form name="formdatve" action="{{route('chonchuyen')}}" method="POST">
                  <input type="hidden" name="_token" value="{{csrf_token()}}">
                  <div class=" col-lg-4 diadiemdatve">
                     <label>Chọn Nơi Khởi Hành</label>
@@ -80,7 +80,7 @@
         </div>
     </div>
 @endsection
-@section('script')
+<!-- @section('script')
     <script type="text/javascript">
         /*Xử lý input date*/
         function chonngay(){
@@ -161,4 +161,4 @@
             });     
          });
     </script>
-@endsection
+@endsection -->

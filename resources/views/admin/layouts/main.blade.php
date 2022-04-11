@@ -53,7 +53,6 @@
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
-    @include('admin.layouts.footer')
 
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->

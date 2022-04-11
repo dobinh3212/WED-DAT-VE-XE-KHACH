@@ -28,7 +28,7 @@ a {
 
 .header img {
 	position: absolute;
-	margin-left: 5em;
+	/* margin-left: 5em; */
 	float: left;
 }
 
