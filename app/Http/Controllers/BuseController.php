@@ -30,14 +30,15 @@ class BuseController extends Controller
     }
     public function create()
     {
-        $route_id = RouteBus::pluck('departure', 'id');
-        $driver_id = User::where('type_employee',0)->pluck('name', 'id');
+        $route_id = RouteBus::pluck('route', 'id');
+        $driver_id = User::where('type_employee', 0)->pluck('name', 'id');
         $coach_id = Coach::pluck('license_plate', 'id');
         return view('admin.chuyenxe.create')->with('route_id', $route_id)->with('driver_id', $driver_id)->with('coach_id', $coach_id);
     }
 
     public function store(CreateBuseRequest $request)
     {
+
         $input = $request->all();
         $buse = $this->buseRepository->create($input);
         Flash::success('Thêm loại xe thành công.');
@@ -50,8 +51,8 @@ class BuseController extends Controller
     public function edit($id)
     {
         $buse = $this->buseRepository->find($id);
-        $route_id = RouteBus::pluck('departure', 'id');
-        $driver_id = User::where('type_employee',0)->pluck('name', 'id');
+        $route_id = RouteBus::pluck('route', 'id');
+        $driver_id = User::where('type_employee', 0)->pluck('name', 'id');
         $coach_id = Coach::pluck('license_plate', 'id');
         if (empty($buse)) {
             Flash::error('Loại xe trống trống');
@@ -78,13 +79,13 @@ class BuseController extends Controller
     }
 
     public function destroy($id)
-    {  
+    {
         $buse = $this->buseRepository->find($id);
         if (empty($buse)) {
             Flash::error('Loại xe trống');
             return redirect(route('buse.index'));
         }
-        $buse ->delete();
+        $buse->delete();
         Flash::success('Xóa chuyến xe thành công.');
         return redirect(route('buse.index'));
     }

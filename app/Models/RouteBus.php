@@ -17,12 +17,11 @@ class RouteBus extends Model
         'time_intend',
         'user_update',
         'image',
+        'route',
         'user_create'
     ];
 
-    public static $rules = [
-        
-    ];
+    public static $rules = [];
     public function bus_stop()
     {
         return $this->belongsTo(\App\Models\BusStop::class, 'rest_stops', 'id');

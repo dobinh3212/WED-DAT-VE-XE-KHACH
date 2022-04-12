@@ -16,8 +16,8 @@
         <tbody style="background: floralwhite;">
             @foreach($buse as $buses)
             <tr>
-                <td><a href="{{ route('buse.edit', [$buses->id]) }}">{{ $buses->id  }}  </a></td>
-                <td>{{ $buses->lotrinh->departure }}</td>
+                <td><a href="{{ route('buse.edit', [$buses->id]) }}">{{ $buses->id  }} </a></td>
+                <td>{{ $buses->lotrinh->route }}</td>
                 <!-- <td>{{ $post->postCategory->name ?? '-'}}</td> -->
                 <td>{{$buses->taixe->name}}</td>
                 <td>{{$buses->xe->license_plate}}</td>
@@ -31,7 +31,7 @@
                             <i class="far fa-eye"></i> Xem 
                         </a> -->
                         <a href="{{ route('buse.edit', [$buses->id]) }}" class='btn btn-default btn-xs'>
-                           Sửa 
+                            Sửa
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i> Xóa', ['type' => 'submit', 'class' => 'btn
                         btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}

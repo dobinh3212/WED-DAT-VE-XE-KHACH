@@ -34,12 +34,15 @@ class RouteBusController extends Controller
     {
         $rest_stop = BusStop::pluck('name', 'id');
         $province = Province::pluck('name', 'id');
-        return view('admin.lotrinh.create')->with('rest_stop',$rest_stop)->with('province',$province);
+        return view('admin.lotrinh.create')->with('rest_stop', $rest_stop)->with('province', $province);
     }
 
     public function store(CreateRouteBusRequest $request)
     {
         $input = $request->all();
+        $departure = Province::find($request->departure)->name;
+        $destination = Province::find($request->destination)->name;
+        $input['route'] = $departure . ' - ' . $destination;
         $file_name_time = null;
         if ($request->hasFile('image')) {
             $file_name = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
@@ -51,6 +54,8 @@ class RouteBusController extends Controller
         }
 
         $input['image'] = $file_name_time;
+        $input['departure'] = $departure;
+        $input['destination'] = $destination;
         $route_bus = $this->route_busRepository->create($input);
 
         Flash::success('Thêm lộ trình thành công.');
@@ -71,13 +76,15 @@ class RouteBusController extends Controller
             Flash::error('Lộ trình trống trống');
             return redirect(route('route_bus.index'));
         }
-        return view('admin.lotrinh.edit')->with('route_bus', $route_bus)->with('rest_stop',$rest_stop)->with('province',$province);
+        return view('admin.lotrinh.edit')->with('route_bus', $route_bus)->with('rest_stop', $rest_stop)->with('province', $province);
     }
 
     public function update($id, UpdateRouteBusRequest $request)
     {
         $route_bus = $this->route_busRepository->find($id);
         $input = $request->all();
+        $departure = Province::find($request->departure)->name;
+        $destination = Province::find($request->destination)->name;
         $file_name_time = null;
         if ($request->hasFile('image')) {
             $file_name = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
@@ -87,14 +94,18 @@ class RouteBusController extends Controller
             $path = public_path('/image/');
             $request->file('image')->move($path, $file_name_time);
         }
+        $departure = $request->departure;
+        $destination = $request->destination;
+        $input['route'] = $departure . ' - ' . $destination;
         $input['image'] = $file_name_time;
         if (empty($route_bus)) {
             Flash::error('Lộ trình trống');
 
             return redirect(route('route_bus.index'));
         }
-
-       $this->route_busRepository->update($input, $id);
+        $input['departure'] = $departure;
+        $input['destination'] = $destination;
+        $this->route_busRepository->update($input, $id);
 
         Flash::success('Cập nhật lộ trình thành công.');
 
@@ -102,7 +113,7 @@ class RouteBusController extends Controller
     }
 
     public function destroy($id)
-    {  
+    {
         $route_bus = $this->route_busRepository->find($id);
         if (empty($route_bus)) {
             Flash::error('Lộ trình trống');

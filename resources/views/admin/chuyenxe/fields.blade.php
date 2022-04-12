@@ -1,5 +1,5 @@
 <div class="form-group col-sm-9">
-<div class="form-group col-sm-12">
+    <div class="form-group col-sm-12">
         {!! Form::label('route_id', 'Lộ trình') !!}
         {!! Form::select('route_id', $route_id, null, ['class' => 'form-control']) !!}
     </div>
@@ -25,4 +25,3 @@
         {!! Form::text('price', null, ['class' => 'form-control']) !!}
     </div>
 </div>
-

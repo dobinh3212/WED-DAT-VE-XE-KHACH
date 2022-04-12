@@ -20,9 +20,7 @@ class Buse extends Model
         'price'
     ];
 
-    public static $rules = [
-      
-    ];
+    public static $rules = [];
     public function lotrinh()
     {
         return $this->belongsTo(\App\Models\RouteBus::class, 'route_id', 'id');

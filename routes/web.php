@@ -10,10 +10,10 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 
 Route::resource('/', 'ClientController');
 Route::get('/gioithieu', 'ClientController@introduce');
-Route::get('/lienhe','ClientController@contact')->name('lienhe');
-Route::get('/datve','ClientBookingController@datve')->name('datve');
-Route::get('/chonchuyen','ClientBookingController@chonchuyen')->name('chonchuyen');
-Route::resource('tintuc','ClientNewsController');
+Route::get('/lienhe', 'ClientController@contact')->name('lienhe');
+Route::get('/datve', 'ClientBookingController@datve')->name('datve');
+Route::post('/chonchuyen', 'ClientBookingController@chonchuyen')->name('chonchuyen');
+Route::resource('tintuc', 'ClientNewsController');
 
 Auth::routes([
   'register' => true, // Registration Routes...
@@ -35,13 +35,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
     Route::get("/disable", "TwoFaceAuthsController@disable")->name("disable_2fa_setting");
   });
   Route::resource('coach', 'CoachController');
-  Route::resource('type_bus','TypeBusesController');
-  Route::resource('users','UsersController');  
-  Route::resource('busstop','BusStopController');
-  Route::resource('buse','BuseController');
-  Route::resource('news','NewsController');
-  Route::resource('province','ProvinceController');
-  Route::resource('route_bus','RouteBusController');
+  Route::resource('type_bus', 'TypeBusesController');
+  Route::resource('users', 'UsersController');
+  Route::resource('busstop', 'BusStopController');
+  Route::resource('buse', 'BuseController');
+  Route::resource('news', 'NewsController');
+  Route::resource('province', 'ProvinceController');
+  Route::resource('route_bus', 'RouteBusController');
   Route::resource('setting', 'SettingController');
   Route::get('change_password', 'ChangePasswordController@changePassword')->name('change_password');
   Route::post('update_password', 'ChangePasswordController@updatePassword')->name('update_password');
@@ -165,4 +165,3 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
 // Route::get('/{path?}', function ($path = null) {
 //   return View::make('client.errors.not_found');
 // })->where('path', '.*')->middleware('auth');
-?>

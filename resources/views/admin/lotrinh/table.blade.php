@@ -14,8 +14,8 @@
             @foreach($route_bus as $route_buss)
             <tr>
                 <td><a href="{{ route('route_bus.edit', [$route_buss->id]) }}">{{ $route_buss->id}}</a></td>
-                <td>{{$route_buss->diemxuatphat->name??'' }}</td>
-                <td>{{$route_buss->diemketthuc->name??''}}</td>
+                <td>{{$route_buss->departure??'' }}</td>
+                <td>{{$route_buss->destination??''}}</td>
                 <td>{{$route_buss->bus_stop->name??''}}</td>
                 <td>{{$route_buss->time_intend}} tiếng</td>
                 <td style="text-align: center;" width="120">
@@ -25,7 +25,7 @@
                             <i class="far fa-eye"></i> Xem 
                         </a> -->
                         <a href="{{ route('route_bus.edit', [$route_buss->id]) }}" class='btn btn-default btn-xs'>
-                            Sửa 
+                            Sửa
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i> Xóa', ['type' => 'submit', 'class' => 'btn
                         btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
