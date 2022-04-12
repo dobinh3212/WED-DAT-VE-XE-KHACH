@@ -24,8 +24,18 @@
         {!! Form::text('introduce', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group col-sm-12">
-        {!! Form::label('content', 'Nội dung:') !!}
+    <div class="form-group col-sm-12 p-0">
+        {!! Form::label('content', 'Nội dung') !!}
         {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+        <script src={{ url('ckeditor/ckeditor.js') }}></script>
+        <script type="text/javascript">
+        CKEDITOR.replace("content", {
+            language: 'vi',
+            height: ['495px']
+        });
+        </script>
     </div>
+</div>
+
 </div>
 

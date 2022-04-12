@@ -23,7 +23,7 @@ class NewsController extends Controller
 
     public function index()
     {
-        $news = News::where('check_slide',1)->paginate(15);
+        $news = News::paginate(15);
         return view('admin.tintuc.index')->with('news', $news);
     }
     public function create()
