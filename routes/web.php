@@ -13,6 +13,7 @@ Route::get('/gioithieu', 'ClientController@introduce');
 Route::get('/lienhe', 'ClientController@contact')->name('lienhe');
 Route::get('/datve', 'ClientBookingController@datve')->name('datve');
 Route::post('/chonchuyen', 'ClientBookingController@chonchuyen')->name('chonchuyen');
+Route::get('/tuyenxephobien/{id}', 'ClientBookingController@tuyenxephobien')->name('tuyenxephobien');
 Route::resource('tintuc', 'ClientNewsController');
 
 Auth::routes([

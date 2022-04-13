@@ -20,21 +20,28 @@ class ClientBookingController extends Controller
     public function chonchuyen(Request $request)
     {
         $setting = Setting::first();
-        $chuyenxe = '';
+        $chuyenxe = [];
+        $chuyenxes = [];
         if ($request->noidi && $request->noiden && $request->Ngaydi) {
             $route_bus = RouteBus::where('route', $request->noidi . ' - ' . $request->noiden)->first();
             if ($route_bus != '') {
                 $chuyenxe = Buse::where('route_id', $route_bus->id)->where('start_day', $request->Ngaydi)->get();
             }
         }
-        if ($chuyenxe == '' && $request->noidi && $request->noiden) {
+        if (count($chuyenxe) == 0 && $request->noidi && $request->noiden) {
             $route_bus = RouteBus::where('route', $request->noidi . ' - ' . $request->noiden)->first();
             if ($route_bus != '') {
-                $chuyenxe = Buse::where('route_id', $route_bus->id)->get();
+                $chuyenxes = Buse::where('route_id', $route_bus->id)->get();
             }
         }
-        // $chuyenxe = Buse::get();
-        return view('client.datve.chuyenxe')->with("setting", $setting)->with("chuyenxe", $chuyenxe);
+        return view('client.datve.chuyenxe')->with("setting", $setting)->with("chuyenxe", $chuyenxe)->with("chuyenxes", $chuyenxes);
+    }
+    public function tuyenxephobien($id)
+    {
+        $departure = RouteBus::find($id)->departure;
+        $destination = RouteBus::find($id)->destination;
+        $setting = Setting::first();
+        return view('client.datve.datve')->with("setting", $setting)->with("departure", $departure)->with("destination", $destination);
     }
     public function chonve()
     {

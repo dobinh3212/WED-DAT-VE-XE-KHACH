@@ -126,12 +126,12 @@ Trang chủ
                                     @if (isset($lo_trinh) && $lo_trinh->image != null)
                                     <img src="image/{{$lo_trinh->image??'' }}" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                        <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
                                     </div>
                                     @else
                                     <img src="image/no_image.png" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                        <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
                                     </div>
                                     @endif
                                 </div>
@@ -143,7 +143,7 @@ Trang chủ
                                         {{$lo_trinh->time_intend}}h
                                     </div>
                                 </div>
-                                <h2 style=" margin-top: 30px; font-weight: bold;text-align: center;"><a href="#">{{$lo_trinh->route}}</a></h2>
+                                <h2 style=" margin-top: 30px; font-weight: bold;text-align: center;"><a href="{{route('tuyenxephobien', [$lo_trinh->id])}}">{{$lo_trinh->route}}</a></h2>
 
                                 <!-- <div class="product-carousel-price">
                                         <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>

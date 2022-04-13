@@ -22,9 +22,13 @@
             <i class="fa fa-bus"></i>
             <div class="the">
                 <select type="text" class="form-control txtnoidi" name="noidi" placeholder="Nơi đi">
+                    @if(!empty($tinh))
                     @foreach($tinh as $tinhs)
                     <option value="{{$tinhs}}">{{$tinhs}}</option>
                     @endforeach
+                    @elseif(!empty($departure))
+                    <option value="{{$departure}}">{{$departure}}</option>
+                    @endif
                 </select>
             </div>
             <div class="chonloaixe">
@@ -38,9 +42,13 @@
             <label>Chọn Nơi Đến</label>
             <i class="fa fa-bus"></i>
             <select type="text" class="form-control txtnoidi" name="noiden" placeholder="Nơi đi">
+                @if(!empty($tinh))
                 @foreach($tinh as $tinhs)
                 <option value="{{$tinhs}}">{{$tinhs}}</option>
                 @endforeach
+                @elseif(!empty($destination))
+                <option value="{{$destination}}">{{$destination}}</option>
+                @endif
             </select>
         </div>
         <div class="col-lg-3 ngaydidatve">
