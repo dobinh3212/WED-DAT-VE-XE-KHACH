@@ -40,7 +40,7 @@ class NewsController extends Controller
             $extension = $request->image->getClientOriginalExtension();
             $name_slug = Str::slug($file_name, '_');
             $file_name_time = $name_slug . '_' . time() . '.' . $extension;
-            $path = public_path('/upload/new/');
+            $path = public_path('upload/');
             $request->file('image')->move($path, $file_name_time);
         }
 
@@ -67,6 +67,17 @@ class NewsController extends Controller
     {
         $news = $this->newsRepository->find($id);
         $input = $request->all();
+        $file_name_time = null;
+        if ($request->hasFile('image')) {
+            $file_name = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $request->image->getClientOriginalExtension();
+            $name_slug = Str::slug($file_name, '_');
+            $file_name_time = $name_slug . '_' . time() . '.' . $extension;
+            $path = public_path('upload/');
+            $request->file('image')->move($path, $file_name_time);
+        }
+
+        $input['image'] = $file_name_time;
         if (empty($news)) {
             Flash::error('Tin tức trống');
 
@@ -81,7 +92,7 @@ class NewsController extends Controller
     }
 
     public function destroy($id)
-    {  
+    {
         $news = $this->newsRepository->find($id);
         if (empty($news)) {
             Flash::error('Tin tức trống');
