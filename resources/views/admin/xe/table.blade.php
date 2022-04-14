@@ -5,6 +5,7 @@
                 <th>ID</th>
                 <th>Biến số xe</th>
                 <th>Loại xe</th>
+                <th>Số chỗ</th>
                 <th style="text-align: center;" colspan="3">Thao tác</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
                 </td>
                 <!-- <td>{{ $post->postCategory->name ?? '-'}}</td> -->
                 <td>{{$xes->loaixe->type_bus??''}}</td>
+                <td>{{$xes->number_seat??''}}</td>
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['coach.destroy', $xes->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -25,7 +27,7 @@
                             <i class="far fa-eye"></i> Xem 
                         </a> -->
                         <a href="{{ route('coach.edit', [$xes->id]) }}" class='btn btn-default btn-xs'>
-                            Sửa 
+                            Sửa
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i> Xóa', ['type' => 'submit', 'class' => 'btn
                         btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}

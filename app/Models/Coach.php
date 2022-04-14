@@ -16,7 +16,7 @@ class Coach extends Model
         'is_active',
         'ngaybaotrigannhat',
         'ngaybaotritieptheo',
-        'location'
+        'number_seat',
     ];
 
     public static $rules = [

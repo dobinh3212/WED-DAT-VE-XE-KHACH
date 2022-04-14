@@ -17,7 +17,8 @@ class Buse extends Model
         'start_day',
         'start_time',
         'is_active',
-        'price'
+        'price',
+        'number_seat',
     ];
 
     public static $rules = [];

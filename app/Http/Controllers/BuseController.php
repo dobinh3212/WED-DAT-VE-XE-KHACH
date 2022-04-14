@@ -40,7 +40,10 @@ class BuseController extends Controller
     {
 
         $input = $request->all();
-        $buse = $this->buseRepository->create($input);
+        $coach = Coach::find($request->coach_id)->number_seat;
+        $input['number_seat'] = $coach;
+        $input['is_active'] = 1;
+        $this->buseRepository->create($input);
         Flash::success('Thêm loại xe thành công.');
         return redirect(route('buse.index'));
     }
@@ -65,6 +68,8 @@ class BuseController extends Controller
     {
         $buse = $this->buseRepository->find($id);
         $input = $request->all();
+        $coach = Coach::find($request->coach_id)->number_seat;
+        $input['number_seat'] = $coach;
         if (empty($buse)) {
             Flash::error('Chuyến xe trống');
 
