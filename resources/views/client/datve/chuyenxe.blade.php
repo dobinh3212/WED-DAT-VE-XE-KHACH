@@ -9,6 +9,7 @@ Chuyến xe
         <li onclick="vetrangtruoc()" class="tay">Tìm Chuyến</li>
         <li class="stay tay">Chọn Chuyến</li>
         <li>Chi Tiết Vé</li>
+        <li>Thanh toán</li>
     </ul>
 </div>
 <!-- kết thức phần bước -->
@@ -35,13 +36,8 @@ Chuyến xe
             <td><span>{{($t->price)/1000}}.000 VNĐ</span></td>
             <td>
                 <div class="chuyenxetim">
-                    @if(Session::has('makh'))
                     <i class="fa fa-arrow-right icon-flat bg-btn-actived"></i>
-                    <button type="button" class="btn" onclick="location.href='{{url("chonve")}}/{{$id=$t->Mã}}';"><a>Đặt vé</a></button>
-                    @else
-                    <i class="fa fa-arrow-right icon-flat bg-btn-actived"></i>
-                    <button type="button" class="btn"><a data-toggle="modal" data-target="#login" data-dismiss="modal">Đặt vé</a></button>
-                    @endif
+                    <button type="button" class="btn" onclick="location.href='{{url("chonve")}}/{{$id=$t->id}}';"><a>Đặt vé</a></button>
                 </div>
             </td>
         </tr>
@@ -78,13 +74,8 @@ Chuyến xe
             <td><span>{{($t->price)/1000}}.000 VNĐ</span></td>
             <td>
                 <div class="chuyenxetim">
-                    @if(Session::has('makh'))
                     <i class="fa fa-arrow-right icon-flat bg-btn-actived"></i>
-                    <button type="button" class="btn" onclick="location.href='{{url("chonve")}}/{{$id=$t->Mã}}';"><a>Đặt vé</a></button>
-                    @else
-                    <i class="fa fa-arrow-right icon-flat bg-btn-actived"></i>
-                    <button type="button" class="btn"><a data-toggle="modal" data-target="#login" data-dismiss="modal">Đặt vé</a></button>
-                    @endif
+                    <button type="button" class="btn" onclick="location.href='{{url("chonve")}}/{{$id=$t->id}}';"><a>Đặt vé</a></button>
                 </div>
             </td>
         </tr>

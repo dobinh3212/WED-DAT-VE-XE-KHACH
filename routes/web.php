@@ -11,10 +11,14 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 Route::resource('/', 'ClientController');
 Route::get('/gioithieu', 'ClientController@introduce');
 Route::get('/lienhe', 'ClientController@contact')->name('lienhe');
-Route::get('/datve', 'ClientBookingController@datve')->name('datve');
-Route::post('/chonchuyen', 'ClientBookingController@chonchuyen')->name('chonchuyen');
 Route::get('/tuyenxephobien/{id}', 'ClientBookingController@tuyenxephobien')->name('tuyenxephobien');
 Route::resource('tintuc', 'ClientNewsController');
+Route::get('/datve', 'ClientBookingController@datve')->name('datve');
+Route::post('/chonchuyen', 'ClientBookingController@chonchuyen')->name('chonchuyen');
+Route::get('/chonve/{id}', 'ClientBookingController@chonve')->name('chonve');
+Route::post('/thanhtoan', 'ClientBookingController@thanhtoan')->name('thanhtoan');
+Route::post('/thanhtoan2', 'ClientBookingController@thanhtoan2')->name('thanhtoan2');
+Route::post('/thanhtoan3', 'ClientBookingController@thanhtoan3')->name('thanhtoan3');
 
 Auth::routes([
   'register' => true, // Registration Routes...

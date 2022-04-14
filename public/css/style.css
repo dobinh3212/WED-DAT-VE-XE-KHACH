@@ -689,9 +689,11 @@ img {
 }
 
 .chonveleft {
-	width: 33%;
+	width: 50%;
 	min-height: 300px;
 	border-radius: 0.5em;
+	margin-left: 331px;
+	background: #eaf5ff;
 	box-shadow: 0 0 2em #CCC;
 	float: left;
 	padding-left: 2em;
@@ -704,6 +706,7 @@ img {
 .chonveleft h3 {
 	text-align: center;
 	color: #000;
+	font-weight: bold;
 }
 
 .chonveleft button {
@@ -1115,7 +1118,7 @@ img {
 }
 
 .buoc ul li:not([class~='stay']) {
-	width: calc(70% / 3);
+	width: 170px;
 	float: left;
 	height: 50px;
 	background: #f4f4f4;
@@ -1154,7 +1157,7 @@ img {
 }
 
 .stay {
-	width: calc(70% / 3);
+	width: 150px;
 	float: left;
 	height: 50px;
 	background: #f57812;

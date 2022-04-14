@@ -9,6 +9,7 @@
         <li style="background: #f57812; color: #FFF;" class="stay tay">Tìm Chuyến</li>
         <li>Chọn Chuyến</li>
         <li>Chi Tiết Vé</li>
+        <li>Thanh toán</li>
     </ul>
 </div>
 <!-- kết thúc phần bước -->
