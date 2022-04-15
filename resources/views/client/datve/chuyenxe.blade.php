@@ -62,6 +62,7 @@ Chuyến xe
             <th>Thời Gian đi dự kiến</th>
             <th>Loại Xe</th>
             <th>Giá</th>
+            <th>Số chỗ còn trống</th>
             <th>Đặt Mua</th>
         </tr>
         @foreach($chuyenxes as $t)
@@ -72,6 +73,7 @@ Chuyến xe
             <td><span>{{$t->lotrinh->time_intend}} tiếng</span></td>
             <td><span>{{($t->Loại_ghế==1)? 'Giường Nằm':'Ghế Ngồi'}}</span></td>
             <td><span>{{($t->price)/1000}}.000 VNĐ</span></td>
+            <td><span>Còn {{($t->number_seat)}} chỗ</span></td>
             <td>
                 <div class="chuyenxetim">
                     <i class="fa fa-arrow-right icon-flat bg-btn-actived"></i>

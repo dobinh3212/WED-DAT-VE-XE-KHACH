@@ -17,8 +17,7 @@ Chọn vé
 <!-- Phần chọn vé  -->
 <div class="chonvemain">
   <!-- Thông tin chuyến xe -->
-  <div class="chonveleft">
-    <?php $makh = Session::get('makh'); ?>
+  <div style="margin-left:300px" class="chonveleft">
     <h3>Thông tin vé</h3>
     <p><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$route_bus->departure}}</a></p><br>
     <p><i class="fa fa-bus"></i> Nơi đến: <a>{{$route_bus->destination}}</a></p> <br>
@@ -34,18 +33,19 @@ Chọn vé
       <button type="submit" style="background: #f57812; border: none;" class="btn btn-success chondatve">Thanh toán</button>
     </form>
   </div>
-  <!-- kết thưc thông tin chuyến xe -->
+</div>
+<!-- kết thưc thông tin chuyến xe -->
 
-  @endsection
-  @section('script')
-  <script type="text/javascript">
-    function vetrangtruoc() {
-      history.back();
-    }
+@endsection
+@section('script')
+<script type="text/javascript">
+  function vetrangtruoc() {
+    history.back();
+  }
 
-    function vetrangtruoc2() {
-      history.back();
-      history.back();
-    }
-  </script>
-  @endsection
+  function vetrangtruoc2() {
+    history.back();
+    history.back();
+  }
+</script>
+@endsection

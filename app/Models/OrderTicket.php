@@ -16,6 +16,7 @@ class OrderTicket extends Model
         'number',
         'is_active',
         'total',
+        'payment',
     ];
 
     public static $rules = [];

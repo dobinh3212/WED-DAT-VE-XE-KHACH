@@ -19,12 +19,12 @@ Thanh toán
 <div class="chonvemain">
   <div class="chonveleft">
     <h3>Thông tin vé</h3>
-    <p style="margin-left:50px"><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$request->departure}}</a></p><br>
-    <p style="margin-left:50px"><i class="fa fa-bus"></i> Nơi đến: <a>{{$request->destination}}</a></p> <br>
-    <p style="margin-left:50px"><span class="glyphicon glyphicon-time"></span> Thời gian đi: {{$request->start_time}} : {{date('d-m-Y',strtotime($request->start_day))}} </p><br>
-    <p style="margin-left:50px"><span class="glyphicon glyphicon-bed"></span> Loại Ghế: {{$request->type_bus??''}} </p><br>
-    <p style="margin-left:50px"><i class="fa fa-address-card-o"></i> Số vé: {{$request->sove??''}} vé </p><br>
-    <p style="margin-left:50px"><i class="fa fa-balance-scale"></i> Tổng giá: {{($request->price * $request->sove)}} VNĐ</p><br>
+    <p><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$route_bus->departure}}</a></p><br>
+    <p><i class="fa fa-bus"></i> Nơi đến: <a>{{$route_bus->destination}}</a></p> <br>
+    <p><span class="glyphicon glyphicon-time"></span> Thời gian đi: {{$chonve->start_time}} : {{date('d-m-Y',strtotime($chonve->start_day))}} </p><br>
+    <p><span class="glyphicon glyphicon-bed"></span> Loại Ghế: {{$type_buse->type_bus??''}} </p><br>
+    <p><i class="fa fa-address-card-o"></i> Số vé: {{$sove??''}} vé</p><br>
+    <p><i class="fa fa-balance-scale"></i> Tổng giá: {{($chonve->price * $sove)/1000}}.000 VNĐ</p><br>
   </div>
   <div class="chonveright">
     <div class="title_step4">
@@ -38,19 +38,20 @@ Thanh toán
     <br>
     <br>
     <div>
-      <form method="post" action="{{ route('thanhtoan3') }}">
+      <form style="font-size: 18px;" method="post" action="{{ route('thanhtoan3') }}">
         @csrf
-        <input style="margin-top: 0px;margin-left: 40px;" name="method_pay_id" type="radio" value="bank" checked> Chuyển khoản ngân hàng</br>
+        <input style="margin-top: 0px;margin-left: 40px;" name="method_pay_id" type="radio" value="bank" checked> Thanh toán trực tiếp</br>
+        <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="vnp"> Thanh toán VnPay</br>
         <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="zalopayapp"> ZaloPay (Ví điện tử) <img style="width: 70px;" src="https://www.tiendauroi.com/wp-content/uploads/2020/02/zalopay.png"></br>
         <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="zalopayatm"> ZaloPay (Thẻ ATM nội địa / Internet Banking)</br>
         <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="zalopayvisa"> ZaloPay (Thẻ quốc tế) <img style="width: 100px;" src="https://icon-library.com/images/visa-master-icon/visa-master-icon-5.jpg"></br>
-        <input type="hidden" name="buse_id" value="{{$request->id}}">
-        <input type="hidden" name="departure" value="{{$request->departure}}">
-        <input type="hidden" name="destination" value="{{$request->destination}}">
-        <input type="hidden" name="start_time" value="{{$request->start_time}}">
-        <input type="hidden" name="loaighe" value="{{$request->loaighe??''}}">
-        <input type="hidden" name="sove" value=" {{$request->sove??''}}">
-        <input type="hidden" name="total" value="{{$request->total}}">
+        <input type="hidden" name="buse_id" value="{{$chonve->id}}">
+        <input type="hidden" name="departure" value="{{$route_bus->departure}}">
+        <input type="hidden" name="destination" value="{{$route_bus->destination}}">
+        <input type="hidden" name="start_time" value="{{$chonve->start_time}} : {{date('d-m-Y',strtotime($chonve->start_day))}}">
+        <input type="hidden" name="loaighe" value="{{$type_buse->type_bus??''}}">
+        <input type="hidden" name="sove" value="{{$sove??''}}">
+        <input type="hidden" name="total" value="{{$chonve->price * $sove}}">
 
         <div style="text-align: center;margin-top: 70px;"><input class="btn btn-primary " type="submit" value="Thanh toán"></div>
       </form>

@@ -19,7 +19,7 @@ Route::get('/chonve/{id}', 'ClientBookingController@chonve')->name('chonve');
 Route::post('/thanhtoan', 'ClientBookingController@thanhtoan')->name('thanhtoan');
 Route::post('/thanhtoan2', 'ClientBookingController@thanhtoan2')->name('thanhtoan2');
 Route::post('/thanhtoan3', 'ClientBookingController@thanhtoan3')->name('thanhtoan3');
-
+Route::get('return-vnpay', 'ClientBookingController@return_vnpay');
 Auth::routes([
   'register' => true, // Registration Routes...
   'reset' => true, // Password Reset Routes...

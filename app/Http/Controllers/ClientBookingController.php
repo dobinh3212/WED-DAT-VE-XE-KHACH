@@ -60,18 +60,12 @@ class ClientBookingController extends Controller
         $setting = Setting::first();
         $sove = $request->number;
         $chonve = Buse::find($request->id);
-        $chonve->update(['number_seat' => $chonve->number_seat - $request->number]); //cập nhật số vé
         $route_bus = RouteBus::find($chonve->route_id);
         $coach = Coach::find($chonve->coach_id);
         $type_buse = TypeBuses::find($coach->type_car_id);
-        return view('client.datve.thanhtoan1')->with("setting", $setting)->with("sove", $sove)->with('chonve', $chonve)->with('route_bus', $route_bus)->with('type_buse', $type_buse);
+        return view('client.datve.thanhtoan')->with("setting", $setting)->with("sove", $sove)->with('chonve', $chonve)->with('route_bus', $route_bus)->with('type_buse', $type_buse);
     }
-    public function thanhtoan2(Request $request)
-    {
-        $setting = Setting::first();
-        return view('client.datve.thanhtoan2', ['request' => $request, 'setting' => $setting]);
-    }
-    public function thanhtoan3(Request $request)
+    public function thanhtoan3(Request $request) // THANH TOÁN
     {
         // tạo order
         $input['customer_id'] =  1; // tạm thời để 1
@@ -79,12 +73,24 @@ class ClientBookingController extends Controller
         $input['is_active'] = 0; //chưa thanh toán
         $input['number'] = $request->sove ?? 0;
         $input['total'] = $request->total ?? 0;
+        $input['payment'] = $request->method_pay_id;
 
         $order_ticket = OrderTicket::create($input);
+        $setting = Setting::first();
+        $chonve = Buse::find($request->buse_id);
+        $coach = Coach::find($chonve->coach_id);
+        $route_bus = RouteBus::find($chonve->route_id);
+        $type_buse = TypeBuses::find($coach->type_car_id);
+        $chonve->update(['number_seat' => $chonve->number_seat - $request->sove]); //cập nhật số vé
         // kết thúc tạo order
         if ($request->method_pay_id == 'bank') {
-            return view('client.datve.bank', [
+            return view('client.datve.success_bank', [
                 'order_ticket' => $order_ticket,
+                'coach' => $coach,
+                'chonve' => $chonve,
+                'route_bus' => $route_bus,
+                'type_buse' => $type_buse,
+                'setting' => $setting,
             ]);
         } elseif ($request->method_pay_id == 'zalopayapp') {
             $appid = env('ZLP_APP_ID'); // lấy từ cấu hình trong .env
@@ -223,6 +229,86 @@ class ClientBookingController extends Controller
                 echo "$key: $value<br>";
             }
             return redirect($url);
+        } elseif ($request->method_pay_id == 'vnp') {
+            // session(['cost_id' => $request->id]);
+            // session(['url_prev' => url()->previous()]);
+            $vnp_TmnCode = env('VNP_TMN_CODE'); //Mã website tại VNPAY lấy từ cấu hình trong .env
+            $vnp_HashSecret = env('VNP_HASH_SECRET'); //Chuỗi bí mật lấy từ cấu hình trong .env
+            $vnp_Url = env('VNP_URL'); //lấy từ cấu hình trong .env
+            $vnp_Returnurl = $input['VNP_RETURN_URL'] ?? env('VNP_RETURN_URL'); //lấy từ cấu hình trong .env
+            $vnp_TxnRef = $order_ticket['id']; //Mã đơn hàng.
+            $vnp_OrderInfo = $chonve->id; //"Thanh toán hóa đơn phí dich vụ";
+            $vnp_OrderType = 'billpayment';
+            $vnp_Amount = $order_ticket['total'] * 100;
+            $vnp_Locale = 'vn';
+            $vnp_IpAddr = request()->ip();
+
+            $inputData = array(
+                "vnp_Version" => "2.0.0",
+                "vnp_TmnCode" => $vnp_TmnCode,
+                "vnp_Amount" => $vnp_Amount,
+                "vnp_Command" => "pay",
+                "vnp_CreateDate" => date('YmdHis'),
+                "vnp_CurrCode" => "VND",
+                "vnp_IpAddr" => $vnp_IpAddr,
+                "vnp_Locale" => $vnp_Locale,
+                "vnp_OrderInfo" => $vnp_OrderInfo,
+                "vnp_OrderType" => $vnp_OrderType,
+                "vnp_ReturnUrl" => $vnp_Returnurl,
+                "vnp_TxnRef" =>  $order_ticket['id'],
+            );
+
+            if (isset($vnp_BankCode) && $vnp_BankCode != "") {
+                $inputData['vnp_BankCode'] = $vnp_BankCode;
+            }
+
+            ksort($inputData);
+            $query = "";
+            $i = 0;
+            $hashdata = "";
+            foreach ($inputData as $key => $value) {
+                if ($i == 1) {
+                    $hashdata .= '&' . $key . "=" . $value;
+                } else {
+                    $hashdata .= $key . "=" . $value;
+                    $i = 1;
+                }
+                $query .= urlencode($key) . "=" . urlencode($value) . '&';
+            }
+
+            $vnp_Url = $vnp_Url . "?" . $query;
+
+            if (isset($vnp_HashSecret)) {
+                $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);
+                $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
+            }
+            $order_ticket['vnp_Url'] = $vnp_Url;
+            return redirect($vnp_Url);
+        }
+    }
+    public function return_vnpay(Request $request)
+    {
+        if ($request->vnp_ResponseCode == '00') {
+            $code = $request->vnp_TxnRef;
+            $order_ticket = OrderTicket::where('id', $code)->first();
+            $buse = Buse::where('id', $request->vnp_OrderInfo)->first();
+            $coach = Coach::find($buse->coach_id);
+            $setting = Setting::first();
+            $route_bus = RouteBus::find($buse->route_id);
+            $type_buse = TypeBuses::find($coach->type_car_id);;
+
+            $order_ticket->update(['is_active' => 1]); //cập nhật trạng thái là đã thanh toán
+            return view('client.datve.success_vnp', [
+                'order_ticket' => $order_ticket,
+                'coach' => $coach,
+                'buse' => $buse,
+                'route_bus' => $route_bus,
+                'type_buse' => $type_buse,
+                'setting' => $setting,
+            ]);
+        } else {
+            $code = $request->vnp_TxnRef;
+            return view('payment.failed-payment', ['code' => $code]);
         }
     }
 }
