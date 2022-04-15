@@ -1,6 +1,6 @@
 @extends('client.layout.main')
 @section('title')
-Chọn vé
+Thanh toán
 @endsection
 @section('content')
 

@@ -190,7 +190,7 @@ class ClientBookingController extends Controller
             ];
             $items = [
                 [
-                    "Mã đơn hàng" => $order_ticket['code'],
+                    "Mã đơn hàng" => $order_ticket['id'],
                     "Đơn giá" => $order_ticket['total'],
                 ]
             ];
@@ -202,7 +202,7 @@ class ClientBookingController extends Controller
                 "item" => json_encode($items, JSON_UNESCAPED_UNICODE),
                 "embeddata" => json_encode($embeddata, JSON_UNESCAPED_UNICODE),
                 "amount" =>  $order_ticket['total'],
-                "description" => "Vinacase - Thanh toán đơn hàng : " . $order_ticket['id'],
+                "description" => "Xe khách DVB - Thanh toán đơn hàng : " . $order_ticket['id'],
                 "bankcode" => "",
             ];
             $data = $order["appid"] . "|" . $order["apptransid"] . "|" . $order["appuser"] . "|" . $order["amount"]
