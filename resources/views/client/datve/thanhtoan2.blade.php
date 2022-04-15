@@ -18,6 +18,15 @@ Thanh toán
 <!-- <div class="step4"> -->
 <div class="chonvemain">
   <div class="chonveleft">
+    <h3>Thông tin vé</h3>
+    <p style="margin-left:50px"><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$request->departure}}</a></p><br>
+    <p style="margin-left:50px"><i class="fa fa-bus"></i> Nơi đến: <a>{{$request->destination}}</a></p> <br>
+    <p style="margin-left:50px"><span class="glyphicon glyphicon-time"></span> Thời gian đi: {{$request->start_time}} : {{date('d-m-Y',strtotime($request->start_day))}} </p><br>
+    <p style="margin-left:50px"><span class="glyphicon glyphicon-bed"></span> Loại Ghế: {{$request->type_bus??''}} </p><br>
+    <p style="margin-left:50px"><i class="fa fa-address-card-o"></i> Số vé: {{$request->sove??''}} vé </p><br>
+    <p style="margin-left:50px"><i class="fa fa-balance-scale"></i> Tổng giá: {{($request->price * $request->sove)}} VNĐ</p><br>
+  </div>
+  <div class="chonveright">
     <div class="title_step4">
       <div>
         <br>
@@ -47,6 +56,7 @@ Thanh toán
       </form>
     </div>
   </div>
+
 </div>
 <!-- kết thưc thông tin chuyến xe -->
 

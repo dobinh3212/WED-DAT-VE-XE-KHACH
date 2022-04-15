@@ -35,7 +35,7 @@ Thanh toán
       <input type="hidden" name="start_time" value="{{$chonve->start_time}} : {{date('d-m-Y',strtotime($chonve->start_day))}}">
       <input type="hidden" name="loaighe" value="{{$type_buse->type_bus??''}}">
       <input type="hidden" name="sove" value=" {{$sove??''}}">
-      <input type="hidden" name="total" value="{{($chonve->price * $sove)}}">
+      <input type="hidden" name="total" value="{{$chonve->price * $sove}}">
       <button type="submit" style="background: #f57812; border: none;" class="btn btn-success chondatve">Thanh toán</button>
     </form>
   </div>
