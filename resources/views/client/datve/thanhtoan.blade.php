@@ -18,9 +18,10 @@ Thanh toán
 <!-- <div class="step4"> -->
 <div class="chonvemain">
   <div class="chonveleft">
-    <h3>Thông tin vé</h3>
+    <h3 style="color: #032645;">Thông tin vé</h3>
     <p><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$route_bus->departure}}</a></p><br>
     <p><i class="fa fa-bus"></i> Nơi đến: <a>{{$route_bus->destination}}</a></p> <br>
+    <p><i class="fa fa-bus"></i> Biển số xe: <a>{{$coach->license_plate}}</a></p> <br>
     <p><span class="glyphicon glyphicon-time"></span> Thời gian đi: {{$chonve->start_time}} : {{date('d-m-Y',strtotime($chonve->start_day))}} </p><br>
     <p><span class="glyphicon glyphicon-bed"></span> Loại Ghế: {{$type_buse->type_bus??''}} </p><br>
     <p><i class="fa fa-address-card-o"></i> Số vé: {{$sove??''}} vé</p><br>
@@ -30,7 +31,7 @@ Thanh toán
     <div class="title_step4">
       <div>
         <br>
-        <b style="margin-left: 146px;font-size: 25px;">
+        <b style="color: #032645;margin-left: 146px;font-size: 25px;">
           Chọn hình thức thanh toán
         </b>
       </div>
@@ -40,11 +41,11 @@ Thanh toán
     <div>
       <form style="font-size: 18px;" method="post" action="{{ route('thanhtoan3') }}">
         @csrf
-        <input style="margin-top: 0px;margin-left: 40px;" name="method_pay_id" type="radio" value="bank" checked> Thanh toán trực tiếp</br>
-        <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="vnp"> Thanh toán VnPay</br>
-        <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="zalopayapp"> ZaloPay (Ví điện tử) <img style="width: 70px;" src="https://www.tiendauroi.com/wp-content/uploads/2020/02/zalopay.png"></br>
-        <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="zalopayatm"> ZaloPay (Thẻ ATM nội địa / Internet Banking)</br>
-        <input style="margin-top: 20px;margin-left: 40px;" name="method_pay_id" type="radio" value="zalopayvisa"> ZaloPay (Thẻ quốc tế) <img style="width: 100px;" src="https://icon-library.com/images/visa-master-icon/visa-master-icon-5.jpg"></br>
+        <input style="margin-top: 0px;margin-left: 80px;" name="method_pay_id" type="radio" value="bank" checked> Thanh toán trực tiếp</br>
+        <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="vnp"> Thanh toán VNPay <img style="width: 70px;" src="image/vnp.png"></br>
+        <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="zalopayapp"> ZaloPay (Ví điện tử) <img style="width: 70px;" src="image/zalopay.png"></br>
+        <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="zalopayatm"> ZaloPay (Thẻ ATM nội địa / Internet Banking)</br>
+        <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="zalopayvisa"> ZaloPay (Thẻ quốc tế) <img style="width: 100px;" src="image/visa-master-icon-5.jpg"></br>
         <input type="hidden" name="buse_id" value="{{$chonve->id}}">
         <input type="hidden" name="departure" value="{{$route_bus->departure}}">
         <input type="hidden" name="destination" value="{{$route_bus->destination}}">
@@ -53,7 +54,7 @@ Thanh toán
         <input type="hidden" name="sove" value="{{$sove??''}}">
         <input type="hidden" name="total" value="{{$chonve->price * $sove}}">
 
-        <div style="text-align: center;margin-top: 70px;"><input class="btn btn-primary " type="submit" value="Thanh toán"></div>
+        <div style="text-align: center;margin-top: 70px;"><input style="width: 229px;" class="btn btn-primary " type="submit" value="Thanh toán"></div>
       </form>
     </div>
   </div>

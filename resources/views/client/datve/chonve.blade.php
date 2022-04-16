@@ -21,6 +21,7 @@ Chọn vé
     <h3>Thông tin vé</h3>
     <p><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$route_bus->departure}}</a></p><br>
     <p><i class="fa fa-bus"></i> Nơi đến: <a>{{$route_bus->destination}}</a></p> <br>
+    <p><i class="fa fa-bus"></i> Biển số xe: <a>{{$coach->license_plate}}</a></p> <br>
     <p><span class="glyphicon glyphicon-time"></span> Ngày đi: {{$chonve->start_time}} : {{date('d-m-Y',strtotime($chonve->start_day))}} </p><br>
     <p><span class="glyphicon glyphicon-bed"></span> Loại Ghế: {{$type_buse->type_bus??''}} </p><br>
     <p><i class="fa fa-balance-scale"></i> Giá vé: {{($chonve->price)/1000}}.000 VNĐ / 1 vé</p><br>

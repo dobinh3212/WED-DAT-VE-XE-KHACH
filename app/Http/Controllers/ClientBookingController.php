@@ -53,7 +53,7 @@ class ClientBookingController extends Controller
         $route_bus = RouteBus::find($chonve->route_id);
         $coach = Coach::find($chonve->coach_id);
         $type_buse = TypeBuses::find($coach->type_car_id);
-        return view('client.datve.chonve')->with("setting", $setting)->with('chonve', $chonve)->with('route_bus', $route_bus)->with('type_buse', $type_buse);
+        return view('client.datve.chonve')->with("setting", $setting)->with("coach", $coach)->with('chonve', $chonve)->with('route_bus', $route_bus)->with('type_buse', $type_buse);
     }
     public function thanhtoan(Request $request)
     {
@@ -63,7 +63,7 @@ class ClientBookingController extends Controller
         $route_bus = RouteBus::find($chonve->route_id);
         $coach = Coach::find($chonve->coach_id);
         $type_buse = TypeBuses::find($coach->type_car_id);
-        return view('client.datve.thanhtoan')->with("setting", $setting)->with("sove", $sove)->with('chonve', $chonve)->with('route_bus', $route_bus)->with('type_buse', $type_buse);
+        return view('client.datve.thanhtoan')->with("setting", $setting)->with("coach", $coach)->with("sove", $sove)->with('chonve', $chonve)->with('route_bus', $route_bus)->with('type_buse', $type_buse);
     }
     public function thanhtoan3(Request $request) // THANH TOÁN
     {
