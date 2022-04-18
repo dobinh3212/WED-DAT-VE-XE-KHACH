@@ -124,13 +124,13 @@ Trang chủ
                             <div class="single-product">
                                 <div class="product-f-image">
                                     @if (isset($lo_trinh) && $lo_trinh->image != null)
-                                    <img src="image/{{$lo_trinh->image??'' }}" alt="">
+                                    <img style="height: 141px;" src="image/{{$lo_trinh->image??'' }}" alt="">
                                     <div class="product-hover">
                                         <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
                                     </div>
                                     @else
-                                    <img src="image/no_image.png" alt="">
-                                    <div class="product-hover">
+                                    <img style="height: 141px;" src="image/no_image.png" alt="">
+                                    <div style="height: 141px;" class="product-hover">
                                         <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
                                     </div>
                                     @endif
@@ -144,11 +144,6 @@ Trang chủ
                                     </div>
                                 </div>
                                 <h2 style=" margin-top: 30px; font-weight: bold;text-align: center;"><a href="{{route('tuyenxephobien', [$lo_trinh->id])}}">{{$lo_trinh->route}}</a></h2>
-
-                                <!-- <div class="product-carousel-price">
-                                        <ins>{{ number_format(180000, 0,",",".") }} đ</ins> <del style="color: red;">{{ number_format(220000,0,",",".") }} đ</del>
-                                    </div> -->
-
                             </div>
                             @endforeach
 
