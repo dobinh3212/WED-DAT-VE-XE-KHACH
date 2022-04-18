@@ -8,8 +8,9 @@
                 <th>Số ghế</th>
                 <th>Số hàng</th>
                 <th>Số cột</th>
-                <!-- <th>Sơ đồ</th> -->
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;" colspan="3">Thao tác</th>
+                @endif
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
@@ -25,12 +26,10 @@
                 <td>{{$loaixes->seats}}</td>
                 <td>{{$loaixes->number_row}}</td>
                 <td>{{$loaixes->number_columns}}</td>
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['type_bus.destroy', $loaixes->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <!-- <a href="/xe/{{$loaixes->slug}}" target="_blank" class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i> Xem 
-                        </a> -->
                         <a href="{{ route('type_bus.edit', [$loaixes->id]) }}" class='btn btn-default btn-xs'>
                             Sửa
                         </a>
@@ -39,6 +38,7 @@
                     </div>
                     {!! Form::close() !!}
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>

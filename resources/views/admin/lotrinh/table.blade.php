@@ -7,7 +7,9 @@
                 <th>Điểm cuối cùng</th>
                 <th>Các điểm dừng</th>
                 <th>Thời gian</th>
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;" colspan="3">Thao tác</th>
+                @endif
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
@@ -18,12 +20,11 @@
                 <td>{{$route_buss->destination??''}}</td>
                 <td>{{$route_buss->bus_stop->name??''}}</td>
                 <td>{{$route_buss->time_intend}} tiếng</td>
+
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['route_bus.destroy', $route_buss->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <!-- <a href="/xe/{{$route_buss->slug}}" target="_blank" class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i> Xem 
-                        </a> -->
                         <a href="{{ route('route_bus.edit', [$route_buss->id]) }}" class='btn btn-default btn-xs'>
                             Sửa
                         </a>
@@ -32,6 +33,7 @@
                     </div>
                     {!! Form::close() !!}
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>

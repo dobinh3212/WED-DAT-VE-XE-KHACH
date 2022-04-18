@@ -11,7 +11,9 @@
                 <th>Thời gian xuất phát</th>
                 <th>Giá vé</th>
                 <th>Trạng thái</th>
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;" colspan="3">Thao tác</th>
+                @endif
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
@@ -26,6 +28,7 @@
                 <td style="text-align: center;">{{$buses->start_time}}</td>
                 <td>{{number_format($buses->price)}} VND</td>
                 <td>{{$buses->is_active??''}}</td>
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['buse.destroy', $buses->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -37,6 +40,7 @@
                     </div>
                     {!! Form::close() !!}
                 </td>
+                @endif
             </tr>
             @endforeach
         </tbody>

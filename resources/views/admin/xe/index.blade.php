@@ -7,11 +7,13 @@
             <div class="col-sm-6">
                 <h1>Xe khách</h1>
             </div>
+            @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
             <div class="col-sm-6">
                 <a style="margin-left: 440px;margin-top: 30px;" class="btn btn-primary float-right" href="{{ route('coach.create') }}">
                     Thêm mới
                 </a>
             </div>
+            @endif
         </div>
     </div>
 </section>

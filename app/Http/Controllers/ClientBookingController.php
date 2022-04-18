@@ -10,10 +10,15 @@ use App\Models\RouteBus;
 use App\Models\Setting;
 use App\Models\TypeBuses;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bus;
 
 class ClientBookingController extends Controller
 {
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
     public function datve()
     {
         $setting = Setting::first();

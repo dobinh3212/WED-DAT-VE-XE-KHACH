@@ -19,7 +19,14 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="hidden-xs">
                             @if(Auth::check())
-                                {{ Auth::user()->name }}
+                            @if(Auth::user()->type_employee==0)
+                            Tài xế:
+                            @elseif(Auth::user()->type_employee==1)
+                            Admin:
+                            @else
+                            SupperAdmin:
+                            @endif
+                            {{ Auth::user()->name }}
                             @endif
                         </span>
                     </a>
@@ -29,7 +36,7 @@
                             <!-- <a href="#" class="dropdown-item">Tài khoản cá nhân</a> -->
                             {{-- <a href="/generator_builder" class="dropdown-item">Generator Builder</a> --}}
                             <div class="dropdown-divider"></div>
-                            <a href="{{ route('change_password') }}"class="dropdown-item">Đổi mật khẩu</a>
+                            <a href="{{ route('change_password') }}" class="dropdown-item">Đổi mật khẩu</a>
                             <div class="dropdown-divider"></div>
                             <a href="{{ Auth::user()->secret_code == null ? '/admin/two_face_auths' : '/admin/two_face_auths/disable' }}" class="dropdown-item">{{ Auth::user()->secret_code == null ? 'Bật' : 'Tắt' }} xác
                                 thực 2
