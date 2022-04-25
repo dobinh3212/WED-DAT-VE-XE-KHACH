@@ -131,22 +131,14 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function logout(Request $request)
     {
-        $this->guard()->logout();
-
+        $this->guard('customer')->logout();
         $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        if ($response = $this->loggedOut($request)) {
-            return $response;
-        }
-
-        return $request->wantsJson()
-            ? new Response('', 204)
-            : redirect('/login');
+        return redirect('/login');
     }
+
     protected function loggedOut(Request $request)
     {
         //

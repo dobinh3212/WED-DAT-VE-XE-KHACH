@@ -10,6 +10,7 @@ Chọn vé
     <div style="margin-top: 54px;width: 53%;margin-left:300px" class="chonveleft">
         <h3>Thông tin vé đã đặt</h3>
         <p>Mã đơn hàng: <a>{{$order_ticket->id}}</a></p>
+        <p><i class="fa fa-bus"></i>Khách hàng: <a>{{Auth::guard('customer')->user()->name}}</a></p>
         <p><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$route_bus->departure}}</a></p>
         <p><i class="fa fa-bus"></i> Nơi đến: <a>{{$route_bus->destination}}</a></p>
         <p><span class="glyphicon glyphicon-time"></span> Ngày đi: {{$chonve->start_time}} : {{date('d-m-Y',strtotime($chonve->start_day))}} </p>

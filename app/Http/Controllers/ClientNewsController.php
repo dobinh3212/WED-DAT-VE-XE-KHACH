@@ -8,13 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ClientNewsController extends Controller
 {
-  public function __construct()
-  {
-    $this->middleware('auth:customer');
-  }
   public function index()
   {
-    dd(Auth::guard('customer')->user()->name);
     $setting = Setting::first();
     $tintuc = News::paginate(6);
     return view('client.tintuc.tintuc', ["tintuc" => $tintuc, "setting" => $setting]);

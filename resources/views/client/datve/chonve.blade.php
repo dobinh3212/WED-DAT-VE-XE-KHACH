@@ -31,7 +31,19 @@ Chọn vé
           <input type="number" name="number" value='1' min="1" max="5">
           <input type="hidden" name="id" value="{{$chonve->id}}">
         </b> </p><br>
+      @if(Auth::guard('customer')->user())
       <button type="submit" style="background: #f57812; border: none;" class="btn btn-success chondatve">Thanh toán</button>
+      @else
+      <li>
+        <a data-toggle="modal" data-target="#login" data-dismiss="modal">
+          <?php
+          session_start();
+          $_SESSION['thanhtoan'] = 'thanhtoan';
+          ?>
+          <button type="submit" style="background: #f57812; border: none;" class="btn btn-success chondatve">Thanh toán</button>
+        </a>
+      </li>
+      @endif
     </form>
   </div>
 </div>

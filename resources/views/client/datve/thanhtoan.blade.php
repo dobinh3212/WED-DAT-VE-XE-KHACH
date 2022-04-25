@@ -19,13 +19,14 @@ Thanh toán
 <div class="chonvemain">
   <div class="chonveleft">
     <h3 style="color: #032645;">Thông tin vé</h3>
+    <p><i class="fa fa-bus"></i> Khách hàng: <a>{{Auth::guard('customer')->user()->name}}</a></p><br>
     <p><i class="fa fa-bus"></i> Nơi Khởi Hành: <a>{{$route_bus->departure}}</a></p><br>
     <p><i class="fa fa-bus"></i> Nơi đến: <a>{{$route_bus->destination}}</a></p> <br>
     <p><i class="fa fa-bus"></i> Biển số xe: <a>{{$coach->license_plate}}</a></p> <br>
     <p><span class="glyphicon glyphicon-time"></span> Thời gian đi: {{$chonve->start_time}} : {{date('d-m-Y',strtotime($chonve->start_day))}} </p><br>
     <p><span class="glyphicon glyphicon-bed"></span> Loại Ghế: {{$type_buse->type_bus??''}} </p><br>
-    <p><i class="fa fa-address-card-o"></i> Số vé: {{$sove??''}} vé</p><br>
-    <p><i class="fa fa-balance-scale"></i> Tổng giá: {{($chonve->price * $sove)/1000}}.000 VNĐ</p><br>
+    <p><i class="fa fa-address-card-o"></i> Số vé: {{$sove}} vé</p><br>
+    <p><i class="fa fa-balance-scale"></i> Tổng giá: {{($chonve->price *$sove)/1000}}.000 VNĐ</p><br>
   </div>
   <div class="chonveright">
     <div class="title_step4">

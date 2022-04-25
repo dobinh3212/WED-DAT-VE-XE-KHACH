@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
-Route::post('/login-customer', 'Auth\Customer\LoginController@login')->name("customer.login");
+Route::post('/login-customer', 'Auth\Customer\LoginController@loginn')->name("login_customer");
 // Route::get('/', 'Company\Auth\LoginController@showLoginForm');
-Route::get('/login1', 'Auth\Customer\LoginController@showLoginForm')->name('login1');
+Route::get('/login_client', 'Auth\Customer\LoginController@showLoginForm')->name('login_client');
 // Route::post('/login', 'Company\Auth\LoginController@login');
-Route::get('/logout', 'Auth\Customer\LoginController@logout')->name('logout');
-
+Route::get('/logout_customer', 'Auth\Customer\LoginController@logout')->name('logout_customer');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::group(['middleware' => ['auth:customer']], function () {
-  Route::resource('tintuc', 'ClientNewsController');
 });
 
 
@@ -29,6 +29,7 @@ Route::post('/thanhtoan', 'ClientBookingController@thanhtoan')->name('thanhtoan'
 Route::post('/thanhtoan2', 'ClientBookingController@thanhtoan2')->name('thanhtoan2');
 Route::post('/thanhtoan3', 'ClientBookingController@thanhtoan3')->name('thanhtoan3');
 Route::get('return-vnpay', 'ClientBookingController@return_vnpay');
+Route::resource('tintuc', 'ClientNewsController');
 Auth::routes([
   'register' => true, // Registration Routes...
   'reset' => true, // Password Reset Routes...

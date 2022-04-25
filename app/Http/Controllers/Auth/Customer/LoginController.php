@@ -8,8 +8,11 @@ use Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+session_start();
+session_destroy();
 class LoginController extends Controller
 {
     /*
@@ -25,18 +28,12 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/1212';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    protected function redirectTo()
+    {
+        return url()->previous();
+    }
+
     public function __construct()
     {
         $this->middleware('customer.guest')->except('logout');

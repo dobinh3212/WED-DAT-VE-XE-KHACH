@@ -11,11 +11,11 @@ Thanh toán thành công
         <h3>Thông báo thanh toán thành công!</h3>
         <div class="col-sm-6">
             <h3 style="font-size:20px; color: rgb(0,64,87);">Thông tin khách hàng</h3>
-            <p>Mã khách hàng: <a>5</a></p>
-            <p>Tên khách hàng: <a>Đỗ Văn Bình</a></p>
-            <p>Ngày Sinh: 01/01/2000</p>
-            <p>Email: dobinh111999@gmail.com</p>
-            <p>Điện thoại: 0372.471.772</p>
+            <p>Mã khách hàng: <a>{{Auth::guard('customer')->user()->id}}</a></p>
+            <p>Tên khách hàng: <a>{{Auth::guard('customer')->user()->name??''}}</a></p>
+            <p>Ngày Sinh: {{date('d-m-Y',strtotime(Auth::guard('customer')->user()->date_birth??''))}}</p>
+            <p>Email: {{Auth::guard('customer')->user()->email??''}}</p>
+            <p>Điện thoại: {{Auth::guard('customer')->user()->phone??''}}</p>
             <br>
         </div>
         <div class="col-sm-6">
