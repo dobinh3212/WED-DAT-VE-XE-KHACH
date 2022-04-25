@@ -6,13 +6,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
+Route::post('/login-customer', 'Auth\Customer\LoginController@login')->name("customer.login");
+// Route::get('/', 'Company\Auth\LoginController@showLoginForm');
+Route::get('/login1', 'Auth\Customer\LoginController@showLoginForm')->name('login1');
+// Route::post('/login', 'Company\Auth\LoginController@login');
+Route::get('/logout', 'Auth\Customer\LoginController@logout')->name('logout');
+
+Route::group(['middleware' => ['auth:customer']], function () {
+  Route::resource('tintuc', 'ClientNewsController');
+});
 
 
 Route::resource('/', 'ClientController');
 Route::get('/gioithieu', 'ClientController@introduce');
 Route::get('/lienhe', 'ClientController@contact')->name('lienhe');
 Route::get('/tuyenxephobien/{id}', 'ClientBookingController@tuyenxephobien')->name('tuyenxephobien');
-Route::resource('tintuc', 'ClientNewsController');
+// Route::resource('tintuc', 'ClientNewsController');
 Route::get('/datve', 'ClientBookingController@datve')->name('datve');
 Route::post('/chonchuyen', 'ClientBookingController@chonchuyen')->name('chonchuyen');
 Route::get('/chonve/{id}', 'ClientBookingController@chonve')->name('chonve');

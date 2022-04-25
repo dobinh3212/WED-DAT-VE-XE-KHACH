@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class Customer extends Model
 {
 
-    public $table = 'customer';
+    public $table = 'customers';
     use FillterTraits;
 
     public $fillable = [
