@@ -93,7 +93,7 @@
     @include('client.layout.footer')
     <!-- Kết phần footer -->
     @yield('excontent')
-    @extends('client.website.login')
-    @extends('client.website.register')
+    @extends('client.auth.login')
+    @extends('client.auth.register')
     @yield('script')
 </body>

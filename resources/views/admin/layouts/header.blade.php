@@ -42,7 +42,7 @@
                                 thực 2
                                 lớp</a>
                             <div class="dropdown-divider"></div>
-                            <a href="{{ route('logout') }}" class="dropdown-item">
+                            <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Đăng xuất
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

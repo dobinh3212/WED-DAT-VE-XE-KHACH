@@ -1,25 +1,22 @@
+
 <div class="modal fade" id="register">
     <div class="modal-dialog" style="width:500px;">
         <div class="modal-content">
-            <form>
+        <form method="POST" action="{{ route('reigster_client') }}">
+                @csrf
                 <div class="modal-header"  style="background: rgb(0,64,87); color: #FFF; text-align: center;">
                     <h4 class="modal-title">Thông tin Đăng ký</h4>
-                </div>
-                <!-- hiện lổi -->
-                <div class="hienloi">
-                    <div class="loi"></div>
-                    <div class="loi2"></div>
-                    <div class="loi3"></div>
-                    <div class="loi4"></div>
-                    <div class="loi5"></div>
-                    <div class="loi6"></div>
-                    <div class="dangkytc"></div>
                 </div>
                 <div class="modal-body">
                     <!-- form đăng ký -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                        <input type="text" class="form-control dienthoai" name="phone" placeholder="Số điện thoại">
+                        <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror"placeholder="Nhập số điện thoại" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                        @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <br>
                     <!-- Họ và tên  -->
@@ -28,6 +25,16 @@
                         <input type="text" class="form-control txtname" name="name"  placeholder="Họ và tên">
                      </div>
                      <br>
+                     <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"placeholder="Nhập Email" required autocomplete="email" autofocus>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <br>
                      <!-- Ngày sinh  -->
                      <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-hourglass"></span></span>
@@ -46,23 +53,30 @@
                     </div>
                      <br>
                      <!--  mật khẩu -->
-                    <div class="input-group">
+                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" class="form-control matkhau" name="password" placeholder="Mật khẩu">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Nhập mật khẩu" name="password" required autocomplete="current-password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <br>
-                    <!-- repassword -->
+                    <div class="formrow{{ $errors->has('password_confirmation') ? ' has-error' : '' }}"></div>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-repeat"></i></span>
-                        <input type="password" class="form-control rematkhau" name="repassword" placeholder="Xác nhận Mật khẩu">
+                        <input type="password" class="form-control rematkhau" name="password_confirmation" placeholder="Xác nhận Mật khẩu">
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <div class="input-group">
-                        <!-- button đăng ký -->
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i></span>
-                        <input type="button" style="color: #FFF;background: rgb(0,64,87);"  class="form-control form-control-success dangky" name="register" value="Đăng Ký">
+                <div>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-log-in"></i>
+                        <button style="height: 41px;color: #FFF;background: rgb(0,64,87);width: 424px;" type="submit" class="btn btn-primary" style="width: 100%">
+                            Đăng ký
+                        </button>
+                        </span>
                     </div>
                     <br>
                     <!-- đã có tài khoản -->
@@ -74,6 +88,7 @@
         </div>
     </div>
 </div>
+
 <!-- @section('script')
     <script type="text/javascript">
         $(document).ready(function(){
@@ -83,4 +98,3 @@
         });
     </script>
 @endsection -->
-

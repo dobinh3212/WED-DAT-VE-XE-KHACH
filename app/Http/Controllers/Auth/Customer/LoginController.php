@@ -46,15 +46,15 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('client.website.login');
+        return view('client.auth.login');
     }
     public function redirectLoginCustomer()
     {
-        return view('client.website.login');
+        return view('client.auth.login');
     }
     public function redirectRegisterCustomer()
     {
-        return view('client.website.register');
+        return view('client.auth.register');
     }
     /**
      * Log the user out of the application.

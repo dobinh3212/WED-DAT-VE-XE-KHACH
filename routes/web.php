@@ -13,6 +13,7 @@ Route::get('/login_client', 'Auth\Customer\LoginController@showLoginForm')->name
 Route::get('/logout_customer', 'Auth\Customer\LoginController@logout')->name('logout_customer');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::Post('/reigster_client', 'Auth\Customer\RegisterControler@register')->name('reigster_client');
 Route::group(['middleware' => ['auth:customer']], function () {
 });
 
