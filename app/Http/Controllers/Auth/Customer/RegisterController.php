@@ -28,7 +28,7 @@ class RegisterController extends Controller
       |
      */
 
-    use RegistersUsers;     
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -69,21 +69,30 @@ class RegisterController extends Controller
     }
     public function register(Request $request)
     {
-        if(!empty(Customer::where('email',$request->input('email'))->first())){
+        if (!empty(Customer::where('email', $request->input('email'))->first())) {
+            $thongbao = 'Đăng ký thất bại - Email đã được sử dụng!';
+            session_start();
+            $_SESSION['thongbao'] = $thongbao;
             return redirect(url()->previous());
         }
-
-        $customer = new Customer();
-        $customer->name = $request->input('name');
-        $customer->phone = $request->input('phone');
-        $customer->email = $request->input('email');
-        $customer->password = Hash::make($request->input('password'));
-        $customer->date_birth = $request->input('date_birth');
-        $customer->save();
-        /*         * ******************** */
-        $customer->update();
-        /*         * ******************** */
-        $this->guard()->login($customer);
-        return $this->registered($request, $customer) ?: redirect($this->redirectPath());
+        if ($request->input('password') == $request->input('password_confirmation')) {
+            $customer = new Customer();
+            $customer->name = $request->input('name');
+            $customer->phone = $request->input('phone');
+            $customer->email = $request->input('email');
+            $customer->password = Hash::make($request->input('password'));
+            $customer->date_birth = $request->input('date_birth');
+            $customer->save();
+            /*         * ******************** */
+            $customer->update();
+            /*         * ******************** */
+            $this->guard()->login($customer);
+            return $this->registered($request, $customer) ?: redirect($this->redirectPath());
+        } else {
+            $thongbao = 'Đăng ký thất bại - xác nhận mật khẩu phải giống nhau!';
+            session_start();
+            $_SESSION['thongbao'] = $thongbao;
+            return redirect(url()->previous());
+        }
     }
 }

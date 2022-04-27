@@ -12,6 +12,13 @@ Trang chủ
 <script src="fontend/js3/main.js"></script>
 <div class="main">
     <!--  Slide -->
+    <?php
+    session_start();
+    session_destroy();
+    ?>
+    @if(!empty($_SESSION['thongbao']))
+    <div style="text-align: center;font-size: 20px;background: bisque;color: red;">{{$_SESSION['thongbao']}}</div>
+    @endif
     <div class="mainleft">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
