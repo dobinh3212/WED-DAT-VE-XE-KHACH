@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Auth\Customer;
 
 use Auth;
-use App\Company;
+use App\Customer;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Jrean\UserVerification\Traits\VerifiesUsers;
+use Illuminate\Support\Facades\Hash;
 use Jrean\UserVerification\Facades\UserVerification;
-use App\Http\Requests\Front\CompanyFrontRegisterFormRequest;
 use Illuminate\Auth\Events\Registered;
 use App\Events\CompanyRegistered;
 use Illuminate\Support\Str;
@@ -29,15 +28,14 @@ class RegisterController extends Controller
       |
      */
 
-    use RegistersUsers;
-    use VerifiesUsers;
+    use RegistersUsers;     
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/company-home';
+    protected $redirectTo = '/';
     protected $userTable = 'companies';
     protected $redirectIfVerified = '/company-home';
     protected $redirectAfterVerification = '/company-home';
@@ -49,7 +47,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('company.guest', ['except' => ['getVerification', 'getVerificationError']]);
+        $this->middleware('customer.guest', ['except' => ['getVerification', 'getVerificationError']]);
     }
 
     /**
@@ -59,29 +57,33 @@ class RegisterController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard('company');
+        return Auth::guard('customer');
     }
-
-    public function register(CompanyFrontRegisterFormRequest $request)
+    protected function validator(array $data)
     {
-        $company = new Company();
-        $company->name = $request->input('name');
-        $company->email = $request->input('email');
-        $company->password = bcrypt($request->input('password'));
-        $company->is_active = 1;
-        $company->verified = 1;
-        $company->package_id = 2;
-        $company->save();
-        /*         * ******************** */
-        $company->slug = Str::slug($company->name, '-') . '-' . $company->id;
-        $company->update();
-        /*         * ******************** */
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],);
+    }
+    public function register(Request $request)
+    {
+        if(!empty(Customer::where('email',$request->input('email'))->first())){
+            return redirect(url()->previous());
+        }
 
-        event(new Registered($company));
-        event(new CompanyRegistered($company));
-        $this->guard()->login($company);
-        UserVerification::generate($company);
-        UserVerification::send($company, ' Chào mừng nhà tuyển dụng đến với nền tảng VinasJob ', config('mail.recieve_to.address'), config('mail.recieve_to.name'));
-        return $this->registered($request, $company) ?: redirect($this->redirectPath());
+        $customer = new Customer();
+        $customer->name = $request->input('name');
+        $customer->phone = $request->input('phone');
+        $customer->email = $request->input('email');
+        $customer->password = Hash::make($request->input('password'));
+        $customer->date_birth = $request->input('date_birth');
+        $customer->save();
+        /*         * ******************** */
+        $customer->update();
+        /*         * ******************** */
+        $this->guard()->login($customer);
+        return $this->registered($request, $customer) ?: redirect($this->redirectPath());
     }
 }

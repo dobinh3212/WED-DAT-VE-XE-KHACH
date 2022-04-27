@@ -38,24 +38,25 @@
                      <!-- Ngày sinh  -->
                      <div class="input-group">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-hourglass"></span></span>
-                        <input type="date" class="form-control txtngaysinh" value="1994-02-20" name="ngaysinh">
+                        <input type="date" class="form-control txtngaysinh" value="1994-02-20" name="date_birth">
                      </div>
                      <br>
                      <!--  Giới tính-->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-transgender-alt"></i></span>
                          <label class="checkbox-inline">
-                                <input type="radio" name="txtgioitinh2" value="1" checked>Nam
+                                <input type="radio" name="sex" value="1" checked>Nam
                         </label>
                         <label class="checkbox-inline">
-                        <input type="radio" name="txtgioitinh2" value="2">Nữ
+                        <input type="radio" name="sex" value="2">Nữ
                         </label>
                     </div>
                      <br>
                      <!--  mật khẩu -->
+                     
                      <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Nhập mật khẩu" name="password" required autocomplete="current-password">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Nhập mật khẩu" name="password" required autocomplete="new-password">
                         @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -63,10 +64,9 @@
                         @enderror
                     </div>
                     <br>
-                    <div class="formrow{{ $errors->has('password_confirmation') ? ' has-error' : '' }}"></div>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-repeat"></i></span>
-                        <input type="password" class="form-control rematkhau" name="password_confirmation" placeholder="Xác nhận Mật khẩu">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Xác nhận mật khẩu"  required autocomplete="new-password">
                     </div>
 
                 </div>
