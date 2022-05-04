@@ -50,11 +50,6 @@ class ForgotPasswordController extends Controller
         Flash::success('Chúng tôi đã gửi qua e-mail liên kết đặt lại mật khẩu của bạn!');
         return back();
     }
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function showResetPasswordForm($token, $email)
     {
 

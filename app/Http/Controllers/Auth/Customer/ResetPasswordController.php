@@ -28,7 +28,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/company-home';
+    protected $redirectTo = '/customer-home';
 
     /**
      * Create a new controller instance.
@@ -37,21 +37,11 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('company.guest');
+        $this->middleware('customer.guest');
     }
-
-    /**
-     * Display the password reset view for the given token.
-     *
-     * If no token is present, display the link request form.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string|null  $token
-     * @return \Illuminate\Http\Response
-     */
     public function showResetForm(Request $request, $token = null)
     {
-        return view('company_auth.passwords.reset')->with(
+        return view('customer.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }
@@ -63,7 +53,7 @@ class ResetPasswordController extends Controller
      */
     public function broker()
     {
-        return Password::broker('companies');
+        return Password::broker('customers');
     }
 
     /**
@@ -73,6 +63,6 @@ class ResetPasswordController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard('company');
+        return Auth::guard('customer');
     }
 }

@@ -11,6 +11,6 @@ class InformationController extends Controller
   public function information()
   {
     $setting = Setting::first();
-    return view('client.website.thongtinkhach', ["setting" => $setting]);
+    return view('client.website.thongtinkhachhang', ["setting" => $setting]);
   }
 }
