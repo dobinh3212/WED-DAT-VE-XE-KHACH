@@ -39,7 +39,9 @@
         <!-- Button đăng ký, đăng nhập -->
         <ul>
             <li><a href="{{route('logout_customer')}}" style="line-height: 40px;color: #FFF;">( Đăng xuất )</a></li>
-            <li style="color: #FFF;line-height: 40px;"><i class="fa fa-address-book-o" style="font-size:20px; margin-right: 3px;"></i> <a href="#" style="color: #CCC; cursor: pointer;">{{Auth::guard('customer')->user()->name}}</a></li>
+            <li style="color: #FFF;line-height: 40px;"><i class="fa fa-address-book-o" style="font-size:20px; margin-right: 3px;"></i>
+                <a href="{{route('thongtin')}}" style="color: #CCC; cursor: pointer;">{{Auth::guard('customer')->user()->name}}</a>
+            </li>
         </ul>
         @else
         <!-- Hiện số điện thoại, đăng xuất -->
