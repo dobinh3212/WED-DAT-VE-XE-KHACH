@@ -23,6 +23,9 @@
     <script type="text/javascript" src="{{asset('ckfinder/ckfinder.js')}}"></script>
 
 </head>
+<style>
+
+</style>
 
 <body>
     <!-- phần header -->
@@ -36,11 +39,15 @@
             </div>
         </div>
         @if(Auth::guard('customer')->user())
-        <!-- Button đăng ký, đăng nhập -->
         <ul>
             <li><a href="{{route('logout_customer')}}" style="line-height: 40px;color: #FFF;">( Đăng xuất )</a></li>
-            <li style="color: #FFF;line-height: 40px;"><i class="fa fa-address-book-o" style="font-size:20px; margin-right: 3px;"></i>
-                <a href="{{route('thongtin')}}" style="color: #CCC; cursor: pointer;">{{Auth::guard('customer')->user()->name}}</a>
+            <li style="color: #FFF;line-height: 40px;" class="dropdown">
+                <i class="fa fa-address-book-o" style="font-size:20px; margin-right: 3px;"></i>
+                <a href="#" style="color: #CCC; cursor: pointer;" data-toggle="dropdown">{{Auth::guard('customer')->user()->name}}</a>
+                <ul class="dropdown-menu">
+                    <li><a style="margin-left: -160px;" href="{{route('thongtin')}}">Thông tin cá nhân</a></li>
+                    <li><a href="{{route('lichsudatve')}}">Thông tin vé đã đặt</a></li>
+                </ul>
             </li>
         </ul>
         @else

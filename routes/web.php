@@ -16,8 +16,8 @@ Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::Post('/reigster_client', 'Auth\Customer\RegisterController@register')->name('reigster_client');
 Route::group(['middleware' => ['auth:customer']], function () {
 });
-Route::get('/thongtin', 'InformationController@information')->name('thongtin'); //thông tin cá nhân
-
+Route::get('/thongtin', 'ClientInformationController@information')->name('thongtin'); //thông tin cá nhân
+Route::get('/lichsudatve', 'ClientInformationController@lichsudatve')->name('lichsudatve'); //thông vé đã đặt
 Route::get('update_password', 'ClientUserController@showForm');
 Route::post('change_password', 'ClientUserController@change_password');
 Route::get('update_profile', 'ClientUserController@showFormprofile');
@@ -40,7 +40,6 @@ Auth::routes([
   'register' => true, // Registration Routes...
   'reset' => true, // Password Reset Routes...
   'verify' => false, // Email Verification Routes...
-
 ]);
 Route::group(["middleware" => ["auth"], "prefix" => "two_face"], function () {
   Route::get("/", "VerifyTwoFaceController@index")->name("two_face.index");

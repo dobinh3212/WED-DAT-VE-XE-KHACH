@@ -1334,12 +1334,12 @@ img {
 
 /*lịch sử đi*/
 .lichsudi {
-	width: 56%;
+	width: 80%;
 	min-height: 485px;
 	box-shadow: 0 0 2em #CCC;
 	border-radius: 1em;
 	float: left;
-	margin-left: 2%;
+	margin-left: 11%;
 	margin-top: 1em;
 }
 

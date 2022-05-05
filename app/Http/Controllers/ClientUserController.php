@@ -2,22 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateClientUserRequest;
-use App\Http\Requests\UpdateAccountUserRequest;
-use App\Http\Requests\UpdatePostCategoryRequest;
 use App\Models\Customer;
-use App\Models\Post;
 use App\Models\Setting;
-use App\Models\Users;
-use App\Repositories\PostCategoryRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Hash;
-use Validator;
-use Illuminate\Support\Facades\URL;
-use Illuminate\Support\Facades\Redirect;
-
 
 class ClientUserController extends Controller
 {
