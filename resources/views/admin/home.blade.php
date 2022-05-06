@@ -1,35 +1,77 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<style>
-    .left-column {
-        width: 62%;
-        margin-top: 7px;
-    }
-    .backgroud_home{
-         height: 607px;        
-         width: 1317px;
-         background-image: url("https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-         background-repeat: no-repeat;
-         background-attachment: fixed;
-         background-size: cover;
-}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Thống kê
+        <small>Bảng điều khiển</small>
+    </h1>
+</section>
 
-    .right-column {
-        width: 38%;
-    }
-</style>
-<div class="container backgroud_home">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div style="text-align: center;font-size: 30px;" class="card-header">Chào bạn</div>
+<!-- Main content -->
+<section class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>{{ $numOrder??'' }}</h3>
 
-                <div style="text-align: center;font-size: 30px;" class="card-body">
-                    Chúc bạn một ngày làm việc vui vẻ!
+                    <p>Đơn Hàng</p>
                 </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="/admin/order" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{ $numProduct??'' }}</h3>
+
+                    <p>Sản phẩm</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="/admin/product" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>{{ $numArticle??'' }}</h3>
+                    <p>Người dùng</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="/admin/article" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>{{ $numUser??'' }}</h3>
+                    <p>Bài viết</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="/admin/user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
     </div>
-</div>
+</section>
+<!-- /.content -->
 @endsection
