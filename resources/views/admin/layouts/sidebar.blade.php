@@ -6,7 +6,7 @@
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search...">
                 <span class="input-group-btn">
-              </span>
+                </span>
             </div>
         </form>
         <!-- /.search form -->
@@ -14,15 +14,15 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">TRANG QUẢN TRỊ</li>
             <li>
-                <a href="/admin">
+                <a href="/admin/home">
                     <i class="fa fa-calendar"></i> <span>Bảng điều khiển</span>
                 </a>
             </li>
             <li><a href="{{route('busstop.index')}}"><i class="fa fa-cubes"></i> <span>QL Trạm dừng</span></a></li>
             <li><a href="{{route('coach.index')}}"><i class="fa fa-bus"></i> <span>QL Xe khách</span></a></li>
             <li><a href="{{route('type_bus.index')}}"><i class="fa fa-database"></i> <span>QL Loại xe</span></a></li>
-            <li><a href="{{route('route_bus.index')}}"><i class="fa fa-cube" ></i> <span>QL Lộ trình</span></a></li>
-            <li><a href="{{route('buse.index')}}"><i class="fa fa-dashboard" ></i> <span>QL Chuyến xe</span></a></li>
+            <li><a href="{{route('route_bus.index')}}"><i class="fa fa-cube"></i> <span>QL Lộ trình</span></a></li>
+            <li><a href="{{route('buse.index')}}"><i class="fa fa-dashboard"></i> <span>QL Chuyến xe</span></a></li>
             <li><a href="{{route('news.index')}}"><i class="fa fa-file-text"></i> <span>QL Tin tức</span></a></li>
             <li><a href="{{route('province.index')}}"><i class="fa fa-fire"></i> <span>QL Tỉnh thành</span></a></li>
             <li><a href="{{route('users.index')}}"><i class="fa fa-user"></i> <span>QL Người dùng</span></a></li>

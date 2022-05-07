@@ -48,7 +48,7 @@ Route::group(["middleware" => ["auth"], "prefix" => "two_face"], function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
-  Route::get('/', 'HomeController@index');
+  Route::get('/', 'HomeController@home');
   Route::group(["prefix" => "two_face_auths"], function () {
     Route::get("/", "TwoFaceAuthsController@index")->name("2fa_setting");
     Route::post("/enable", "TwoFaceAuthsController@enable")->name("enable_2fa_setting");
