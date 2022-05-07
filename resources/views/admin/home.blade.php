@@ -17,7 +17,7 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>{{ $numOrder??'' }}</h3>
+                    <h3>{{ $numOrder??'58' }}</h3>
 
                     <p>Đơn Hàng</p>
                 </div>
@@ -32,7 +32,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>{{ $numProduct??'' }}</h3>
+                    <h3>{{ $numProduct??'166' }}</h3>
 
                     <p>Sản phẩm</p>
                 </div>
@@ -47,7 +47,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>{{ $numArticle??'' }}</h3>
+                    <h3>{{ $numArticle??'42' }}</h3>
                     <p>Người dùng</p>
                 </div>
                 <div class="icon">
@@ -61,7 +61,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>{{ $numUser??'' }}</h3>
+                    <h3>{{ $numUser??'47' }}</h3>
                     <p>Bài viết</p>
                 </div>
                 <div class="icon">
