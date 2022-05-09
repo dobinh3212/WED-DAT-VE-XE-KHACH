@@ -66,6 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::resource('province', 'ProvinceController');
   Route::resource('route_bus', 'RouteBusController');
   Route::resource('setting', 'SettingController');
+  Route::resource('order_ticket', 'OrderTicketController');
   Route::get('change_password', 'ChangePasswordController@changePassword')->name('change_password');
   Route::post('update_password', 'ChangePasswordController@updatePassword')->name('update_password');
 });

@@ -24,9 +24,9 @@ Thông tin cá nhân
         @foreach($order_ticket as $t)
         <tr class="dongthongtinve" data-id={{ $i }}>
             <td><span>{{$t->id??''}}</span></td>
-            <td><span>{{\App\Models\RouteBus::where(['id' => $t->route_id->route_id])->first()->route}}</span></td>
-            <td><span>{{$t->buse->start_time??''}} :{{date('d-m-Y',strtotime($t->buse->start_day))}} </span></td>
-            <td><span>{{\App\Models\RouteBus::where(['id' => $t->route_id->route_id])->first()->time_intend}} tiếng</span></td>
+            <td><span>{{\App\Models\RouteBus::where(['id' => $t->route_id->route_id??''])->first()->route??''}}</span></td>
+            <td><span>{{$t->buse->start_time??''}} :{{date('d-m-Y',strtotime($t->buse->start_day??''))}} </span></td>
+            <td><span>{{\App\Models\RouteBus::where(['id' => $t->route_id->route_id??''])->first()->time_intend??''}} tiếng</span></td>
             <td><span>{{($t->Loại_ghế==1)? 'Giường Nằm':'Ghế Ngồi'}}</span></td>
             <td><span>{{$t->number??''}}vé</span></td>
             <td><span>{{($t->total)/1000}}.000 VNĐ</span></td>
