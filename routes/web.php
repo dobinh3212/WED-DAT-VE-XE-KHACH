@@ -18,10 +18,13 @@ Route::group(['middleware' => ['auth:customer']], function () {
 });
 Route::get('/thongtin', 'ClientInformationController@information')->name('thongtin'); //thông tin cá nhân
 Route::get('/lichsudatve', 'ClientInformationController@lichsudatve')->name('lichsudatve'); //thông vé đã đặt
+Route::post('detail/{id}', 'ClientInformationController@detail_ticket')->name('detail'); //thông tin chi tiết vé
+
 Route::get('update_password', 'ClientUserController@showForm');
 Route::post('change_password', 'ClientUserController@change_password');
 Route::get('update_profile', 'ClientUserController@showFormprofile');
 Route::post('change_profile', 'ClientUserController@changeProfile')->name('change_profile');
+
 
 Route::resource('/', 'ClientController');
 Route::get('/gioithieu', 'ClientController@introduce');

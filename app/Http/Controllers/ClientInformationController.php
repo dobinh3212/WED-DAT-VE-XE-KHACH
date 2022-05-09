@@ -20,4 +20,9 @@ class ClientInformationController extends Controller
     $order_ticket = OrderTicket::where('customer_id', Auth::guard('customer')->user()->id)->get();
     return view('client.website.thongtinlichsu', ["setting" => $setting], ["order_ticket" => $order_ticket]);
   }
+  public function detail_ticket($id)
+  {
+    $setting = Setting::first();
+    return view('client.auth.chitietve')->with("setting", $setting);
+  }
 }
