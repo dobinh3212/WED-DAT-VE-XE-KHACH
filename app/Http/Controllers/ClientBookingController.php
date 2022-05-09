@@ -12,6 +12,7 @@ use App\Models\TypeBuses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bus;
+use QrCode;
 
 class ClientBookingController extends Controller
 {
@@ -73,7 +74,7 @@ class ClientBookingController extends Controller
     public function thanhtoan3(Request $request) // THANH TOÁN
     {
         // tạo order
-        $input['customer_id'] =  1; // tạm thời để 1
+        $input['customer_id'] =  Auth::guard('customer')->user()->id; // tạm thời để 1
         $input['buse_id'] = $request->buse_id;
         $input['is_active'] = 0; //chưa thanh toán
         $input['number'] = $request->sove ?? 0;
@@ -87,6 +88,7 @@ class ClientBookingController extends Controller
         $route_bus = RouteBus::find($chonve->route_id);
         $type_buse = TypeBuses::find($coach->type_car_id);
         $chonve->update(['number_seat' => $chonve->number_seat - $request->sove]); //cập nhật số vé
+        $qrCode = QrCode::size(100)->generate('Ma Don Hang La:' . $order_ticket->id);
         // kết thúc tạo order
         if ($request->method_pay_id == 'bank') {
             return view('client.datve.success_bank', [
@@ -96,6 +98,7 @@ class ClientBookingController extends Controller
                 'route_bus' => $route_bus,
                 'type_buse' => $type_buse,
                 'setting' => $setting,
+                'qrCode' => $qrCode,
             ]);
         } elseif ($request->method_pay_id == 'zalopayapp') {
             $appid = env('ZLP_APP_ID'); // lấy từ cấu hình trong .env
@@ -301,7 +304,7 @@ class ClientBookingController extends Controller
             $setting = Setting::first();
             $route_bus = RouteBus::find($buse->route_id);
             $type_buse = TypeBuses::find($coach->type_car_id);;
-
+            $qrCode = QrCode::size(100)->generate('Ma Don Hang La:' . $order_ticket->id);
             $order_ticket->update(['is_active' => 1]); //cập nhật trạng thái là đã thanh toán
             return view('client.datve.success_vnp', [
                 'order_ticket' => $order_ticket,
@@ -309,6 +312,7 @@ class ClientBookingController extends Controller
                 'buse' => $buse,
                 'route_bus' => $route_bus,
                 'type_buse' => $type_buse,
+                'qrCode' => $qrCode,
                 'setting' => $setting,
             ]);
         } else {

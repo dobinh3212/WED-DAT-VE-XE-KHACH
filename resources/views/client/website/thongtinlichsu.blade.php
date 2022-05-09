@@ -33,7 +33,7 @@ Thông tin cá nhân
             <td><span>@if ($t->is_active == 1) {{ 'Đã thanh toán' }} @else {{ 'Chưa thanh toán' }} @endif</span></td>
             <td style="text-align: center;" width="120">
                 <div class='btn-group'>
-                    <a href="{{ route('detail', [$route_buss->id]) }}" class='btn btn-default btn-xs'>
+                    <a href="{{ route('detail_ticket', [$t->id]) }}" class='btn btn-default btn-xs'>
                         Chi tiết
                     </a>
                 </div>
