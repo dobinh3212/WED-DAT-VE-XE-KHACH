@@ -50,7 +50,6 @@ Route::group(["middleware" => ["auth"], "prefix" => "two_face"], function () {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function () {
-  Route::get('/home', 'HomeController@index')->name('home');
   Route::get('/', 'HomeController@home');
   Route::group(["prefix" => "two_face_auths"], function () {
     Route::get("/", "TwoFaceAuthsController@index")->name("2fa_setting");
@@ -67,6 +66,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::resource('route_bus', 'RouteBusController');
   Route::resource('setting', 'SettingController');
   Route::resource('order_ticket', 'OrderTicketController');
+  Route::get('/thongke', 'StatisticalController@thongke')->name('thongke');
+  Route::get('/chitietdatve', 'StatisticalController@chitietdatve')->name('chitietdatve');
   Route::get('change_password', 'ChangePasswordController@changePassword')->name('change_password');
   Route::post('update_password', 'ChangePasswordController@updatePassword')->name('update_password');
 });
