@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::resource('coach', 'CoachController');
   Route::resource('type_bus', 'TypeBusesController');
   Route::resource('users', 'UsersController');
+  Route::resource('customer', 'CustomerController');
   Route::resource('busstop', 'BusStopController');
   Route::resource('buse', 'BuseController');
   Route::resource('news', 'NewsController');
@@ -66,6 +67,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::resource('route_bus', 'RouteBusController');
   Route::resource('setting', 'SettingController');
   Route::resource('order_ticket', 'OrderTicketController');
+  Route::post('/update_active/{id}', 'BuseController@update_active')->name('update_active');
+  Route::get('/edit_active/{id}', 'BuseController@edit_active')->name('edit_active');
   Route::get('/thongke', 'StatisticalController@thongke')->name('thongke');
   Route::get('/chitietdatve', 'StatisticalController@chitietdatve')->name('chitietdatve');
   Route::get('change_password', 'ChangePasswordController@changePassword')->name('change_password');

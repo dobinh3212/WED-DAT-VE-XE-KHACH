@@ -25,9 +25,9 @@ class UsersController extends AppBaseController
         $this->usersRepository = $usersRepo;
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $users = Users::paginate(15);
+        $users = Users::orderBy('id', 'desc')->paginate(15);
         return view('admin.users.index')
             ->with('users', $users);
     }

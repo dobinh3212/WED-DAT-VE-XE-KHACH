@@ -25,7 +25,7 @@ class BuseController extends Controller
 
     public function index()
     {
-        $buse = Buse::paginate(15);
+        $buse = Buse::orderBy('id', 'desc')->paginate(15);
         return view('admin.chuyenxe.index')->with('buse', $buse);
     }
     public function create()
@@ -77,8 +77,21 @@ class BuseController extends Controller
         }
 
         $buse = $this->buseRepository->update($input, $id);
-
         Flash::success('Cập nhật chuyến xe thành công.');
+
+        return redirect(route('buse.index'));
+    }
+    public function edit_active($id)
+    {
+        $buse = $this->buseRepository->find($id);
+        return view('admin.chuyenxe.update_active')->with('buse', $buse);
+    }
+
+    public function update_active($id, Request $request)
+    {
+        $input = $request->is_active;
+        Buse::find($id)->update(['is_active' => $input]);
+        Flash::success('Cập nhật trạng thái thành công.');
 
         return redirect(route('buse.index'));
     }

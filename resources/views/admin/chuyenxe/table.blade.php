@@ -27,11 +27,17 @@
                 <td style="text-align: center;">{{date('d-m-Y',strtotime($buses->start_day))}}</td>
                 <td style="text-align: center;">{{$buses->start_time}}</td>
                 <td>{{number_format($buses->price)}} VND</td>
-                <td>{{$buses->is_active??''}}</td>
+                <td>@if ($buses->is_active == 1) {{ 'Đang chờ' }} @elseif($buses->is_active == 2) {{ 'Đang chạy' }}@else{{'Hoàn thành'}} @endif
+                    <a href="{{ route('edit_active', [$buses->id]) }}" class='btn btn-default btn-xs'>
+                        <i class="fa fa-edit" style="font-size:20px;color:red"></i>
+
+                    </a>
+                </td>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['buse.destroy', $buses->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
+
                         <a href="{{ route('buse.edit', [$buses->id]) }}" class='btn btn-default btn-xs'>
                             Sửa
                         </a>

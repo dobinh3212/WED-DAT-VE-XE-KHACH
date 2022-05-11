@@ -22,7 +22,7 @@ class CoachController extends Controller
 
     public function index()
     {
-        $xe = Coach::where('is_active', 1)->paginate(15);
+        $xe = Coach::where('is_active', 1)->orderBy('id', 'desc')->paginate(15);
         return view('admin.xe.index')->with('xe', $xe);
     }
 
@@ -30,7 +30,7 @@ class CoachController extends Controller
     public function create()
     {
         $loaixe = TypeBuses::pluck('type_bus', 'id');
-        return view('admin.xe.create')->with('loaixe',$loaixe);
+        return view('admin.xe.create')->with('loaixe', $loaixe);
     }
 
     public function store(CreateCoachRequest $request)
@@ -56,7 +56,7 @@ class CoachController extends Controller
             Flash::error('Bài viết trống');
             return redirect(route('xe.index'));
         }
-        return view('admin.xe.edit')->with('xe', $xe)->with('loaixe',$loaixe);
+        return view('admin.xe.edit')->with('xe', $xe)->with('loaixe', $loaixe);
     }
 
     public function update($id, UpdateCoachRequest $request)
@@ -78,7 +78,7 @@ class CoachController extends Controller
     }
 
     public function destroy($id)
-    {  
+    {
         $xe = $this->coachRepository->find($id);
         if (empty($xe)) {
             Flash::error('Xe khách trống');

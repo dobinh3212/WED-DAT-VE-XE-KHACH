@@ -25,7 +25,7 @@ class RouteBusController extends Controller
 
     public function index()
     {
-        $route_bus = RouteBus::paginate(15);
+        $route_bus = RouteBus::orderBy('id', 'desc')->paginate(15);
         return view('admin.lotrinh.index')->with('route_bus', $route_bus);
     }
 

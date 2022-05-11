@@ -52,7 +52,7 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="/admin/article" class="small-box-footer">Chi tiết<i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/admin/customer" class="small-box-footer">Chi tiết<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->

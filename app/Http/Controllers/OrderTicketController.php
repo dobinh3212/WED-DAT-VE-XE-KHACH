@@ -22,7 +22,7 @@ class OrderTicketController extends Controller
 
     public function index()
     {
-        $order_ticket = OrderTicket::paginate(15);
+        $order_ticket = OrderTicket::orderBy('id', 'desc')->paginate(15);
         return view('admin.order_ticket.index')->with('order_ticket', $order_ticket);
     }
     // public function create()
