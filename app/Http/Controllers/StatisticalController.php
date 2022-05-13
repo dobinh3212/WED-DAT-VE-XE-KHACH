@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\News;
 use App\Models\OrderTicket;
 use App\Models\Users;
 use Carbon\Carbon;
@@ -26,7 +27,8 @@ class StatisticalController extends Controller
         $total_month = number_format(array_sum($total));
         $thang = Carbon::now()->format("m");
         $customer = Customer::count();
-        $array_ticket = array('customer' => $customer, 'total_month' => $total_month, 'thang' => $thang, 'month' => $month);
+        $new = News::count();
+        $array_ticket = array('customer' => $customer, 'new' => $new, 'total_month' => $total_month, 'thang' => $thang, 'month' => $month);
         return view('admin.thongke.thongke', ["array_ticket" => $array_ticket]);
     }
     public function chitietdatve()

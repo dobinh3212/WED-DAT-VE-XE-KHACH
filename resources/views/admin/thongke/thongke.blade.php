@@ -60,13 +60,13 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>{{ $numUser??'47' }}</h3>
+                    <h3>{{$array_ticket['new']??'58' }}</h3>
                     <p>Bài viết</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="/admin/user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="/admin/user" class="small-box-footer">Chi tiết<i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
