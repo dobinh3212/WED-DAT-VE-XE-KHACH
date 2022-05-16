@@ -22,6 +22,10 @@ class StatisticalController extends Controller
       
         $months = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->get();
         $total_month = \App\Classes\DataServices::check($months);
+        $buses = Buse::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->count();
+        $buse_active1 = Buse::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->where('is_active',1)->count(); //đang chờ
+        $buse_active2 = Buse::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->where('is_active',2)->count(); //đang chạy
+        $buse_active3 = Buse::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->where('is_active',3)->count(); //hoàn thành
         $thang1 = OrderTicket::where('created_at', '>=',  "2022-01-00")->where('created_at', '<=', "2022-01-30")->get();
         $thang1 = \App\Classes\DataServices::check($thang1);
         $thang2 = OrderTicket::where('created_at', '>=',  "2022-02-00")->where('created_at', '<=', "2022-02-30")->get();
@@ -61,12 +65,13 @@ class StatisticalController extends Controller
         $customer = Customer::count();
        
         $new = News::count();
-        $thang_array = array('nam'=>$nam,
+        $buse_active = array('buse_active1'=>$buse_active1,'buse_active2'=>$buse_active2,'buse_active3'=>$buse_active3);
+        $thang_array = array('nam'=>$nam,'buses'=>$buses,
             'thang1' => $thang1, 'thang2' => $thang2, 'thang3' => $thang3, 'thang4' => $thang4, 'thang5' => $thang5, 'thang6' => $thang6, 'thang7' => $thang7,
             'thang8' => $thang8, 'thang9' => $thang9, 'thang10' => $thang10, 'thang11' => $thang11, 'thang12' => $thang12
         );
         $array_ticket = array('customer' => $customer,'taixe' => $taixe, 'new' => $new, 'total_month' => $total_month, 'thang' => $thang, 'month' => $month);
-        return view('admin.thongke.thongke', ["thang_array" => $thang_array,"chuyenxe" => $chuyenxe,"array_ticket" => $array_ticket]);
+        return view('admin.thongke.thongke', ["thang_array" => $thang_array,"chuyenxe" => $chuyenxe,"array_ticket" => $array_ticket,"buse_active" => $buse_active ]);
     }
     public function chitietdatve()
     {

@@ -22,7 +22,7 @@
                 <!-- <td>{{date('d-m-Y',strtotime($customer->date_birth))}}</td> -->
                 <td> {{$customer->sex}}</td>
                 <td>{{ $customer->email }}</td>
-                @if( Auth::user()->type_employee == 2 ||Auth::user()->id == $user->id )
+                @if( Auth::user()->type_employee == 2 ||Auth::user()->id == $customer->id )
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['customer.destroy', $customer->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
