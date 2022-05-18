@@ -8,6 +8,7 @@
                 <!-- <th>Ngày Sinh</th> -->
                 <th>Giới tính</th>
                 <th>Email</th>
+                <th>Người sửa</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;" colspan="3">Thao tác</th>
                 @endif
@@ -22,7 +23,8 @@
                 <!-- <td>{{date('d-m-Y',strtotime($customer->date_birth))}}</td> -->
                 <td> {{$customer->sex}}</td>
                 <td>{{ $customer->email }}</td>
-                @if( Auth::user()->type_employee == 2 ||Auth::user()->id == $customer->id )
+                <td>{{ $customer->user_edit->name??'' }}</td>
+                @if( Auth::user()->type_employee == 2 ||Auth::user()->type_employee == 1 )
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['customer.destroy', $customer->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

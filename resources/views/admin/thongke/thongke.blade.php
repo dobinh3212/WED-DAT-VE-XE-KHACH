@@ -18,9 +18,8 @@
         <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-aqua">
-
                 <div class="inner">
-                    <h3>{{$array_ticket['month']??'58' }}</h3>
+                    <h3>{{$array_ticket['total_ticket']??'58' }} Vé</h3>
                     <p>Số vé đã đặt trong tháng {{$array_ticket['thang']??''}}</p>
                 </div>
                 <div class="icon">
@@ -35,12 +34,11 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div  class="inner">
-
                 <!-- <p>Lịch trình</p> -->
                 <p  style="margin-top: 15px;">Số chuyến xe: {{$thang_array['buses']??'58' }} chuyến</p>
-                <p>Đã đi: {{$buse_active['buse_active3']}} chuyến</p>
+                <p>Đã đi: {{$buse_active['buse_active2']}} chuyến</p>
                 <!-- <p>Đã đi: {{$buse_active['buse_active3']}} chuyến</p> -->
-                <p>Đang chờ: 6 chuyến</p>
+                <p>Đang chờ:{{$buse_active['buse_active1']}} chuyến</p>
                     <!-- <h3>{{$thang_array['buses']??'58' }}</h3> -->
                 </div>
                 <div class="icon">
@@ -55,7 +53,7 @@
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>{{number_format($array_ticket['total_month']??'' )}}VND</h3>
-                    <p>Doanh thu trong tháng {{$array_ticket['thang']??''}}</p>
+                    <p>Doanh thu vé xe trong tháng {{$array_ticket['thang']??''}}</p>
                 </div>
                 <div class="icon">
                     <i class="ion ion-stats-bars"></i>

@@ -21,9 +21,14 @@ class Customer extends Model
         'password',
         'email',
         'phone',
+        'user_edit_id',
     ];
 
     public static $rules = [
         'name' => 'required',
     ];
+    public function user_edit()
+    {
+        return $this->belongsTo(\App\Models\Users::class, 'user_edit_id', 'id');
+    }
 }

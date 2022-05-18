@@ -8,82 +8,82 @@
         <small>Bảng điều khiển</small>
     </h1>
 </section>
-
+<!DOCTYPE HTML>
+<html>
+<head>
 <script>
-    window.onload = function() {
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            theme: "light2", //\ "light1", "light2", "dark1", "dark2"
-            title: {
-                text: "Biểu đồ doanh thu theo tháng"
-            },
-            axisY: {
-                title: "Reserves(MMbbl)"
-            },
-            data: [{
-                type: "column",
-                showInLegend: true,
-                legendMarkerColor: "grey",
-                legendText: "MMbbl = one million barrels",
-                dataPoints: [{
-                        y: 300878,
-                        label: "Tháng 1"
-                    },
-                    {
-                        y: 266455,
-                        label: "Tháng 2"
-                    },
-                    {
-                        y: 169709,
-                        label: "Tháng 3"
-                    },
-                    {
-                        y: 158400,
-                        label: "Tháng 4"
-                    },
-                    {
-                        y: 142503,
-                        label: "Tháng 5"
-                    },
-                    {
-                        y: 0,
-                        label: "Tháng 6"
-                    },
-                    {
-                        y: 0,
-                        label: "Tháng 7"
-                    },
-                    {
-                        y: 0,
-                        label: "Tháng 8"
-                    },
-                    {
-                        y: 0,
-                        label: "Tháng 9"
-                    },
-                    {
-                        y: 0,
-                        label: "Tháng 10"
-                    },
-                    {
-                        y: 0,
-                        label: "Tháng 11"
-                    },
-                    {
-                        y: 0,
-                        label: "Tháng 12"
-                    }
-                ]
-            }]
-        });
-        chart.render();
+window.onload = function () {
 
-    }
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Biểu đồ số vé bán được trong năm : 2022"
+	},
+	axisX:{
+		valueFormatString: "DD MMM",
+		crosshair: {
+			enabled: true,
+			snapToDataPoint: true
+		}
+	},
+	axisY: {
+		title: "Số vé bán được",
+		includeZero: true,
+		crosshair: {
+			enabled: true
+		}
+	},
+	toolTip:{
+		shared:true
+	},  
+	legend:{
+		cursor:"pointer",
+		verticalAlign: "bottom",
+		horizontalAlign: "left",
+		dockInsidePlotArea: true,
+		itemclick: toogleDataSeries
+	},
+	data: [
+	{
+		type: "line",
+		showInLegend: true,
+		name: "vé",
+		lineDashType: "dash",
+		dataPoints: [
+			{ x: new Date(2022, 01), y: 510 },
+			{ x: new Date(2022, 02), y: 560 },
+			{ x: new Date(2022, 03), y: 540 },
+			{ x: new Date(2022, 04), y: 558 },
+			{ x: new Date(2022, 05), y: 544 },
+			{ x: new Date(2022, 06), y: 693 },
+			{ x: new Date(2022, 07), y: 657 },
+			{ x: new Date(2022, 08), y: 663 },
+			{ x: new Date(2022, 09), y: 639 },
+			{ x: new Date(2022, 10), y: 673 },
+            { x: new Date(2022, 11), y: 639 },
+            { x: new Date(2022, 12), y: 639 },
+
+		]
+	}]
+});
+chart.render();
+
+function toogleDataSeries(e){
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	} else{
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
 </script>
 </head>
-
 <body>
-    <div id="chartContainer" style="height: 300px; width:60%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
+</html>
 @endsection

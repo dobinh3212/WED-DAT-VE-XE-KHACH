@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends AppBaseController
 {
@@ -72,6 +72,7 @@ class CustomerController extends AppBaseController
         } else {
             $input['password'] = Hash::make($request->password);
         }
+        $input['user_edit_id']= Auth::user()->id;
         $this->customersRepository->update($input, $id);
 
         Flash::success('Cập nhật khách hàng thành công.');
