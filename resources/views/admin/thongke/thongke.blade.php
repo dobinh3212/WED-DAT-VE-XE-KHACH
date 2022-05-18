@@ -84,7 +84,7 @@
             animationEnabled: true,
             theme: "light2", //\ "light1", "light2", "dark1", "dark2"
             title: {
-                text: "Biểu đồ doanh thu năm {{$thang_array['nam']}} theo tháng"
+                text: "BIỂU ĐỒ DOANH THU NĂM {{$thang_array['nam']}} THEO THÁNG"
             },
             axisY: {
                 title: "VND"

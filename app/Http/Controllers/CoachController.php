@@ -41,7 +41,7 @@ class CoachController extends Controller
 
         Flash::success('Thêm xe khách thành công.');
 
-        return redirect(route('xe.index'));
+        return redirect(route('coach.index'));
     }
 
     public function show($id)
@@ -51,12 +51,13 @@ class CoachController extends Controller
     public function edit($id)
     {
         $xe = $this->coachRepository->find($id);
+        $number_seat = $xe->number_seat;
         $loaixe = TypeBuses::pluck('type_bus', 'id');
         if (empty($xe)) {
-            Flash::error('Bài viết trống');
-            return redirect(route('xe.index'));
+            Flash::error('Xe khách trống');
+            return redirect(route('coach.index'));
         }
-        return view('admin.xe.edit')->with('xe', $xe)->with('loaixe', $loaixe);
+        return view('admin.xe.edit')->with('xe', $xe)->with('loaixe', $loaixe)->with('number_seat', $number_seat);
     }
 
     public function update($id, UpdateCoachRequest $request)
@@ -65,16 +66,16 @@ class CoachController extends Controller
         $input = $request->all();
         $input['is_active'] = 1;
         if (empty($xe)) {
-            Flash::error('Bài viết trống');
+            Flash::error('Xe khách trống');
 
-            return redirect(route('xe.index'));
+            return redirect(route('coach.index'));
         }
 
         $xe = $this->coachRepository->update($input, $id);
 
         Flash::success('Cập nhật Xe khách thành công.');
 
-        return redirect(route('xe.index'));
+        return redirect(route('coach.index'));
     }
 
     public function destroy($id)
@@ -82,10 +83,10 @@ class CoachController extends Controller
         $xe = $this->coachRepository->find($id);
         if (empty($xe)) {
             Flash::error('Xe khách trống');
-            return redirect(route('xe.index'));
+            return redirect(route('coach.index'));
         }
         $xe->update(['is_active' => 0]);
         Flash::success('Xóa xe khách thành công.');
-        return redirect(route('xe.index'));
+        return redirect(route('coach.index'));
     }
 }

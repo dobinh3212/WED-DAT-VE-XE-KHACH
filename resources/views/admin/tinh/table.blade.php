@@ -4,8 +4,6 @@
             <tr style="background: burlywood;">
                 <th>ID</th>
                 <th>Tên tỉnh thành</th>
-                <th>Ngày tạo</th>
-                <th>Ngày sửa</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;" colspan="3">Thao tác</th>
                 @endif
@@ -20,8 +18,6 @@
                     {{ $provinces->name  }}
                     <!-- </a> -->
                 </td>
-                <td>{{$provinces->created_at}}</td>
-                <td>{{$provinces->updated_at}}</td>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['province.destroy', $provinces->id], 'method' => 'delete']) !!}

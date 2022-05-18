@@ -87,13 +87,13 @@
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-success">Kích hoạt</button>
-                                    <a href="{{ url('/admin/home') }}" class="btn btn-secondary float-right">Hủy</a>
+                                    <a href="{{ url('/admin') }}" class="btn btn-secondary float-right">Hủy</a>
                                 </div>
                             </form>
                         @endif
                         @if (session()->has('success') && session()->get('success') == true)
                             <div class="form-group" style="text-align: center">
-                                <a href="{{ url('/admin/home') }}" class="btn btn-info">Trờ về trang chủ</a>
+                                <a href="{{ url('/admin') }}" class="btn btn-info">Trờ về trang chủ</a>
                             </div>
                         @endif
 

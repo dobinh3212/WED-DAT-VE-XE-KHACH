@@ -36,7 +36,7 @@ class StatisticalController extends Controller
         }
         $thang = Carbon::now()->format("m");
         $customer = Customer::count();
-        $thang_array = \App\Classes\DataServices::thang_order_ticket($months);
+        $thang_array = \App\Classes\DataServices::thang_order_ticket();
         $new = News::count();
         $buse_active = array('buse_active1'=>$buse_active1,'buse_active2'=>$buse_active2,'buse_active3'=>$buse_active3);
         $array_ticket = array('customer' => $customer,'taixe' => $taixe, 'new' => $new, 'total_month' => $total_month, 'thang' => $thang, 'total_ticket' => $total_ticket);
@@ -44,14 +44,19 @@ class StatisticalController extends Controller
     }
     public function chitietdatve()
     {
-        $days = OrderTicket::where('created_at', '>=', Carbon::yesterday())->where('created_at', '<=', Carbon::now())->count();
-        $week = OrderTicket::where('created_at', '>=', Carbon::today()->subDay(Carbon::today()->dayOfWeek))->where('created_at', '<=', Carbon::today())->count();
-        $month = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->count();
-        $year = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-00-00"))->where('created_at', '<=', Carbon::now())->count();
+        $days = OrderTicket::where('created_at', '>=', Carbon::yesterday()->format("Y-m-dd"))->where('created_at', '<=', Carbon::now()->format("Y-M-dd"))->get();
+        $days = \App\Classes\DataServices::check_ticket($days);
+        $week = OrderTicket::where('created_at', '>=', Carbon::now()->subDay(Carbon::now()->dayOfWeek))->where('created_at', '<=', Carbon::now())->get();
+        $week = \App\Classes\DataServices::check_ticket($week);
+        $month = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->get();
+        $month = \App\Classes\DataServices::check_ticket($month);
+        $year = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-00-00"))->where('created_at', '<=', Carbon::now())->get();
+        $year = \App\Classes\DataServices::check_ticket($year);
         $beginning = OrderTicket::count();
         $thang = Carbon::now()->format("m");
         $nam = Carbon::now()->format("Y"); 
-        $array_ticket = array('thang' => $thang,'nam'=> $nam, 'day' => $days, 'week' => $week, 'month' => $month, 'year' => $year, 'beginning' => $beginning,);
-        return view('admin.thongke.chitietdatve', ["array_ticket" => $array_ticket]);
+        $order_ticket = \App\Classes\DataServices::order_ticket();
+        $array_ticket = array('thang' => $thang,'nam'=> $nam, 'days' => $days, 'week' => $week, 'month' => $month, 'year' => $year, 'beginning' => $beginning,);
+        return view('admin.thongke.chitietdatve', ["array_ticket" => $array_ticket,"order_ticket" => $order_ticket]);
     }
 }

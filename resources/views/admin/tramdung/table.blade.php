@@ -5,6 +5,8 @@
                 <th>ID</th>
                 <th>Tên điểm dừng</th>
                 <th>Vị trí điểm dừng</th>
+                <th>Người tạo</th>
+                <th>Người sửa</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;" colspan="3">Thao tác</th>
                 @endif
@@ -21,6 +23,8 @@
                 </td>
                 <!-- <td>{{ $post->postCategory->name ?? '-'}}</td> -->
                 <td>{{$busstops->position}}</td>
+                <td>{{$busstops->user_create}}</td>
+                <td>{{$busstops->user_update}}</td>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['busstop.destroy', $busstops->id], 'method' => 'delete']) !!}
