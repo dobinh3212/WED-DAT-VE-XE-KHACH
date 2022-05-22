@@ -32,13 +32,13 @@ class ClientBookingController extends Controller
         $chuyenxe = [];
         $chuyenxes = [];
         if ($request->noidi && $request->noiden && $request->Ngaydi) {
-            $route_bus = RouteBus::where('route', $request->noidi . ' - ' . $request->noiden)->first();
+            $route_bus = RouteBus::where('is_active',1)->where('route', $request->noidi . ' - ' . $request->noiden)->first();
             if ($route_bus != '') {
                 $chuyenxe = Buse::where('route_id', $route_bus->id)->where('start_day', $request->Ngaydi)->get();
             }
         }
         if (count($chuyenxe) == 0 && $request->noidi && $request->noiden) {
-            $route_bus = RouteBus::where('route', $request->noidi . ' - ' . $request->noiden)->first();
+            $route_bus = RouteBus::where('is_active',1)->where('route', $request->noidi . ' - ' . $request->noiden)->first();
             if ($route_bus != '') {
                 $chuyenxes = Buse::where('route_id', $route_bus->id)->get();
             }

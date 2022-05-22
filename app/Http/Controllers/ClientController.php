@@ -15,9 +15,10 @@ class ClientController extends Controller
             $setting = Setting::first();
             $tinh = Province::get();
             $lo_trinhs = RouteBus::where('hot',1)->get(); //lấy ra lộ trình phổ biến
+            $tinh_datve = Province::pluck('name', 'id');
             $tintuc = News::orderBy('id','desc')->limit(3)->get();
             $slide = News::where('check_slide',1)->select('image','title','id')->get();
-            return view('client.website.index',["tinh" => $tinh,"tintuc"=>$tintuc, "slide"=>$slide,"setting"=> $setting,"lo_trinhs"=> $lo_trinhs]);
+            return view('client.website.index',["tinh" => $tinh,"tinh_datve" => $tinh_datve,"tintuc"=>$tintuc, "slide"=>$slide,"setting"=> $setting,"lo_trinhs"=> $lo_trinhs]);
     }
     public function introduce()
     {

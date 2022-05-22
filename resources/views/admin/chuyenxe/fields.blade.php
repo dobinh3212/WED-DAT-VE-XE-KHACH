@@ -12,16 +12,16 @@
         {!! Form::label('coach_id', 'Xe') !!}
         {!! Form::select('coach_id', $coach_id, null, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group col-sm-12">
-        {!! Form::label('start_day', 'Ngày khởi hành:') !!}
-        {!! Form::text('start_day', null, ['class' => 'form-control']) !!}
-    </div>
-    <div class="form-group col-sm-12">
+    <div class="form-group col-sm-6">
         {!! Form::label('start_time', 'Thời gian khởi hành:') !!}
         {!! Form::text('start_time', null, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group col-sm-12">
+    <div class="form-group col-sm-6">
+        {!! Form::label('start_day', 'Ngày khởi hành:') !!}
+        {!! Form::date('start_day', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group col-sm-6">
         {!! Form::label('price', 'Giá vé:') !!}
-        {!! Form::text('price', null, ['class' => 'form-control']) !!}
+        {!! Form::number('price', null, ['class' => 'form-control']) !!}
     </div>
 </div>

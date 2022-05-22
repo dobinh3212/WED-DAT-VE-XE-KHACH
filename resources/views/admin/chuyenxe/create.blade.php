@@ -27,7 +27,7 @@
 
         </div>
 
-        <div class="card-footer">
+        <div style="margin-left: 15px;" class="card-footer">
             {!! Form::submit('Thêm', ['class' => 'btn btn-primary']) !!}
             <a href="{{ route('buse.index') }}" class="btn btn-default">Hủy</a>
         </div>

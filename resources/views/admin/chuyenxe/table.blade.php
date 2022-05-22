@@ -7,8 +7,8 @@
                 <th>Tài xế</th>
                 <th>Xe</th>
                 <th>Số chỗ còn trống</th>
-                <th>Ngày xuất phát</th>
                 <th>Thời gian xuất phát</th>
+                <th>Ngày xuất phát</th>
                 <th>Giá vé</th>
                 <th>Trạng thái</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
@@ -24,8 +24,8 @@
                 <td>{{$buses->taixe->name??''}}</td>
                 <td>{{$buses->xe->license_plate??''}}</td>
                 <td style="text-align: center;">{{$buses->number_seat}} chỗ</td>
-                <td style="text-align: center;">{{date('d-m-Y',strtotime($buses->start_day))}}</td>
                 <td style="text-align: center;">{{$buses->start_time}}</td>
+                <td style="text-align: center;">{{date('d-m-Y',strtotime($buses->start_day))}}</td>
                 <td>{{number_format($buses->price)}} VND</td>
                 <td>@if ($buses->is_active == 1) {{ 'Đang chờ .' }} @elseif($buses->is_active == 2) {{ 'Đang chạy' }}@else{{'Hoàn thành'}} @endif
                     <a href="{{ route('edit_active', [$buses->id]) }}" class='btn btn-default btn-xs'>

@@ -39,10 +39,11 @@ class RouteBusController extends Controller
 
     public function store(CreateRouteBusRequest $request)
     {
+        return $request;
         $input = $request->all();
-        $departure = Province::find($request->departure)->name;
-        $destination = Province::find($request->destination)->name;
-        $input['route'] = $departure . ' - ' . $destination;
+        $departure_name = Province::find($request->departure)->name;
+        $destination_name = Province::find($request->destination)->name;
+        $input['route'] = $departure_name . ' - ' . $destination_name;
         $file_name_time = null;
         if ($request->hasFile('image')) {
             $file_name = pathinfo($request->image->getClientOriginalName(), PATHINFO_FILENAME);
@@ -54,8 +55,8 @@ class RouteBusController extends Controller
         }
 
         $input['image'] = $file_name_time;
-        $input['departure'] = $departure;
-        $input['destination'] = $destination;
+        $input['departure'] = $departure_name;
+        $input['destination'] = $destination_name;
         $route_bus = $this->route_busRepository->create($input);
 
         Flash::success('Thêm lộ trình thành công.');
@@ -94,8 +95,8 @@ class RouteBusController extends Controller
             $path = public_path('/image/');
             $request->file('image')->move($path, $file_name_time);
         }
-        $departure = $request->departure;
-        $destination = $request->destination;
+        $departure = $departure;
+        $destination = $destination;
         $input['route'] = $departure . ' - ' . $destination;
         $input['image'] = $file_name_time;
         if (empty($route_bus)) {

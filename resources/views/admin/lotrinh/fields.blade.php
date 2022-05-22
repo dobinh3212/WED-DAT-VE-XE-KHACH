@@ -11,9 +11,13 @@
         {!! Form::label('rest_stops', 'Điểm dừng:') !!}
         {!! Form::select('rest_stops', $rest_stop, null, ['class' => 'form-control']) !!}
     </div>
-    <div class="form-group col-sm-12">
-        {!! Form::label('time_intend', 'Thời gian khởi hành:') !!}
+    <div class="form-group col-sm-6">
+        {!! Form::label('time_intend', 'Thời gian khởi hành (giờ):') !!}
         {!! Form::text('time_intend', null, ['class' => 'form-control']) !!}
+    </div>
+    <div class="form-group col-sm-12 ">
+        {!! Form::label('hot', 'Phổ biến:') !!}
+        <input type="checkbox" name="hot" value="1" > Có
     </div>
     <div class="form-group col-sm-12">
     {!! Form::label('image', 'Hình ảnh:') !!}<br>

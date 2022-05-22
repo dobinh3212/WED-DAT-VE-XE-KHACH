@@ -68,61 +68,68 @@ Trang chủ
             </a>
         </div>
     </div>
-    <!-- Kết slide -->
-    <!-- Phần tìm vé trang chủ -->
-    <!-- <div class="mainright">
-                <div class="timchuyendi"><h4>ĐẶT VÉ TRỰC TUYẾN</h4></div>
-               Form tìm vé 
-                <form name="timve" action="#" method="POST">
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                     Chọn nơi đi 
-                      <div class="diadiem">
-                          <label>Chọn Nơi Khởi Hành: </label>
-                          <div class="input-group" style="box-shadow: 0 3px #F3AD45;">
-                               <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-                               <input type="text" name="noidi" class="form-control txtnoidi" list="diadiem" placeholder="Nơi đi">        
-                          </div>
-                      </div>
-                   Chọn nơi đến
-                      <div class="diadiem">
-                          <label>Chọn Nơi Đến </label>
-                          <div class="input-group" style="box-shadow: 0 3px #F3AD45;">
-                               <span class="input-group-addon"><i class="fa fa-bus"></i></span>
-                               <input type="text" name="noiden" class="form-control txtnoiden" list="diadiem" placeholder="Nơi đến">
-                          </div>
-                      </div>
-                   Chọn ngày đi
-                    <div class="ngaydi">
-                        <label>Chọn ngày đi: </label>
-                            <div class="form-group" style="box-shadow: 0 3px #F3AD45;">
-                                <div class='input-group date'>
-                                    <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-calendar" style="color: #f57812;"></span>
-                                    </span>
-                                    <input type='date' class="form-control txtngaydi" name="Ngaydi" id="txtdate" style="padding-left: 0" />
-                                </div>
-                             </div>
-                         Button tìm vé
-                        <div class="tim">
-                            <i class="fa fa-ticket icon-flat bg-btn-actived"></i>
-                            <button type="button" class="btn" id="timchuyendimain"><a>Tìm vé</a></button>
-                        </div>
-                    </div>
-                  </form>
-                  <!-- Kết form tìm vé -->
+<div style="width: 1280px;margin-left: -1px;margin-top: 30px; min-height: 30px;" class="maindatve row">
+    <!-- Form thông tin -->
+    <div style="background-color: #f57812;margin-left: 557px;border-radius: 30px 30px 30px 30px;width: 20%;text-align: center;color: #FFF;height: 44px;">
+        <h3 style="position: absolute;margin-top: 7px;margin-left: 56px;" >Đặt vé nhanh</h3>
+    </div>
+    <form style="margin-top: 30px" action="{{route('chonchuyen')}}" method="POST">
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <div class="col-lg-4 diadiemdatve">
+            <label>Chọn Nơi Khởi Hành</label>
+            <i class="fa fa-bus"></i>
+            <div class="the">
+                <select type="text" class="form-control txtnoidi" name="noidi" placeholder="Nơi đi">
+                    @if(!empty($tinh_datve))
+                    @foreach($tinh_datve as $tinhs)
+                    <option value="{{$tinhs}}">{{$tinhs}}</option>
+                    @endforeach
+                    @endif
+                </select>
+            </div>
+        </div>
+        <div class=" col-lg-4 diadiemdatve">
+            <label>Chọn Nơi Đến</label>
+            <i class="fa fa-bus"></i>
+            <select type="text" class="form-control txtnoidi" name="noiden" placeholder="Nơi đi">
+                @if(!empty($tinh_datve))
+                @foreach($tinh_datve as $tinhs)
+                <option value="{{$tinhs}}">{{$tinhs}}</option>
+                @endforeach
+                @endif
+            </select>
+        </div>
+        <div class="col-lg-3 ngaydidatve">
+            <label>Chọn Thời Gian đi </label>
+            <div class="form-group" style="width: 350px;">
+                <div class='input-group date' style="box-shadow: 0 3px #F3AD45; ">
+                    <span class="input-group-addon" style="background: #FFF; border: none;">
+                        <span class="glyphicon glyphicon-calendar" style="color: #f57812;"></span>
+                    </span>
+                    <input type='date' class="form-control txtngaydi" style="border: none;" name="Ngaydi" id="txtdate" />
+                </div>
+            </div>
+            <div style="left: -409px;" class="tim">
+                <!-- <i class="fa fa-ticket icon-flat"></i> -->
+                <button type="submit" class="btn">Tìm vé</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Kết thúc form thông tin -->
 </div>
-<div style="clear: left;"></div>
+<!-- <div style="clear: left;"></div> -->
 <!-- Kết phần tìm vé ở trang chủ -->
 
 <!-- Tuyến phổ biến -->
 
-<div class="tintuc">
+<div style="margin-top: 10px;" class="tintuc">
     <div class="tentintuc">
         <h3>Tuyết xe phổ biến</h3>
     </div>
     <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
-        <div class="container">
+        <div style="width: 1280px;" class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="latest-product">

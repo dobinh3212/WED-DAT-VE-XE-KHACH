@@ -170,19 +170,19 @@ a {
 
 /*right*/
 .mainright {
-	width: 28%;
-	min-height: 300px;
-	position: absolute;
+	width: 100%;
+	/* min-height: 300px; */
+	/* position: absolute; */
 	top: 10px;
-	right: 130px;
+	/* right: 130px; */
 	border-radius: 0.5em;
-	background: #20611f;
+	/* background: #20611f; */
 	padding-bottom: 10px;
 }
 
 /*tìm chuyến đi*/
 .timchuyendi {
-	width: 100%;
+	width: 50%;
 	margin: auto;
 	border: 1px solid #f57812;
 	text-align: center;
