@@ -32,6 +32,7 @@ Thông tin cá nhân
                     <br>
                 </div>
                 <div class="modal-footer">
+                <button style="background: gainsboro;margin-right: 240px;" type="button" class="btn" onclick="location.href='/return';"><a>Quay lại</a></button>
                     <button class="btn btn-success capnhatmk">Cập nhật</button>
                 </div>
             </div>

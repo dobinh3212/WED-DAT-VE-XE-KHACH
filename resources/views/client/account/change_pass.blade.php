@@ -33,6 +33,7 @@
                                     value="{{ old('password_new_confirm') }}" id="password_new_confirm"
                                     aria-describedby="emailHelp" placeholder="Xác nhận mật khẩu mới">
                             </div>
+                            
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                         </form>
                     </div>

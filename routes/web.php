@@ -27,6 +27,7 @@ Route::post('change_profile', 'ClientUserController@changeProfile')->name('chang
 
 
 Route::resource('/', 'ClientController');
+Route::get('/return', 'ClientController@return');
 Route::get('/gioithieu', 'ClientController@introduce');
 Route::get('/lienhe', 'ClientController@contact')->name('lienhe');
 Route::get('/tuyenxephobien/{id}', 'ClientBookingController@tuyenxephobien')->name('tuyenxephobien');

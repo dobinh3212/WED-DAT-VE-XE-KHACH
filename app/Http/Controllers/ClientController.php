@@ -31,4 +31,9 @@ class ClientController extends Controller
             $setting = Setting::first();
             return view('client.lienhe.lienhe',["setting"=> $setting]);
     }
+    public function return()
+    {
+        return redirect('/thongtin');
+        // return redirect()->back();
+    }
 }

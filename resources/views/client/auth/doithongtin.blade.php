@@ -52,11 +52,14 @@ Thông tin cá nhân
                         </div>
                         <br>
                     </div>
+                
                     <div class="modal-footer">
+                        <button style="background: gainsboro;margin-right: 264px;" type="button" class="btn" onclick="location.href='/return';"><a>Quay lại</a></button>
                         <button class=" btn btn-success capnhat">Cập nhật</button>
                     </div>
                 </div>
             </form>
+        
         </div>
     </div>
 </div>
