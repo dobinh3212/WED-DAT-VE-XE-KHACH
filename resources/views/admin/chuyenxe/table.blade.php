@@ -27,7 +27,13 @@
                 <td style="text-align: center;">{{$buses->start_time}}</td>
                 <td style="text-align: center;">{{date('d-m-Y',strtotime($buses->start_day))}}</td>
                 <td>{{number_format($buses->price)}} VND</td>
-                <td>@if ($buses->is_active == 1) {{ 'Đang chờ .' }} @elseif($buses->is_active == 2) {{ 'Đang chạy' }}@else{{'Hoàn thành'}} @endif
+                @if ($buses->is_active == 1) 
+                <td style="color: red;font-weight: bold;">{{ 'Đang chờ .' }}
+                @elseif($buses->is_active == 2)
+                <td style="color: #150ce9;font-weight: bold;">{{ 'Đang chạy' }}
+                @else
+                <td style="color: #1de35d;font-weight: bold;"> {{'Hoàn thành'}}
+                @endif
                     <a href="{{ route('edit_active', [$buses->id]) }}" class='btn btn-default btn-xs'>
                         <i class="fa fa-edit" style="font-size:20px;color:red"></i>
                     </a>

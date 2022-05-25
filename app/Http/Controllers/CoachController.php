@@ -22,7 +22,7 @@ class CoachController extends Controller
 
     public function index()
     {
-        $xe = Coach::where('is_active', 1)->orderBy('id', 'desc')->paginate(15);
+        $xe = Coach::where('is_active', 1)->orderBy('id', 'desc')->paginate(10);
         return view('admin.xe.index')->with('xe', $xe);
     }
 

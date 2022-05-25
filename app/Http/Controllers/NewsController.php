@@ -23,7 +23,7 @@ class NewsController extends Controller
 
     public function index()
     {
-        $news = News::orderBy('id', 'desc')->paginate(15);
+        $news = News::orderBy('id', 'desc')->paginate(5);
         return view('admin.tintuc.index')->with('news', $news);
     }
     public function create()

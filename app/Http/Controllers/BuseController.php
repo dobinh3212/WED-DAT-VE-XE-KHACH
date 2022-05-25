@@ -25,7 +25,7 @@ class BuseController extends Controller
 
     public function index()
     {
-        $buse = Buse::orderBy('id', 'desc')->paginate(15);
+        $buse = Buse::orderBy('id', 'desc')->paginate(10);
         return view('admin.chuyenxe.index')->with('buse', $buse);
     }
     public function create()

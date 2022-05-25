@@ -31,7 +31,7 @@
     <!-- phần header -->
     <div class="header">
         <!-- Logo -->
-        <img class="headerlogo" src="{{asset('images/logo1.png')}}" onclick="location.href='{{url("/")}}';" height="40">
+        <img class="headerlogo" src="{{asset("/upload/setting/$setting->image")}}" onclick="location.href='{{url("/")}}';" height="40">
         <!-- Phần Chữ chạy  -->
         <div style="width: 70%;color: #FFF; float: left;">
             <div style="width: 70%; margin-left:40%; margin-top: 10px;">

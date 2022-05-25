@@ -43,11 +43,11 @@ class SettingController extends Controller
             // get tên
             $filename = time().'_'.$file->getClientOriginalName();
             // duong dan upload
-            $path_upload = 'uploads/setting/';
+            $path_upload = 'upload/setting/';
             // upload file
             $request->file('new_image')->move($path_upload,$filename);
 
-            $setting->image = $path_upload.$filename;
+            $setting->image = $filename;
         }
 
         $setting->save();

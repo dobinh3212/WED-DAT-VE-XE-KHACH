@@ -8,7 +8,7 @@
                 <th>ID</th>
                 <th>Tiêu đề</th>
                 <!-- <th>Nội dung</th> -->
-                <!-- <th>Ảnh</th>  -->
+                <th>Ảnh</th> 
                 <th>Giới thiệu</th>
             </tr>
         </thead>
@@ -29,10 +29,8 @@
                 </td>
                 @endif
                 <td>{{ $new->id}}</td>
-                <td>
-                    {{ $new->title  }}
-
-                </td>
+                <td>{{ $new->title}}</td>
+                <td> <img src="{{asset("/upload/$new->image")}}" height="140" width="250"></td>
                 <td>{{$new->introduce}}</td>
                 <!-- <td>{{$new->content}}</td> -->
             </tr>

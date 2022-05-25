@@ -25,7 +25,13 @@
                 <td>{{($t->Loại_ghế==1)? 'Giường Nằm':'Ghế Ngồi'}}</td>
                 <td>{{$t->number??''}}vé</td>
                 <td>{{($t->total)/1000}}.000 VNĐ</td>
-                <td>@if ($t->is_active == 1) {{ 'Đã thanh toán' }} @else {{ 'Chưa thanh toán' }} @endif</td>
+                @if ($t->is_active == 1)
+                <td style="color: #47e11a;font-weight: bold;"> {{ 'Đã thanh toán' }}</td>
+                @elseif($t->is_active == 0)
+                <td style="color: #da8f08cf;font-weight: bold;"> {{ 'Chưa thanh toán' }}</td>
+                @else($t->is_active == 2)
+                <td style="color: red;font-weight: bold;"> {{ 'Đã hủy' }}</td>
+                @endif
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['order_ticket.destroy', $t->id], 'method' => 'delete']) !!}

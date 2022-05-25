@@ -26,7 +26,7 @@
                         <label for="exampleInputFile">Logo</label>
                         <input type="file" id="new_image" name="new_image"><br>
                         @if ($setting->image)
-                        <img src="{{asset($setting->image)}}" width="200">
+                        <img src="{{asset("/upload/setting/$setting->image")}}" width="200">
                         @endif
                     </div>
                     <div class="form-group">

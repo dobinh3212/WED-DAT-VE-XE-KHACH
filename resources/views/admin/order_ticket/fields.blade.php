@@ -4,6 +4,7 @@
         <select name="is_active" class="form-control">
             <option value="0">Chưa thanh toán</option>
             <option value="1">Đã thanh toán</option>
+            <option value="2">Đã hủy</option>
         </select>
     </div>
 </div>

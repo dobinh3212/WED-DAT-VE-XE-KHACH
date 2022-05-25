@@ -6,10 +6,10 @@
     <div class="form-group col-sm-12">
         {!! Form::label('image', 'Hình ảnh:') !!}<br>
         <input type="file" class="image-preview" name="image" enctype="multipart/form-data" style="border: none" onchange="previewFile(this);">
-        @if (isset($news) && $news->image != null && file_exists(public_path() . $news->image))
-        <img id="previewImg" src="{{ url('upload/' . $news->image) }}" alt="">
+        @if (isset($news) && $news->image != null)
+        <img src="{{asset("/upload/$news->image")}}" width="150">
         @else
-        <img id="previewImg" src="{{ url('/upload/no_image/image.png') }}">
+        <img src="{{asset("/image/no_image.png")}}" width="100">
         @endif
     </div>
 
