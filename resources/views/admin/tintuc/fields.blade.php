@@ -18,7 +18,7 @@
         {!! Form::text('introduce', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group col-sm-12">
-        <div class="form-group col-sm-12 p-0">
+        <div style="margin-left: -14px;" class="form-group col-sm-12 p-0">
             {!! Form::label('content', 'Nội dung') !!}
             {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
             <script src={{ url('ckeditor/ckeditor.js') }}></script>

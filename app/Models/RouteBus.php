@@ -18,6 +18,7 @@ class RouteBus extends Model
         'user_update',
         'image',
         'route',
+        'km',
         'user_create'
     ];
 

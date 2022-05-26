@@ -39,7 +39,6 @@ class RouteBusController extends Controller
 
     public function store(CreateRouteBusRequest $request)
     {
-        return $request;
         $input = $request->all();
         $departure_name = Province::find($request->departure)->name;
         $destination_name = Province::find($request->destination)->name;
@@ -123,5 +122,12 @@ class RouteBusController extends Controller
         $route_bus->delete();
         Flash::success('Xóa lộ trình thành công.');
         return redirect(route('route_bus.index'));
+    }
+    public function hot(Request $request)
+    {
+        $new = RouteBus::find($request->product_id);
+        $new->hot = $request->hot;
+        $new->save();
+        return response()->json(['success' => 'Thay đổi trạng thái thành công.']);
     }
 }
