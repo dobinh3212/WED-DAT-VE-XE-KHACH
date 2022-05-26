@@ -14,7 +14,7 @@
     </div>
     <div class="form-group col-sm-6">
         {!! Form::label('start_time', 'Thời gian khởi hành:') !!}
-        {!! Form::text('start_time', null, ['class' => 'form-control']) !!}
+        {!! Form::time('start_time', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group col-sm-6">
         {!! Form::label('start_day', 'Ngày khởi hành:') !!}

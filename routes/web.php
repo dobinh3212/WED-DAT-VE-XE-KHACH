@@ -25,6 +25,7 @@ Route::post('change_password', 'ClientUserController@change_password');
 Route::get('update_profile', 'ClientUserController@showFormprofile');
 Route::post('change_profile', 'ClientUserController@changeProfile')->name('change_profile');
 
+Route::post('contact', 'ClientContactController@contact')->name('contact');
 
 Route::resource('/', 'ClientController');
 Route::get('/return', 'ClientController@return');
@@ -68,6 +69,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::resource('route_bus', 'RouteBusController');
   Route::resource('setting', 'SettingController');
   Route::resource('order_ticket', 'OrderTicketController');
+  Route::resource('contact', 'ClientContactController');
   Route::post('/update_active/{id}', 'BuseController@update_active')->name('update_active');
   Route::get('/edit_active/{id}', 'BuseController@edit_active')->name('edit_active');
   Route::get('/thongke', 'StatisticalController@thongke')->name('thongke');
@@ -76,4 +78,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::post('update_password', 'ChangePasswordController@updatePassword')->name('update_password');
   Route::get('/status_update', 'NewsController@updateStatus')->name('update.status');
   Route::get('/hot', 'RouteBusController@hot')->name('update.hot');
+  Route::get('/is_checked', 'ClientContactController@updateStatus')->name('update.is_checked');
 });

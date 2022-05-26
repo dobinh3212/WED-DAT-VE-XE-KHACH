@@ -9,7 +9,6 @@ use App\Repositories\NewsRepository;
 use Flash;
 use Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -92,7 +91,7 @@ class NewsController extends Controller
     }
 
     public function destroy($id)
-    {  
+    {
         $news = $this->newsRepository->find($id);
         if (empty($news)) {
             Flash::error('Tin tức trống');
@@ -104,9 +103,9 @@ class NewsController extends Controller
     }
     public function updateStatus(Request $request)
     {
-        $new = News::find($request->product_id); 
-        $new->check_slide = $request->check_slide; 
-        $new->save(); 
-        return response()->json(['success'=>'Thay đổi trạng thái thành công.']); 
+        $new = News::find($request->product_id);
+        $new->check_slide = $request->check_slide;
+        $new->save();
+        return response()->json(['success' => 'Thay đổi trạng thái thành công.']);
     }
 }

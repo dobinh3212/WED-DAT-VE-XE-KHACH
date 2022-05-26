@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="card-footer">
+        <div style="margin-left: 15px;" class="card-footer">
             {!! Form::submit('Cập nhật', ['class' => 'btn btn-primary']) !!}
             <a href="{{ route('coach.index') }}" class="btn btn-default">Hủy</a>
         </div>

@@ -24,7 +24,7 @@ class CustomerController extends AppBaseController
         $this->customersRepository = $customerRepo;
     }
 
-    public function index(Request $request)
+    public function index()
     {
         $customers = Customer::orderBy('id', 'desc')->paginate(15);
         return view('admin.customer.index')
@@ -72,7 +72,7 @@ class CustomerController extends AppBaseController
         } else {
             $input['password'] = Hash::make($request->password);
         }
-        $input['user_edit_id']= Auth::user()->id;
+        $input['user_edit_id'] = Auth::user()->id;
         $this->customersRepository->update($input, $id);
 
         Flash::success('Cập nhật khách hàng thành công.');
