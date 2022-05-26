@@ -74,4 +74,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::get('/chitietdatve', 'StatisticalController@chitietdatve')->name('chitietdatve');
   Route::get('change_password', 'ChangePasswordController@changePassword')->name('change_password');
   Route::post('update_password', 'ChangePasswordController@updatePassword')->name('update_password');
+  Route::get('/status_update', 'NewsController@updateStatus')->name('update.status');
+
 });

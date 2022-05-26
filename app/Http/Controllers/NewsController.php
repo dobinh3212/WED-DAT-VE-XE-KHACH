@@ -102,4 +102,11 @@ class NewsController extends Controller
         Flash::success('Xóa tin tức thành công.');
         return redirect(route('news.index'));
     }
+    public function updateStatus(Request $request)
+    {
+        $new = News::find($request->product_id); 
+        $new->check_slide = $request->check_slide; 
+        $new->save(); 
+        return response()->json(['success'=>'Thay đổi trạng thái thành công.']); 
+    }
 }
