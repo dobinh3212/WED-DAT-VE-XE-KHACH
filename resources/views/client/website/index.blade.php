@@ -68,18 +68,30 @@ Trang chủ
             </a>
         </div>
     </div>
-<div style="width: 1280px;margin-left: -1px;margin-top: 30px; min-height: 30px;" class="maindatve row">
-    <!-- Form thông tin -->
-    <div style="background-color: #f57812;margin-left: 557px;border-radius: 30px 30px 30px 30px;width: 20%;text-align: center;color: #FFF;height: 44px;">
-        <h3 style="position: absolute;margin-top: 7px;margin-left: 56px;" >Đặt vé nhanh</h3>
-    </div>
-    <form style="margin-top: 30px" action="{{route('chonchuyen')}}" method="POST">
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
-        <div class="col-lg-4 diadiemdatve">
-            <label>Chọn Nơi Khởi Hành</label>
-            <i class="fa fa-bus"></i>
-            <div class="the">
-                <select type="text" class="form-control txtnoidi" name="noidi" placeholder="Nơi đi">
+    <div style="width: 1280px;margin-left: -1px;margin-top: 30px; min-height: 30px;" class="maindatve row">
+        <!-- Form thông tin -->
+        <div style="background-color: #f57812;margin-left: 557px;border-radius: 30px 30px 30px 30px;width: 20%;text-align: center;color: #FFF;height: 44px;">
+            <h3 style="position: absolute;margin-top: 7px;margin-left: 56px;">Đặt vé nhanh</h3>
+        </div>
+        <form style="margin-top: 30px" action="{{route('chonchuyen')}}" method="POST">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <div class="col-lg-4 diadiemdatve">
+                <label>Chọn Nơi Khởi Hành</label>
+                <i class="fa fa-bus"></i>
+                <div class="the">
+                    <select type="text" class="form-control txtnoidi" name="noidi" placeholder="Nơi đi">
+                        @if(!empty($tinh_datve))
+                        @foreach($tinh_datve as $tinhs)
+                        <option value="{{$tinhs}}">{{$tinhs}}</option>
+                        @endforeach
+                        @endif
+                    </select>
+                </div>
+            </div>
+            <div class=" col-lg-4 diadiemdatve">
+                <label>Chọn Nơi Đến</label>
+                <i class="fa fa-bus"></i>
+                <select type="text" class="form-control txtnoidi" name="noiden" placeholder="Nơi đi">
                     @if(!empty($tinh_datve))
                     @foreach($tinh_datve as $tinhs)
                     <option value="{{$tinhs}}">{{$tinhs}}</option>
@@ -87,130 +99,183 @@ Trang chủ
                     @endif
                 </select>
             </div>
-        </div>
-        <div class=" col-lg-4 diadiemdatve">
-            <label>Chọn Nơi Đến</label>
-            <i class="fa fa-bus"></i>
-            <select type="text" class="form-control txtnoidi" name="noiden" placeholder="Nơi đi">
-                @if(!empty($tinh_datve))
-                @foreach($tinh_datve as $tinhs)
-                <option value="{{$tinhs}}">{{$tinhs}}</option>
-                @endforeach
-                @endif
-            </select>
-        </div>
-        <div class="col-lg-3 ngaydidatve">
-            <label>Chọn Thời Gian đi </label>
-            <div class="form-group" style="width: 350px;">
-                <div class='input-group date' style="box-shadow: 0 3px #F3AD45; ">
-                    <span class="input-group-addon" style="background: #FFF; border: none;">
-                        <span class="glyphicon glyphicon-calendar" style="color: #f57812;"></span>
-                    </span>
-                    <input type='date' class="form-control txtngaydi" style="border: none;" name="Ngaydi" id="txtdate" />
+            <div class="col-lg-3 ngaydidatve">
+                <label>Chọn Thời Gian đi </label>
+                <div class="form-group" style="width: 350px;">
+                    <div class='input-group date' style="box-shadow: 0 3px #F3AD45; ">
+                        <span class="input-group-addon" style="background: #FFF; border: none;">
+                            <span class="glyphicon glyphicon-calendar" style="color: #f57812;"></span>
+                        </span>
+                        <input type='date' class="form-control txtngaydi" style="border: none;" name="Ngaydi" id="txtdate" />
+                    </div>
+                </div>
+                <div style="left: -409px;" class="tim">
+                    <!-- <i class="fa fa-ticket icon-flat"></i> -->
+                    <button type="submit" class="btn">Tìm vé</button>
                 </div>
             </div>
-            <div style="left: -409px;" class="tim">
-                <!-- <i class="fa fa-ticket icon-flat"></i> -->
-                <button type="submit" class="btn">Tìm vé</button>
-            </div>
-        </div>
-    </form>
+        </form>
 
-    <!-- Kết thúc form thông tin -->
-</div>
-<!-- <div style="clear: left;"></div> -->
-<!-- Kết phần tìm vé ở trang chủ -->
-
-<!-- Tuyến phổ biến -->
-
-<div style="margin-top: 10px;" class="tintuc">
-    <div class="tentintuc">
-        <h3>Tuyết xe phổ biến</h3>
+        <!-- Kết thúc form thông tin -->
     </div>
-    <div class="maincontent-area">
-        <div class="zigzag-bottom"></div>
-        <div style="width: 1280px;" class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="latest-product">
-                        <div class="product-carousel">
-                            @foreach($lo_trinhs as $lo_trinh)
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    @if (isset($lo_trinh) && $lo_trinh->image != null)
-                                    <img style="height: 141px;" src="image/{{$lo_trinh->image??'' }}" alt="">
-                                    <div class="product-hover">
-                                        <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
-                                    </div>
-                                    @else
-                                    <img style="height: 141px;" src="image/no_image.png" alt="">
-                                    <div style="height: 141px;" class="product-hover">
-                                        <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
-                                    </div>
-                                    @endif
-                                </div>
-                                <div style="margin-top: 7px;" class="col-md-12 d-flex">
-                                    <div class="col-md-6 fa fa-map-marker icon">
-                                        {{$lo_trinh->km}} Km
-                                    </div>
-                                    <div class="col-md-6 fa fa-clock-o icon">
-                                        {{$lo_trinh->time_intend}}h
-                                    </div>
-                                </div>
-                                <h2 style=" margin-top: 30px; font-weight: bold;text-align: center;"><a href="{{route('tuyenxephobien', [$lo_trinh->id])}}">{{$lo_trinh->route}}</a></h2>
-                            </div>
-                            @endforeach
+    <!-- <div style="clear: left;"></div> -->
+    <!-- Kết phần tìm vé ở trang chủ -->
+    <style>
+        .float-contact {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 99999;
+        }
 
+        .chat-zalo {
+            background: #8eb22b;
+            border-radius: 20px;
+            padding: 0 18px;
+            color: white;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .chat-face {
+            background: #125c9e;
+            border-radius: 20px;
+            padding: 0 18px;
+            color: white;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .float-contact .hotline {
+            background: #d11a59 !important;
+            border-radius: 20px;
+            padding: 0 18px;
+            color: white;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .chat-zalo a,
+        .chat-face a,
+        .hotline a {
+            font-size: 15px;
+            color: white;
+            font-weight: 300;
+            text-transform: none;
+            line-height: 0;
+        }
+
+        @media (max-width: 549px) {
+            .float-contact {
+                display: none
+            }
+
+        }
+    </style>
+    <!--//tết pháo hoa-->
+
+    <!--//tết pháo hoa-->
+    <div style="margin-bottom: -20px; margin-left: 1140px;" class="float-contact">
+        <button style=" height: 42px;" class="chat-zalo">
+            <a href="https://zalo.me/dobinh1772">Chat Zalo</a>
+        </button>
+        <button style=" height: 42px;" class="hotline">
+            <a href="tel:0372471772">Hotline: 0372.471.772</a>
+        </button>
+        <!-- <button style=" height: 42px;" class="hotline">
+            <a href="dangky.html">Đăng ký ngay</a>
+        </button> -->
+    </div>
+    <!-- Tuyến phổ biến -->
+
+    <div style="margin-top: 10px;" class="tintuc">
+        <div class="tentintuc">
+            <h3>Tuyết xe phổ biến</h3>
+        </div>
+        <div class="maincontent-area">
+            <div class="zigzag-bottom"></div>
+            <div style="width: 1280px;" class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="latest-product">
+                            <div class="product-carousel">
+                                @foreach($lo_trinhs as $lo_trinh)
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                        @if (isset($lo_trinh) && $lo_trinh->image != null)
+                                        <img style="height: 141px;" src="image/{{$lo_trinh->image??'' }}" alt="">
+                                        <div class="product-hover">
+                                            <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                        </div>
+                                        @else
+                                        <img style="height: 141px;" src="image/no_image.png" alt="">
+                                        <div style="height: 141px;" class="product-hover">
+                                            <a href="{{ route('tuyenxephobien', [$lo_trinh->id]) }}" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Đặt Vé</a>
+                                        </div>
+                                        @endif
+                                    </div>
+                                    <div style="margin-top: 7px;" class="col-md-12 d-flex">
+                                        <div class="col-md-6 fa fa-map-marker icon">
+                                            {{$lo_trinh->km}} Km
+                                        </div>
+                                        <div class="col-md-6 fa fa-clock-o icon">
+                                            {{$lo_trinh->time_intend}}h
+                                        </div>
+                                    </div>
+                                    <h2 style=" margin-top: 30px; font-weight: bold;text-align: center;"><a href="{{route('tuyenxephobien', [$lo_trinh->id])}}">{{$lo_trinh->route}}</a></h2>
+                                </div>
+                                @endforeach
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div><!-- End main content area -->
+    </div><!-- End main content area -->
 
-<!-- Phần tin tức -->
-<hr>
-<div class="tintuc">
-    <div class="tentintuc">
-        <h3>Tin Tức Nổi Bật</h3>
+    <!-- Phần tin tức -->
+    <hr>
+    <div class="tintuc">
+        <div class="tentintuc">
+            <h3>Tin Tức Nổi Bật</h3>
+        </div>
+        <ul>
+            @foreach($tintuc as $y)
+            <li onclick="location.href='{{url("tintuc")}}/{{$y->id}}';">
+                <img src="upload/{{$y->image}}">
+                <a><strong>{{$y->title}}</strong></a>
+            </li>
+            @endforeach
+        </ul>
+        <div style="clear: left;"></div>
+        <div class="tintucbutton">
+            <button class="btn" onclick="location.href='{{url("tintuc")}}';"><a>Xem Toàn Bộ</a></button>
+        </div>
     </div>
-    <ul>
-        @foreach($tintuc as $y)
-        <li onclick="location.href='{{url("tintuc")}}/{{$y->id}}';">
-            <img src="upload/{{$y->image}}">
-            <a><strong>{{$y->title}}</strong></a>
-        </li>
-        @endforeach
-    </ul>
     <div style="clear: left;"></div>
-    <div class="tintucbutton">
-        <button class="btn" onclick="location.href='{{url("tintuc")}}';"><a>Xem Toàn Bộ</a></button>
+    <!-- Kết phần tin tức -->
+    <!-- Dịch vụ nổi bật -->
+    <div class="dichvu">
+        <h4>" Hãy đến với chúng tôi "</h4>
+        <h2>Để Nhận Dịch Vụ Tốt Nhất !</h2>
+        <div class="dv">
+            <img src="images/free_wifi.png" />
+            <br>
+            <strong>Wifi Miễn Phí Mọi Nơi !</strong>
+        </div>
+        <div class="dv">
+            <img src="images/dien.png" />
+            <br>
+            <strong>Ổ Cắm Theo Từng Chổ Ngồi !</strong>
+        </div>
+        <div class="dv">
+            <img src="images/chongoi.png" />
+            <br>
+            <strong>Chổ Ngồi/Nằm Thỏa mái !</strong>
+        </div>
     </div>
-</div>
-<div style="clear: left;"></div>
-<!-- Kết phần tin tức -->
-<!-- Dịch vụ nổi bật -->
-<div class="dichvu">
-    <h4>" Hãy đến với chúng tôi "</h4>
-    <h2>Để Nhận Dịch Vụ Tốt Nhất !</h2>
-    <div class="dv">
-        <img src="images/free_wifi.png" />
-        <br>
-        <strong>Wifi Miễn Phí Mọi Nơi !</strong>
-    </div>
-    <div class="dv">
-        <img src="images/dien.png" />
-        <br>
-        <strong>Ổ Cắm Theo Từng Chổ Ngồi !</strong>
-    </div>
-    <div class="dv">
-        <img src="images/chongoi.png" />
-        <br>
-        <strong>Chổ Ngồi/Nằm Thỏa mái !</strong>
-    </div>
-</div>
-<!-- Kết phần dịch vụ nổi bật -->
+    <!-- Kết phần dịch vụ nổi bật -->
 </div>
 @endsection
 @section('excontent')

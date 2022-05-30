@@ -28,4 +28,8 @@ class OrderTicket extends Model
     {
         return $this->belongsTo(\App\Models\Buse::class, 'buse_id', 'id');
     }
+    public function user_edit()
+    {
+        return $this->belongsTo(\App\Models\Users::class, 'user_edit_id', 'id');
+    }
 }

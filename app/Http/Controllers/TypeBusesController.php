@@ -73,13 +73,13 @@ class TypeBusesController extends Controller
     }
 
     public function destroy($id)
-    {  
+    {
         $loaixe = $this->typebusesRepository->find($id);
         if (empty($loaixe)) {
             Flash::error('Loại xe trống');
             return redirect(route('type_bus.index'));
         }
-        $loaixe ->delete();
+        $loaixe->delete();
         Flash::success('Xóa loại loaixe thành công.');
         return redirect(route('type_bus.index'));
     }

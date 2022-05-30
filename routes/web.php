@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 
+Route::view('/forgot_password', 'auth.passwords.email');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token},{email}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+
+
 Route::post('/login-customer', 'Auth\Customer\LoginController@loginn')->name("login_customer");
 // Route::get('/', 'Company\Auth\LoginController@showLoginForm');
 Route::get('/login_client', 'Auth\Customer\LoginController@showLoginForm')->name('login_client');

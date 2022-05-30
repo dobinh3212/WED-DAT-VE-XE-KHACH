@@ -57,6 +57,7 @@ class OrderTicketController extends Controller
     {
         $order_ticket = $this->orderTicketRepository->find($id);
         $input = $request->all();
+        $input['user_edit_id'] = Auth::user()->id;
         if (empty($order_ticket)) {
             Flash::error('Vé trống');
             return redirect(route('order_ticket.index'));

@@ -17,7 +17,7 @@
     </div>
     <div class="form-group col-sm-6">
         {!! Form::label('time_intend', 'Thời gian khởi hành (giờ):') !!}
-        {!! Form::text('time_intend', null, ['class' => 'form-control']) !!}
+        {!! Form::number('time_intend', null, ['class' => 'form-control']) !!}
     </div>
     <div class="form-group col-sm-12 ">
         {!! Form::label('hot', 'Phổ biến:') !!}

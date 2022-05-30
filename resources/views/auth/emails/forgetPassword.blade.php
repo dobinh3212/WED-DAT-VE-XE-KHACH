@@ -394,11 +394,11 @@
                                             <p>Nếu đây không phải yêu cầu của bạn, bạn có thể bỏ qua thư này và mật khẩu
                                                 của bạn sẽ không thay đổi.</p>
                                             <p>Nếu Quý khách gặp vấn đề trong quá trình tạo website. Vui lòng liên hệ
-                                                Hotline <a href="tel:0856856802" target="_blank">0856.856.802</a> để
+                                                Hotline <a href="tel:0856856802" target="_blank">0372.471.772</a> để
                                                 được
                                                 hỗ trợ.</p>
                                             <p>Trân trọng.</p>
-                                            <p>VINASECO JSC.</p>
+                                            <p>WEB DAT VE XE KHACH DVB</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -409,19 +409,6 @@
                     </table>
                     <!-- END CENTERED WHITE CONTAINER -->
 
-                    <!-- START FOOTER -->
-                    <div class="footer">
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td class="content-block">
-                                    <span class="apple-link">VINASECO - Giải pháp chuyển đổi số cho các tổ chức hành
-                                        nghề luật tại Việt Nam</span>
-                                    <br> Website: <a href="https://vinaseco.vn">vinaseco.vn</a>.
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- END FOOTER -->
 
                 </div>
             </td>

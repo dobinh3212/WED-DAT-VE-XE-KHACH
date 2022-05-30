@@ -9,7 +9,7 @@
                 <th>ID</th>
                 <th>Điểm xuất phát</th>
                 <th>Điểm cuối cùng</th>
-                <th>Các điểm dừng</th>
+                <!-- <th>Các điểm dừng</th> -->
                 <th>Thời gian</th>
                 <th>Quảng đường</th>
                 <th>Phổ biến</th>
@@ -24,11 +24,11 @@
                 <td><a href="{{ route('route_bus.edit', [$route_buss->id]) }}">{{ $route_buss->id}}</a></td>
                 <td>{{$route_buss->departure??'' }}</td>
                 <td>{{$route_buss->destination??''}}</td>
-                <td>{{$route_buss->bus_stop->name??''}}</td>
+                <!-- <td>{{$route_buss->bus_stop->name??''}}</td> -->
                 <td>{{$route_buss->time_intend}} tiếng</td>
                 <td>{{$route_buss->km}} Km</td>
                 <td>
-                    <input data-id="{{$route_buss->id}}" id="toggle_class_{{$route_buss->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="on" data-off="off" {{ $route_buss->hot ? 'checked' : '' }}>
+                    <input data-id="{{$route_buss->id}}" id="toggle_class_{{$route_buss->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Bật" data-off="Tắt" {{ $route_buss->hot ? 'checked' : '' }}>
                 </td>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">

@@ -29,7 +29,7 @@
                 <td>{{$contact->title}}</td>
                 <td>{{$contact->content}}</td>
                 <td>
-                    <input data-id="{{$contact->id}}" id="toggle_class_{{$contact->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Chưa liên hệ" data-off="Đã liên hệ" {{ $contact->is_checked ? 'checked' : '' }}>
+                    <input data-id="{{$contact->id}}" id="toggle_class_{{$contact->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-off="Chưa liên hệ" data-on="Đã liên hệ" {{ $contact->is_checked ? 'checked' : '' }}>
                 </td>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
@@ -44,7 +44,7 @@
             </tr>
             <script>
                 $("#toggle_class_{{$contact->id}}").change(function() {
-                    var is_checked = $(this).prop('checked') == true ? 1 : 0;
+                    var is_checked = $(this).prop('checked') == true ? 0 : 1;
                     var product_id = $(this).data('id');
                     $.ajax({
                         type: "GET",

@@ -39,7 +39,7 @@
                          <td> <img src="{{asset("/upload/$new->image")}}" height="140" width="250"></td>
                          <td>{{$new->introduce}}</td>
                          <td>
-                             <input data-id="{{$new->id}}" id="toggle_class_{{$new->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="on" data-off="off" {{ $new->check_slide ? 'checked' : '' }}>
+                             <input data-id="{{$new->id}}" id="toggle_class_{{$new->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Bật" data-off="Tắt" {{ $new->check_slide ? 'checked' : '' }}>
                          </td>
                      </tr>
                      <script>

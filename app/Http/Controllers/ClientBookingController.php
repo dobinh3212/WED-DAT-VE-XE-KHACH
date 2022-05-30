@@ -9,6 +9,7 @@ use App\Models\Province;
 use App\Models\RouteBus;
 use App\Models\Setting;
 use App\Models\TypeBuses;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bus;
@@ -22,6 +23,16 @@ class ClientBookingController extends Controller
     }
     public function datve()
     {
+        $date_now = strtotime(Carbon::now()->format('d-m-Y'));
+        $buses = Buse::get();
+        foreach ($buses as  $buse) {
+            $start_day = strtotime(Carbon::createFromFormat('Y-m-d', $buse->start_day)->format('d-m-Y'));
+            if ($start_day <= $date_now) {
+                $buse->is_active = 3;
+                $buse->save();
+            }
+        }
+
         $setting = Setting::first();
         $tinh = Province::pluck('name', 'id');
         return view('client.datve.datve')->with("setting", $setting)->with("tinh", $tinh);
@@ -33,14 +44,15 @@ class ClientBookingController extends Controller
         $chuyenxes = [];
         if ($request->noidi && $request->noiden && $request->Ngaydi) {
             $route_bus = RouteBus::where('route', $request->noidi . ' - ' . $request->noiden)->first();
+
             if ($route_bus != '') {
-                $chuyenxe = Buse::where('route_id', $route_bus->id)->where('start_day', $request->Ngaydi)->get();
+                $chuyenxe = Buse::where('route_id', $route_bus->id)->where('is_active', '!=', 3)->where('start_day', $request->Ngaydi)->get();
             }
         }
         if (count($chuyenxe) == 0 && $request->noidi && $request->noiden) {
             $route_bus = RouteBus::where('route', $request->noidi . ' - ' . $request->noiden)->first();
             if ($route_bus != '') {
-                $chuyenxes = Buse::where('route_id', $route_bus->id)->get();
+                $chuyenxes = Buse::where('route_id', $route_bus->id)->where('is_active', '!=', 3)->get();
             }
         }
         return view('client.datve.chuyenxe')->with("setting", $setting)->with("chuyenxe", $chuyenxe)->with("chuyenxes", $chuyenxes);

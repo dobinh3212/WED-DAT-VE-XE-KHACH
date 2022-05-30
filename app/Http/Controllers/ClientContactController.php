@@ -14,7 +14,7 @@ class ClientContactController extends Controller
         {
                 $input = $request->all();
                 $input['date_submit'] = Carbon::now();
-                $input['is_checked'] = 1;
+                $input['is_checked'] = 0; // 0 là chưa liên hệ
                 Contact::create($input);
                 $setting = Setting::first();
                 return view('client.lienhe.lienhe', ["setting" => $setting]);

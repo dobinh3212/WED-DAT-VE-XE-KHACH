@@ -9,6 +9,7 @@
                 <th>Loại Xe</th>
                 <th>Số Vé</th>
                 <th>Giá</th>
+                <th>Người cập nhật</th>
                 <th>Tình Trạng</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;" colspan="3">Thao tác</th>
@@ -25,6 +26,7 @@
                 <td>{{($t->Loại_ghế==1)? 'Giường Nằm':'Ghế Ngồi'}}</td>
                 <td>{{$t->number??''}}vé</td>
                 <td>{{($t->total)/1000}}.000 VNĐ</td>
+                <td>{{$t->user_edit->name??''}}</td>
                 @if ($t->is_active == 1)
                 <td style="color: #47e11a;font-weight: bold;"> {{ 'Đã thanh toán' }}</td>
                 @elseif($t->is_active == 0)
