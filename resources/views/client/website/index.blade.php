@@ -91,7 +91,7 @@ Trang chủ
             <div class=" col-lg-4 diadiemdatve">
                 <label>Chọn Nơi Đến</label>
                 <i class="fa fa-bus"></i>
-                <select type="text" class="form-control txtnoidi" name="noiden" placeholder="Nơi đi">
+                <select type="text" class="form-control txtnoidi" name="noiden" placeholder="Nơi đến">
                     @if(!empty($tinh_datve))
                     @foreach($tinh_datve as $tinhs)
                     <option value="{{$tinhs}}">{{$tinhs}}</option>
@@ -172,9 +172,6 @@ Trang chủ
 
         }
     </style>
-    <!--//tết pháo hoa-->
-
-    <!--//tết pháo hoa-->
     <div style="margin-bottom: -20px; margin-left: 1140px;" class="float-contact">
         <button style=" height: 42px;" class="chat-zalo">
             <a href="https://zalo.me/dobinh1772">Chat Zalo</a>
