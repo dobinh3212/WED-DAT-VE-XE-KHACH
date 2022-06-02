@@ -18,6 +18,7 @@ Chọn vé
         <p><span class="glyphicon glyphicon-bed"></span> Loại Ghế: {{$type_buse->type_bus??''}} </p>
         <p><i class="fa fa-balance-scale"></i> Giá vé: {{($chonve->price)/1000}}.000 VNĐ / 1 vé</p>
         <p><i class="glyphicon glyphicon-usd"></i> Tổng tiền: {{($order_ticket->total)/1000}}.000 VNĐ </p>
+        @if (($order_ticket->is_active ==1))
         <div style="text-align: center;">
             {!! $qrCode !!}
             <h4>Quý khách vui lòng lưu lại mã QR, không chia sẻ cho người khác.</h4>
@@ -25,6 +26,7 @@ Chọn vé
         <br>
         <!-- <h4 style="color: rgb(0,64,87);">Nhân viên chúng tôi sẻ liên hệ với quý khách để quý khách thanh toán tiền.</h4> -->
         <h3 style=" color: rgb(0,64,87);">Chúc quý khách có một chuyến đi vui vẻ!</3>
+            @endif
     </div>
 
 </div>

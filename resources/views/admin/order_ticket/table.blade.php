@@ -30,9 +30,9 @@
                 @if ($t->is_active == 1)
                 <td style="color: #47e11a;font-weight: bold;"> {{ 'Đã thanh toán' }}</td>
                 @elseif($t->is_active == 0)
-                <td style="color: #da8f08cf;font-weight: bold;"> {{ 'Chưa thanh toán' }}</td>
+                <td style="color: #da8f08cf;font-weight: bold;"> {{ 'Thất bại' }}</td>
                 @else($t->is_active == 2)
-                <td style="color: red;font-weight: bold;"> {{ 'Đã hủy' }}</td>
+                <td style="color: red;font-weight: bold;"> {{ 'Hoàn trả' }}</td>
                 @endif
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">

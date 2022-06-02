@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth:customer']], function () {
 Route::get('/thongtin', 'ClientInformationController@information')->name('thongtin'); //thông tin cá nhân
 Route::get('/lichsudatve', 'ClientInformationController@lichsudatve')->name('lichsudatve'); //thông vé đã đặt
 Route::get('detail_ticket/{id}', 'ClientInformationController@detail_ticket')->name('detail_ticket'); //thông tin chi tiết vé
+Route::get('delete_ticket/{id}', 'ClientInformationController@delete_ticket')->name('delete_ticket'); //xóa vé thất bại
+Route::get('hoantien/{id}', 'ClientInformationController@hoan_tien')->name('hoantien'); //hoàn tiền
 
 Route::get('update_password', 'ClientUserController@showForm');
 Route::post('change_password', 'ClientUserController@change_password');

@@ -99,7 +99,7 @@ class ClientBookingController extends Controller
         $coach = Coach::find($chonve->coach_id);
         $route_bus = RouteBus::find($chonve->route_id);
         $type_buse = TypeBuses::find($coach->type_car_id);
-        $chonve->update(['number_seat' => $chonve->number_seat - $request->sove]); //cập nhật số vé
+        // $chonve->update(['number_seat' => $chonve->number_seat - $request->sove]); //cập nhật số vé
         $qrCode = QrCode::size(100)->generate('Ma Don Hang La:' . $order_ticket->id);
         // kết thúc tạo order
         if ($request->method_pay_id == 'bank') {
@@ -250,14 +250,12 @@ class ClientBookingController extends Controller
             }
             return redirect($url);
         } elseif ($request->method_pay_id == 'vnp') {
-            // session(['cost_id' => $request->id]);
-            // session(['url_prev' => url()->previous()]);
             $vnp_TmnCode = env('VNP_TMN_CODE'); //Mã website tại VNPAY lấy từ cấu hình trong .env
             $vnp_HashSecret = env('VNP_HASH_SECRET'); //Chuỗi bí mật lấy từ cấu hình trong .env
             $vnp_Url = env('VNP_URL'); //lấy từ cấu hình trong .env
             $vnp_Returnurl = $input['VNP_RETURN_URL'] ?? env('VNP_RETURN_URL'); //lấy từ cấu hình trong .env
             $vnp_TxnRef = $order_ticket['id']; //Mã đơn hàng.
-            $vnp_OrderInfo = $chonve->id; //"Thanh toán hóa đơn phí dich vụ";
+            $vnp_OrderInfo = $chonve->id . '_' . $request->sove; //"Thanh toán hóa đơn phí dich vụ";
             $vnp_OrderType = 'billpayment';
             $vnp_Amount = $order_ticket['total'] * 100;
             $vnp_Locale = 'vn';
@@ -311,7 +309,7 @@ class ClientBookingController extends Controller
             $partnerCode = env('MM_PARTNERCODE');
             $accessKey = env('MM_ACCESSKEY');
             $secretKey = env('MM_SECRETKEY');
-            $orderInfo = $request->method_pay_id . $chonve->id; //"Thanh toán qua MoMo";
+            $orderInfo = $request->method_pay_id . '_' . $chonve->id . '_' . $request->sove; //"Thanh toán qua MoMo";
             $amount = "" . $order_ticket['total'] . "";
             // $orderId = time() . "";
             $returnUrl = env('MM_RETURN_URL');
@@ -350,7 +348,7 @@ class ClientBookingController extends Controller
                 $accessKey = env('MM_ACCESSKEY');
                 $secretKey = env('MM_SECRETKEY');
                 $orderId = time() . ""; // Mã đơn hàng
-                $orderInfo = $request->method_pay_id . $chonve->id;
+                $orderInfo = "momo_bank" . '_' . $chonve->id . '_' . $request->sove;
                 $amount = "" . $order_ticket['total'] . "";
                 $returnUrl = env('MM_RETURN_URL');
                 $notifyurl = "http://localhost:8000/atm/ipn_momo.php";
@@ -383,9 +381,11 @@ class ClientBookingController extends Controller
     public function return_vnpay(Request $request)
     {
         if ($request->vnp_ResponseCode == '00') {
+            $data = explode('_', $request->vnp_OrderInfo);
             $code = $request->vnp_TxnRef;
             $order_ticket = OrderTicket::where('id', $code)->first();
-            $buse = Buse::where('id', $request->vnp_OrderInfo)->first();
+            $buse = Buse::where('id', $data[0])->first();
+            $buse->update(['number_seat' => $buse->number_seat - $data[1]]); //cập nhật số vé
             $coach = Coach::find($buse->coach_id);
             $setting = Setting::first();
             $route_bus = RouteBus::find($buse->route_id);
@@ -407,11 +407,13 @@ class ClientBookingController extends Controller
     }
     public function return_momo(Request $request)
     {
+
         if ($request->errorCode == 0) {
             $code = $request->orderId;
             $order_ticket = OrderTicket::where('id', $code)->first();
-            $id =  str_replace("momo_bank", "", $request->orderInfo);
-            $buse = Buse::where('id', $id)->first();
+            $data = explode('_', $request->orderInfo);
+            $buse = Buse::where('id', $data[2])->first();
+            $buse->update(['number_seat' => ($buse->number_seat - $data[3])]); //cập nhật số vé
             $coach = Coach::find($buse->coach_id);
             $setting = Setting::first();
             $route_bus = RouteBus::find($buse->route_id);

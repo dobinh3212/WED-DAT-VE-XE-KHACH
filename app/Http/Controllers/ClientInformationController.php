@@ -9,7 +9,9 @@ use App\Models\OrderTicket;
 use App\Models\RouteBus;
 use App\Models\Setting;
 use App\Models\TypeBuses;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Flash;
 
 class ClientInformationController extends Controller
 {
@@ -46,5 +48,33 @@ class ClientInformationController extends Controller
         'qrCode' => $qrCode,
       ]
     );
+  }
+  public function delete_ticket($id)
+  {
+    $order_tickets = OrderTicket::where('id', $id)->first();
+    $order_tickets->delete();
+    Flash::success('Xóa vé thành công.');
+    return redirect('/lichsudatve');
+  }
+  public function hoan_tien($id)
+  {
+    $order_ticket = OrderTicket::where('id', $id)->first();
+    $buse = Buse::find($order_ticket->buse_id);
+    $date_start = strtotime($buse->start_day . ' ' . $buse->start_time) + 720;
+    $date_now = strtotime(Carbon::now()->format('d-m-Y H:i:s'));
+    if ($date_start > $date_now) {
+      Flash::success('Thất bại, Đã quá thời gian hoàn trả');
+      return redirect('/lichsudatve');
+    } else {
+      $buse = Buse::find($order_ticket->buse_id);
+      $buse->number_seat = $buse->number_seat + $order_ticket->number;
+      $buse->save();
+      $order_ticket->is_active = 3;
+      $order_ticket->save();
+      Flash::success('Hoàn trả vé thành công.');
+      return redirect('/lichsudatve');
+    }
+    Flash::success('Giao dịch thất bại');
+    return redirect('/lichsudatve');
   }
 }
