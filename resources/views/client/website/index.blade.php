@@ -122,69 +122,10 @@ Trang chủ
     </div>
     <!-- <div style="clear: left;"></div> -->
     <!-- Kết phần tìm vé ở trang chủ -->
-    <style>
-        .float-contact {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 99999;
-        }
 
-        .chat-zalo {
-            background: #8eb22b;
-            border-radius: 20px;
-            padding: 0 18px;
-            color: white;
-            display: block;
-            margin-bottom: 6px;
-        }
 
-        .chat-face {
-            background: #125c9e;
-            border-radius: 20px;
-            padding: 0 18px;
-            color: white;
-            display: block;
-            margin-bottom: 6px;
-        }
 
-        .float-contact .hotline {
-            background: #d11a59 !important;
-            border-radius: 20px;
-            padding: 0 18px;
-            color: white;
-            display: block;
-            margin-bottom: 6px;
-        }
 
-        .chat-zalo a,
-        .chat-face a,
-        .hotline a {
-            font-size: 15px;
-            color: white;
-            font-weight: 300;
-            text-transform: none;
-            line-height: 0;
-        }
-
-        @media (max-width: 549px) {
-            .float-contact {
-                display: none
-            }
-
-        }
-    </style>
-    <div style="margin-bottom: -20px; margin-left: 1140px;" class="float-contact">
-        <button style=" height: 42px;" class="chat-zalo">
-            <a href="https://zalo.me/dobinh1772">Chat Zalo</a>
-        </button>
-        <button style=" height: 42px;" class="hotline">
-            <a href="tel:0372471772">Hotline: 0372.471.772</a>
-        </button>
-        <!-- <button style=" height: 42px;" class="hotline">
-            <a href="dangky.html">Đăng ký ngay</a>
-        </button> -->
-    </div>
     <!-- Tuyến phổ biến -->
 
     <div style="margin-top: 10px;" class="tintuc">
