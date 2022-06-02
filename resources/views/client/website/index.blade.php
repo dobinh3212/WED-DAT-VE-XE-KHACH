@@ -80,6 +80,7 @@ Trang chủ
                 <i class="fa fa-bus"></i>
                 <div class="the">
                     <select type="text" class="form-control txtnoidi" name="noidi" placeholder="Nơi đi">
+                        <option value="">Chọn nơi đi</option>
                         @if(!empty($tinh_datve))
                         @foreach($tinh_datve as $tinhs)
                         <option value="{{$tinhs}}">{{$tinhs}}</option>
@@ -92,6 +93,7 @@ Trang chủ
                 <label>Chọn Nơi Đến</label>
                 <i class="fa fa-bus"></i>
                 <select type="text" class="form-control txtnoidi" name="noiden" placeholder="Nơi đến">
+                    <option value="">Chọn nơi đến</option>
                     @if(!empty($tinh_datve))
                     @foreach($tinh_datve as $tinhs)
                     <option value="{{$tinhs}}">{{$tinhs}}</option>

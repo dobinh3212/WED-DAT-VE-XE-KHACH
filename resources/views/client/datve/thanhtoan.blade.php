@@ -42,11 +42,14 @@ Thanh toán
     <div>
       <form style="font-size: 18px;" method="post" action="{{ route('thanhtoan3') }}">
         @csrf
-        <input style="margin-top: 0px;margin-left: 80px;" name="method_pay_id" type="radio" value="bank" checked> Thanh toán trực tiếp</br>
+        <!-- <input style="margin-top: 0px;margin-left: 80px;" name="method_pay_id" type="radio" value="bank" checked> Thanh toán trực tiếp</br> -->
         <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="vnp"> Thanh toán VNPay <img style="width: 70px;" src="image/vnp.png"></br>
+        <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="momo_bank"> Thanh toán qua Momo ( Thẻ ATM )</br>
+        <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="momo_qr"> Thanh toán qua Momo<img style="width: 20px;" src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png?20201011055544"> ( Mã QR )</br>
         <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="zalopayapp"> ZaloPay (Ví điện tử) <img style="width: 70px;" src="image/zalopay.png"></br>
         <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="zalopayatm"> ZaloPay (Thẻ ATM nội địa / Internet Banking)</br>
         <input style="margin-top: 20px;margin-left: 80px;" name="method_pay_id" type="radio" value="zalopayvisa"> ZaloPay (Thẻ quốc tế) <img style="width: 100px;" src="image/visa-master-icon-5.jpg"></br>
+
         <input type="hidden" name="buse_id" value="{{$chonve->id}}">
         <input type="hidden" name="departure" value="{{$route_bus->departure}}">
         <input type="hidden" name="destination" value="{{$route_bus->destination}}">

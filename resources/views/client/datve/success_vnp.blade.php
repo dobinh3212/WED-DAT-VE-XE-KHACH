@@ -30,7 +30,7 @@ Thanh toán thành công
             <p><i class="glyphicon glyphicon-sound-5-1"></i> Số vé: {{$order_ticket->number}} vé</p>
             <p><i class="glyphicon glyphicon-usd"></i> Tổng tiền: {{($order_ticket->total)/1000}}.000 VNĐ </p>
             <br>
-            <div style="text-align: center;">
+            <div style="margin-left: -459px;text-align: center;">
                 {!! $qrCode !!}
                 <h4>Quý khách vui lòng lưu lại mã QR, không chia sẻ cho người khác.</h4>
             </div>

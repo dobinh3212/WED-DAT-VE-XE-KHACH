@@ -46,6 +46,7 @@ Route::post('/thanhtoan', 'ClientBookingController@thanhtoan')->name('thanhtoan'
 Route::post('/thanhtoan2', 'ClientBookingController@thanhtoan2')->name('thanhtoan2');
 Route::post('/thanhtoan3', 'ClientBookingController@thanhtoan3')->name('thanhtoan3');
 Route::get('return-vnpay', 'ClientBookingController@return_vnpay');
+Route::get('return-momo', 'ClientBookingController@return_momo');
 Route::resource('tintuc', 'ClientNewsController');
 Auth::routes([
   'register' => true, // Registration Routes...
