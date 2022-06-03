@@ -27,6 +27,6 @@ class VerifyTwoFaceController extends Controller
         }
 
         session(["2fa_verified" => true]);
-        return redirect(url('admin/home'));
+        return redirect(url('admin'));
     }
 }

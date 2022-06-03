@@ -18,9 +18,6 @@
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['province.destroy', $provinces->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <!-- <a href="/xe/{{$provinces->slug}}" target="_blank" class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i> Xem 
-                        </a> -->
                         <a href="{{ route('province.edit', [$provinces->id]) }}" class='btn btn-default btn-xs'>
                             Sửa
                         </a>

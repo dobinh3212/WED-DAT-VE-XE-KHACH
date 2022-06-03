@@ -22,7 +22,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/backend/dist/css/skins/_all-skins.min.css">
 
-    {{-- <link rel="stylesheet" href="/backend/css/style.css">--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 
@@ -40,7 +40,11 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
     <!-- Datatables -->
-
+    <style>
+        .dataTables_info {
+            position: absolute;
+        }
+    </style>
     <script>
         $(document).ready(function() {
             $('.table').DataTable({
