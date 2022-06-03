@@ -2,7 +2,8 @@
     <table class="table" id="pricecars-table">
         <thead>
             <tr style="background: burlywood;">
-                <th>Mã Vé</th>
+                <th>MAV</th>
+                <th>MAKH</th>
                 <th>Tuyến</th>
                 <th>Giờ Xuất Bến</th>
                 <th>Thời Gian Dự Kiến</th>
@@ -20,6 +21,7 @@
             @foreach($order_ticket as $t)
             <tr>
                 <td>{{$t->id??''}}</td>
+                <td>{{$t->customer_id??''}}</td>
                 <td>{{\App\Models\RouteBus::where(['id' => $t->route_id->route_id??''])->first()->route??''}}</td>
                 <td>{{$t->buse->start_time??''}} :{{date('d-m-Y',strtotime($t->buse->start_day??''))}}</td>
                 <td>{{\App\Models\RouteBus::where(['id' => $t->route_id->route_id??''])->first()->time_intend??''}} tiếng</td>

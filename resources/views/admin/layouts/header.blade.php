@@ -36,13 +36,13 @@
                             <!-- <a href="#" class="dropdown-item">Tài khoản cá nhân</a> -->
                             {{-- <a href="/generator_builder" class="dropdown-item">Generator Builder</a> --}}
                             <div class="dropdown-divider"></div>
-                            <a href="{{ route('change_password') }}" class="dropdown-item">Đổi mật khẩu</a>
+                            <a style="color: black;font-weight: bold;" href="{{ route('change_password') }}" class="dropdown-item">Đổi mật khẩu</a>
                             <div class="dropdown-divider"></div>
-                            <a href="{{ Auth::user()->secret_code == null ? '/admin/two_face_auths' : '/admin/two_face_auths/disable' }}" class="dropdown-item">{{ Auth::user()->secret_code == null ? 'Bật' : 'Tắt' }} xác
+                            <a style="color: black;font-weight: bold;" href="{{ Auth::user()->secret_code == null ? '/admin/two_face_auths' : '/admin/two_face_auths/disable' }}" class="dropdown-item">{{ Auth::user()->secret_code == null ? 'Bật' : 'Tắt' }} xác
                                 thực 2
                                 lớp</a>
                             <div class="dropdown-divider"></div>
-                            <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a style="color: black;font-weight: bold;" href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Đăng xuất
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

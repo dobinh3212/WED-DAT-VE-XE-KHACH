@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Repositories\CustomersRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Buse;
 use App\Models\Customer;
+use App\Models\OrderTicket;
 use App\Models\Users;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -26,6 +29,7 @@ class CustomerController extends AppBaseController
 
     public function index()
     {
+
         $customers = Customer::orderBy('id', 'desc')->paginate(15);
         return view('admin.customer.index')
             ->with('customers', $customers);

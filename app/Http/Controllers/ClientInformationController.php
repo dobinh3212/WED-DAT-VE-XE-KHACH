@@ -60,9 +60,9 @@ class ClientInformationController extends Controller
   {
     $order_ticket = OrderTicket::where('id', $id)->first();
     $buse = Buse::find($order_ticket->buse_id);
-    $date_start = strtotime($buse->start_day . ' ' . $buse->start_time) + 720;
+    $date_start = strtotime($buse->start_day  . ' ' . $buse->start_time) + 720;
     $date_now = strtotime(Carbon::now()->format('d-m-Y H:i:s'));
-    if ($date_start > $date_now) {
+    if ($date_start < $date_now) {
       Flash::success('Thất bại, Đã quá thời gian hoàn trả');
       return redirect('/lichsudatve');
     } else {

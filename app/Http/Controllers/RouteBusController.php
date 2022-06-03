@@ -93,11 +93,11 @@ class RouteBusController extends Controller
             $file_name_time = $name_slug . '_' . time() . '.' . $extension;
             $path = public_path('/image/');
             $request->file('image')->move($path, $file_name_time);
+            $input['image'] = $file_name_time;
         }
         $departure = $departure;
         $destination = $destination;
         $input['route'] = $departure . ' - ' . $destination;
-        $input['image'] = $file_name_time;
         if (empty($route_bus)) {
             Flash::error('Lộ trình trống');
 
