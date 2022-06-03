@@ -1,4 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
@@ -14,7 +13,7 @@
                 <th>Quảng đường</th>
                 <th>Phổ biến</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
-                <th style="text-align: center;" colspan="3">Thao tác</th>
+                <th style="text-align: center;">Thao tác</th>
                 @endif
             </tr>
         </thead>

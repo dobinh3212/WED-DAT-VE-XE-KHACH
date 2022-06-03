@@ -5,12 +5,11 @@
                 <th>ID</th>
                 <th>Họ và tên</th>
                 <th>Số điện thoại</th>
-                <!-- <th>Ngày Sinh</th> -->
                 <th>Giới tính</th>
                 <th>Email</th>
                 <th>Người sửa</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
-                <th style="text-align: center;" colspan="3">Thao tác</th>
+                <th style="text-align: center;">Thao tác</th>
                 @endif
             </tr>
         </thead>
@@ -20,7 +19,6 @@
                 <td>{{ $customer->id }}</td>
                 <td>{{ $customer->name }}</td>
                 <td>{{ $customer->phone }}</td>
-                <!-- <td>{{date('d-m-Y',strtotime($customer->date_birth))}}</td> -->
                 <td> {{$customer->sex}}</td>
                 <td>{{ $customer->email }}</td>
                 <td>{{ $customer->user_edit->name??'' }}</td>

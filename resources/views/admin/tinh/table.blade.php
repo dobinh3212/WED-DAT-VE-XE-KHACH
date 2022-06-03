@@ -5,19 +5,15 @@
                 <th>ID</th>
                 <th>Tên tỉnh thành</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
-                <th style="text-align: center;" colspan="3">Thao tác</th>
+                <th style="text-align: center;">Thao tác</th>
                 @endif
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
             @foreach($province as $provinces)
             <tr>
-                <td>{{ $provinces->id  }}</td>
-                <td>
-                    <!-- <a href="{{ route('province.edit', [$provinces->id]) }}"> -->
-                    {{ $provinces->name  }}
-                    <!-- </a> -->
-                </td>
+                <td>{{ $provinces->id }}</td>
+                <td>{{ $provinces->name }}</td>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['province.destroy', $provinces->id], 'method' => 'delete']) !!}

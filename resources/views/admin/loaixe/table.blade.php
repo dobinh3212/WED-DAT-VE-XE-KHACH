@@ -9,7 +9,7 @@
                 <th>Số hàng</th>
                 <th>Số cột</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
-                <th style="text-align: center;" colspan="3">Thao tác</th>
+                <th style="text-align: center;">Thao tác</th>
                 @endif
             </tr>
         </thead>
