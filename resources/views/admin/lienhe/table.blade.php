@@ -12,10 +12,10 @@
                 <th>Số điện thoại</th>
                 <th>Tiêu đề</th>
                 <th>Nội dung</th>
-                <th>Tình trạng</th>
                 @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
-                <th style="text-align: center;">Thao tác</th>
+                <th>Tình trạng</th>
                 @endif
+                <th style="text-align: center;">Thao tác</th>
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
@@ -27,10 +27,10 @@
                 <td>{{$contact->phone}}</td>
                 <td>{{$contact->title}}</td>
                 <td>{{$contact->content}}</td>
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td>
                     <input data-id="{{$contact->id}}" id="toggle_class_{{$contact->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-off="Chưa liên hệ" data-on="Đã liên hệ" {{ $contact->is_checked ? 'checked' : '' }}>
                 </td>
-                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['contact.destroy', $contact->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -38,6 +38,14 @@
                         btn-danger btn-xs', 'onclick' => "return confirm('Bạn có chắc không?')"]) !!}
                     </div>
                     {!! Form::close() !!}
+                </td>
+                @else
+                <td style="text-align: center;" width="120">
+                    <div class='btn-group'>
+                        <a class='btn btn-danger btn-xs'>
+                            Xóa
+                        </a>
+                    </div>
                 </td>
                 @endif
             </tr>

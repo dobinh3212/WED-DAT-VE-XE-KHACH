@@ -8,14 +8,14 @@
              <table class="table" id="pricecars-table">
                  <thead>
                      <tr style="background: burlywood;">
-                         @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                          <th style="text-align: center;">Thao tác</th>
-                         @endif
                          <th>ID</th>
                          <th>Tiêu đề</th>
                          <th style="text-align: center;">Ảnh</th>
                          <th>Giới thiệu</th>
+                         @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                          <th>Hiển thị slide</th>
+                         @endif
                      </tr>
                  </thead>
                  <tbody style="background: floralwhite;">
@@ -33,14 +33,27 @@
                              </div>
                              {!! Form::close() !!}
                          </td>
+                         @else
+                         <td style="text-align: center;" width="120">
+                             <div class='btn-group'>
+                                 <a class='btn btn-default btn-xs'>
+                                     Sửa
+                                 </a>
+                                 <a class='btn btn-danger btn-xs'>
+                                     Xóa
+                                 </a>
+                             </div>
+                         </td>
                          @endif
                          <td>{{ $new->id}}</td>
                          <td>{{ $new->title}}</td>
                          <td> <img src="{{asset("/upload/$new->image")}}" height="140" width="250"></td>
                          <td>{{$new->introduce}}</td>
+                         @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                          <td>
                              <input data-id="{{$new->id}}" id="toggle_class_{{$new->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Bật" data-off="Tắt" {{ $new->check_slide ? 'checked' : '' }}>
                          </td>
+                         @endif
                      </tr>
                      <script>
                          $("#toggle_class_{{$new->id}}").change(function() {

@@ -8,9 +8,7 @@
                 <th>Giới tính</th>
                 <th>Email</th>
                 <th>Người sửa</th>
-                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;">Thao tác</th>
-                @endif
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
@@ -33,6 +31,17 @@
                         btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
+                </td>
+                @else
+                <td style="text-align: center;" width="120">
+                    <div class='btn-group'>
+                        <a class='btn btn-default btn-xs'>
+                            Sửa
+                        </a>
+                        <a class='btn btn-danger btn-xs'>
+                            Xóa
+                        </a>
+                    </div>
                 </td>
                 @endif
             </tr>

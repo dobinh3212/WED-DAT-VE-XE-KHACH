@@ -10,11 +10,10 @@
                 <th>Điểm cuối cùng</th>
                 <!-- <th>Các điểm dừng</th> -->
                 <th>Thời gian</th>
-                <th>Quảng đường</th>
+                <th>Quảng đường</th>)
                 <th>Phổ biến</th>
-                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <th style="text-align: center;">Thao tác</th>
-                @endif
+
             </tr>
         </thead>
         <tbody style="background: floralwhite;">
@@ -26,10 +25,11 @@
                 <!-- <td>{{$route_buss->bus_stop->name??''}}</td> -->
                 <td>{{$route_buss->time_intend}} tiếng</td>
                 <td>{{$route_buss->km}} Km</td>
+
+                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td>
                     <input data-id="{{$route_buss->id}}" id="toggle_class_{{$route_buss->id}}" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Bật" data-off="Tắt" {{ $route_buss->hot ? 'checked' : '' }}>
                 </td>
-                @if( Auth::user()->type_employee == 1 || Auth::user()->type_employee == 2)
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['route_bus.destroy', $route_buss->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
@@ -40,6 +40,20 @@
                         btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
+                </td>
+                @else
+                <td>
+                    <input type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Bật" data-off="Tắt" {{ $route_buss->hot ? 'checked' : '' }}>
+                </td>
+                <td style="text-align: center;" width="120">
+                    <div class='btn-group'>
+                        <a class='btn btn-default btn-xs'>
+                            Sửa
+                        </a>
+                        <a class='btn btn-danger btn-xs'>
+                            Xóa
+                        </a>
+                    </div>
                 </td>
                 @endif
             </tr>
