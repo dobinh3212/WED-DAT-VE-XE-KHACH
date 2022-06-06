@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
@@ -32,7 +33,7 @@ class ForgotPasswordController extends Controller
     public function submitForgetPasswordForm(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:users',
+            'email' => 'required|email|exists:customers',
         ]);
 
         $token = Str::random(64);
@@ -64,7 +65,7 @@ class ForgotPasswordController extends Controller
     public function submitResetPasswordForm(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|exists:users',
+            'email' => 'required|email|exists:customers',
             'password' => 'required|string|min:6|confirmed',
             'password_confirmation' => 'required'
         ]);
@@ -81,11 +82,11 @@ class ForgotPasswordController extends Controller
             return back()->withInput();
         }
 
-        $user = Users::where('email', $request->email)
+        Customer::where('email', $request->email)
             ->update(['password' => Hash::make($request->password)]);
 
         DB::table('password_resets')->where(['email' => $request->email])->delete();
         Flash::success('Mật khẩu của bạn đã được thay đổi!');
-        return redirect('/login');
+        return redirect('/');
     }
 }
