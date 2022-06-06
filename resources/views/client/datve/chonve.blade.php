@@ -34,15 +34,13 @@ Chọn vé
       @if(Auth::guard('customer')->user())
       <button type="submit" style="background: #f57812; border: none;" class="btn btn-success chondatve">Thanh toán</button>
       @else
-      <li>
-        <a data-toggle="modal" data-target="#login" data-dismiss="modal">
-          <?php
-          session_start();
-          $_SESSION['thanhtoan'] = 'thanhtoan';
-          ?>
-          <button type="submit" style="background: #f57812; border: none;" class="btn btn-success chondatve">Thanh toán</button>
-        </a>
-      </li>
+      <a data-toggle="modal" data-target="#login" data-dismiss="modal">
+        <?php
+        session_start();
+        $_SESSION['thanhtoan'] = 'thanhtoan';
+        ?>
+        <button type="submit" style="background: #f57812; border: none;" class="btn btn-success chondatve">Thanh toán</button>
+      </a>
       @endif
     </form>
   </div>
