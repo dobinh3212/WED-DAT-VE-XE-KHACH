@@ -88,4 +88,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', '2fa']], function ()
   Route::get('/status_update', 'NewsController@updateStatus')->name('update.status');
   Route::get('/hot', 'RouteBusController@hot')->name('update.hot');
   Route::get('/is_checked', 'ClientContactController@updateStatus')->name('update.is_checked');
+  Route::get('lichtaixe', 'BuseController@lichtaixe')->name('lichtaixe');
+  Route::post('/update_active2/{id}', 'BuseController@update_active2')->name('update_active2');
+  Route::get('/edit_active2/{id}', 'BuseController@edit_active2')->name('edit_active2');
 });

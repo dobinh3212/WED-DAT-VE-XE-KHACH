@@ -107,4 +107,25 @@ class BuseController extends Controller
         Flash::success('Xóa chuyến xe thành công.');
         return redirect(route('buse.index'));
     }
+    public function edit_active2($id)
+    {
+        $buse = $this->buseRepository->find($id);
+        return view('admin.lichlaixe.update_active')->with('buse', $buse);
+    }
+    public function update_active2($id, Request $request)
+    {
+        $input = $request->is_active;
+        Buse::find($id)->update(['is_active' => $input]);
+        Flash::success('Cập nhật trạng thái thành công.');
+        $id = Auth::user()->id;
+        $lichtaixes = Buse::where('driver_id', $id)->paginate(5);
+        return view('admin.lichlaixe.index')->with('lichtaixes', $lichtaixes);
+    }
+
+    public function lichtaixe()
+    {
+        $id = Auth::user()->id;
+        $lichtaixes = Buse::where('driver_id', $id)->paginate(5);
+        return view('admin.lichlaixe.index')->with('lichtaixes', $lichtaixes);
+    }
 }

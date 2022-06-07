@@ -10,7 +10,7 @@
                 <th>Điểm cuối cùng</th>
                 <!-- <th>Các điểm dừng</th> -->
                 <th>Thời gian</th>
-                <th>Quảng đường</th>)
+                <th>Quảng đường</th>
                 <th>Phổ biến</th>
                 <th style="text-align: center;">Thao tác</th>
 

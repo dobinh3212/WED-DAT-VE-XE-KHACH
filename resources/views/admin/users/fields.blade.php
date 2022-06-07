@@ -10,7 +10,7 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('type_employee', 'Loại nhân viên:') !!}
-    {!! Form::select('type_employee', ['1' => 'Quản trị viên', '0' => 'Tài xế'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('type_employee', ['1' => 'Quản trị viên', '0' => 'Tài xế','2' => 'SupperAdmin'], null, ['class' => 'form-control']) !!}
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('sex', 'Giới tính:') !!}

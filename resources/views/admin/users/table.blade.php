@@ -29,30 +29,26 @@
                 <td>{{ $user->sex }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->license }}</td>
-                @if( Auth::user()->type_employee == 2 ||Auth::user()->id == $user->id )
+
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
+                        @if(Auth::user()->type_employee == 2||Auth::user()->id == $user->id )
                         <a href="{{ route('users.edit', [$user->id]) }}" class='btn btn-default btn-xs'>
                             Sửa
                         </a>
+                        @endif
+                        @if( Auth::user()->type_employee == 2)
+                        @if( $user->type_employee == 2)
+                        @else
                         {!! Form::button('<i class="far fa-trash-alt"></i> Xóa', ['type' => 'submit', 'class' => 'btn
                         btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        @endif
+                        @endif
                     </div>
                     {!! Form::close() !!}
                 </td>
-                @else
-                <td style="text-align: center;" width="120">
-                    <div class='btn-group'>
-                        <a class='btn btn-default btn-xs'>
-                            Sửa
-                        </a>
-                        <a class='btn btn-danger btn-xs'>
-                            Xóa
-                        </a>
-                    </div>
-                </td>
-                @endif
+
             </tr>
             @endforeach
         </tbody>
