@@ -12,6 +12,9 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">TRANG QUẢN TRỊ</li>
             <li><a href="{{route('thongke')}}"><i class="fa fa-calendar"></i> <span>Bảng điều khiển</span></a></li>
+            @if( Auth::user()->type_employee == 0)
+            <li><a href="{{route('busstop.index')}}"><i class="fa fa-file-text"></i> <span>Lịch tài xế</span></a></li>
+            @endif
             <li><a href="{{route('busstop.index')}}"><i class="fa fa-cubes"></i> <span>QL Trạm dừng</span></a></li>
             <li><a href="{{route('coach.index')}}"><i class="fa fa-bus"></i> <span>QL Xe khách</span></a></li>
             <li><a href="{{route('type_bus.index')}}"><i class="fa fa-database"></i> <span>QL Loại xe</span></a></li>
