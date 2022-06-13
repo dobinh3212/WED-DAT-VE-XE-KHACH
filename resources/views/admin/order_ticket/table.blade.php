@@ -11,7 +11,7 @@
                 <th>Số Vé</th>
                 <th>Giá</th>
                 <th>Người cập nhật</th>
-                <th>Tình Trạng</th>)
+                <th>Tình Trạng</th>
                 <th style="text-align: center;">Thao tác</th>
             </tr>
         </thead>
