@@ -292,7 +292,7 @@
             <div class="hotline-phone-ring-circle"></div>
             <div class="hotline-phone-ring-circle-fill"></div>
             <div class="hotline-phone-ring-img-circle">
-                <a href="tel:0988333069" class="pps-btn-img">
+                <a href="tel:0372471772" class="pps-btn-img">
                     <img src="https://nocodebuilding.com/wp-content/uploads/2020/07/icon-call-nh.png" alt="Gọi điện thoại" width="50">
                 </a>
             </div>
@@ -582,7 +582,7 @@
             line-height: 1.5
         }
     </style>
-    <a href="https://chat.zalo.me/?https://zalo.me/dobinh1772" id="linkzalo" target="_blank" rel="noopener noreferrer">
+    <a href="https://zalo.me/dobinh1772" id="linkzalo" target="_blank" rel="noopener noreferrer">
 
         <div class="fcta-zalo-vi-tri-nut">
             <div id="fcta-zalo-tracking" class="fcta-zalo-nen-nut">
