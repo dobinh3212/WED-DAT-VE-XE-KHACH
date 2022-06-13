@@ -19,10 +19,10 @@ class StatisticalController extends Controller
 
     public function thongke()
     {
-        $months = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->get();
+        $months = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->where('is_active', 1)->get();
         $total_ticket = \App\Classes\DataServices::check_ticket($months);
         $total_month = \App\Classes\DataServices::check($months);
-        $buse_active1 = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('is_active', 1)->count(); //đang chờ
+        $buse_active1 = Buse::where('start_day', '<=', Carbon::today()->format("Y-m-30"))->where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('is_active', 1)->count(); //đang chờ
         $buse_active2 = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->wherein('is_active', [2, 3])->count(); //đang chạy //hoàn thành == đã đi
         $buse_active3 = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('is_active', 3)->count(); //hoàn thành
         $taixe = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->where('driver_id', Auth::user()->id ?? '')->count();
@@ -44,13 +44,13 @@ class StatisticalController extends Controller
     }
     public function chitietdatve()
     {
-        $days = OrderTicket::where('created_at', '>=', Carbon::yesterday()->format("Y-m-dd"))->where('created_at', '<=', Carbon::now()->format("Y-M-dd"))->get();
+        $days = OrderTicket::where('created_at', '>=', Carbon::yesterday()->format("Y-m-dd"))->where('created_at', '<=', Carbon::now()->format("Y-M-dd"))->where('is_active', 1)->get();
         $days = \App\Classes\DataServices::check_ticket($days);
-        $week = OrderTicket::where('created_at', '>=', Carbon::now()->subDay(Carbon::now()->dayOfWeek))->where('created_at', '<=', Carbon::now())->get();
+        $week = OrderTicket::where('created_at', '>=', Carbon::now()->subDay(Carbon::now()->dayOfWeek))->where('created_at', '<=', Carbon::now())->where('is_active', 1)->get();
         $week = \App\Classes\DataServices::check_ticket($week);
-        $month = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->get();
+        $month = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->where('is_active', 1)->get();
         $month = \App\Classes\DataServices::check_ticket($month);
-        $year = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-00-00"))->where('created_at', '<=', Carbon::now())->get();
+        $year = OrderTicket::where('created_at', '>=', Carbon::today()->format("Y-00-00"))->where('created_at', '<=', Carbon::now())->where('is_active', 1)->get();
         $year = \App\Classes\DataServices::check_ticket($year);
         $beginning = OrderTicket::count();
         $thang = Carbon::now()->format("m");

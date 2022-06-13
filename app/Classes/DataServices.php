@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Classes;
+
 use App\Models\OrderTicket;
 use Carbon\Carbon;
 use App\Models\Buse;
+
 class DataServices
 {
     public static function check($months)
@@ -50,12 +52,13 @@ class DataServices
         $thang11 = \App\Classes\DataServices::check($thang11);
         $thang12 = OrderTicket::where('created_at', '>=',  "2022-12-00")->where('created_at', '<=', "2022-12-30")->get();
         $thang12 = \App\Classes\DataServices::check($thang12);
-        $buses = Buse::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->count();
-        $nam = Carbon::now()->format("Y"); 
-        return $thang_array = array('nam'=>$nam,'buses'=>$buses,
-        'thang1' => $thang1, 'thang2' => $thang2, 'thang3' => $thang3, 'thang4' => $thang4, 'thang5' => $thang5, 'thang6' => $thang6, 'thang7' => $thang7,
-        'thang8' => $thang8, 'thang9' => $thang9, 'thang10' => $thang10, 'thang11' => $thang11, 'thang12' => $thang12
-    );
+        $buses = Buse::where('start_day', '<=', Carbon::today()->format("Y-m-30"))->where('start_day', '>=', Carbon::today()->format("Y-m-00"))->count();
+        $nam = Carbon::now()->format("Y");
+        return $thang_array = array(
+            'nam' => $nam, 'buses' => $buses,
+            'thang1' => $thang1, 'thang2' => $thang2, 'thang3' => $thang3, 'thang4' => $thang4, 'thang5' => $thang5, 'thang6' => $thang6, 'thang7' => $thang7,
+            'thang8' => $thang8, 'thang9' => $thang9, 'thang10' => $thang10, 'thang11' => $thang11, 'thang12' => $thang12
+        );
     }
     public static function order_ticket()
     {
@@ -84,10 +87,11 @@ class DataServices
         $thang12 = OrderTicket::where('created_at', '>=',  "2022-12-00")->where('created_at', '<=', "2022-12-30")->get();
         $thang12 = \App\Classes\DataServices::check_ticket($thang12);
         $buses = Buse::where('created_at', '>=', Carbon::today()->format("Y-m-00"))->count();
-        $nam = Carbon::now()->format("Y"); 
-        return $order_ticket = array('nam'=>$nam,'buses'=>$buses,
-        'thang1' => $thang1, 'thang2' => $thang2, 'thang3' => $thang3, 'thang4' => $thang4, 'thang5' => $thang5, 'thang6' => $thang6, 'thang7' => $thang7,
-        'thang8' => $thang8, 'thang9' => $thang9, 'thang10' => $thang10, 'thang11' => $thang11, 'thang12' => $thang12
-    );
+        $nam = Carbon::now()->format("Y");
+        return $order_ticket = array(
+            'nam' => $nam, 'buses' => $buses,
+            'thang1' => $thang1, 'thang2' => $thang2, 'thang3' => $thang3, 'thang4' => $thang4, 'thang5' => $thang5, 'thang6' => $thang6, 'thang7' => $thang7,
+            'thang8' => $thang8, 'thang9' => $thang9, 'thang10' => $thang10, 'thang11' => $thang11, 'thang12' => $thang12
+        );
     }
 }
