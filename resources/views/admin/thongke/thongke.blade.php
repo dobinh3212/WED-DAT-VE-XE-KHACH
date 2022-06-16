@@ -95,100 +95,51 @@
                 legendMarkerColor: "grey",
                 legendText: "VND = Tiền Việt Nam đồng",
                 dataPoints: [{
-                        y: {
-                            {
-                                $thang_array['thang1'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang1']??'0'}},
                         label: "Tháng 1"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang2'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang2']??'0'}},
                         label: "Tháng 2"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang3'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang3']??'0'}},
                         label: "Tháng 3"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang4'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang4']??'0'}},
                         label: "Tháng 4"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang5'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang5']??'0'}},
                         label: "Tháng 5"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang6'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang6']??'0'}},
                         label: "Tháng 6"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang7'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang7']??'0'}},
                         label: "Tháng 7"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang8'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang8']??'0'}},
                         label: "Tháng 8"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang9'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang9']??'0'}},
                         label: "Tháng 9"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang10'] ?? '0'
-                            }
-                        }
-                        0,
+                        y: {{$thang_array['thang10']??'0'}}0,
                         label: "Tháng 10"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang11'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang11']??'0'}},
                         label: "Tháng 11"
                     },
                     {
-                        y: {
-                            {
-                                $thang_array['thang12'] ?? '0'
-                            }
-                        },
+                        y: {{$thang_array['thang12']??'0'}},
                         label: "Tháng 12"
                     }
                 ]
@@ -197,22 +148,22 @@
         chart.render();
     }
 </script>
-@else
+@else 
 <section class="content">
 
-    <div class="col-lg-3 col-xs-6">
-        <!-- small box -->
-        <div class="small-box bg-green">
-            <div class="inner">
-                <h3>{{($array_ticket['taixe']??'' )}} Chuyến</h3>
-                <p>Trong tháng {{$array_ticket['thang']??''}}</p>
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{($array_ticket['taixe']??'' )}} Chuyến</h3>
+                    <p>Trong tháng {{$array_ticket['thang']??''}}</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-            <a class="small-box-footer"> <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
 </section>
 <script>
     window.onload = function() {
@@ -231,100 +182,51 @@
                 legendMarkerColor: "grey",
                 legendText: "Chuyến xe",
                 dataPoints: [{
-                        y: {
-                            {
-                                $chuyenxe['1'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['1']??'0'}},
                         label: "Tháng 1"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['2'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['2']??'0'}},
                         label: "Tháng 2"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['3'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['3']??'0'}},
                         label: "Tháng 3"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['4'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['4']??'0'}},
                         label: "Tháng 4"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['5'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['5']??'0'}},
                         label: "Tháng 5"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['6'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['6']??'0'}},
                         label: "Tháng 6"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['7'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['7']??'0'}},
                         label: "Tháng 7"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['8'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['8']??'0'}},
                         label: "Tháng 8"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['9'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['9']??'0'}},
                         label: "Tháng 9"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['10'] ?? '0'
-                            }
-                        }
-                        0,
+                        y: {{$chuyenxe['10']??'0'}}0,
                         label: "Tháng 10"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['11'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['11']??'0'}},
                         label: "Tháng 11"
                     },
                     {
-                        y: {
-                            {
-                                $chuyenxe['12'] ?? '0'
-                            }
-                        },
+                        y: {{$chuyenxe['12']??'0'}},
                         label: "Tháng 12"
                     }
                 ]
