@@ -5,17 +5,17 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Chi tiết người dùng</h1>
+                <h1 style="font-size: 30px;">Chi tiết khách hàng</h1>
             </div>
             <div class="col-sm-6">
 
-                <a class="btn btn-default float-right" style="margin: 5px" href="{{ route('users.index') }}">
+                <a class="btn btn-default float-right" style="margin: 5px" href="{{ route('customer.index') }}">
                     Quay
                     lại
                 </a>
-                <a class="btn btn-default float-right" style="margin: 5px" href="{{route('change_password',$users->id)}}">
+                <!-- <a class="btn btn-default float-right" style="margin: 5px" href="{{route('change_password',$customers->id)}}">
                     Đổi mật khẩu
-                </a>
+                </a> -->
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
 
         <div class="card-body">
             <div class="row">
-                @include('admin.users.show_fields')
+                @include('admin.customer.show_fields')
             </div>
         </div>
 

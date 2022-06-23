@@ -53,12 +53,12 @@ class CustomerController extends AppBaseController
 
     public function show($id)
     {
-        $users = $this->usersRepository->find($id);
-        if (empty($users)) {
-            Flash::error('Users not found');
-            return redirect(route('users.index'));
+        $customers = $this->customersRepository->find($id);
+        if (empty($customers)) {
+            Flash::error('Không thấy khách hàng');
+            return redirect(route('customer.index'));
         }
-        return view('admin.users.show')->with('users', $users);
+        return view('admin.customer.show')->with('customers', $customers);
     }
 
     public function edit($id)

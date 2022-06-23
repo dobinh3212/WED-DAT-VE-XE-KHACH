@@ -52,7 +52,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>{{number_format($array_ticket['total_month']??'' )}}VND</h3>
+                    <h3 style="height: 42px;font-size: 30px;">{{number_format($array_ticket['total_month']??'' )}}VND</h3>
                     <p>Doanh thu vé xe trong tháng {{$array_ticket['thang']??''}}</p>
                 </div>
                 <div class="icon">

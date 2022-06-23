@@ -118,14 +118,14 @@ class BuseController extends Controller
         Buse::find($id)->update(['is_active' => $input]);
         Flash::success('Cập nhật trạng thái thành công.');
         $id = Auth::user()->id;
-        $lichtaixes = Buse::where('driver_id', $id)->paginate(5);
+        $lichtaixes = Buse::where('driver_id', $id)->paginate(10);
         return view('admin.lichlaixe.index')->with('lichtaixes', $lichtaixes);
     }
 
     public function lichtaixe()
     {
         $id = Auth::user()->id;
-        $lichtaixes = Buse::where('driver_id', $id)->paginate(5);
+        $lichtaixes = Buse::where('driver_id', $id)->paginate(10);
         return view('admin.lichlaixe.index')->with('lichtaixes', $lichtaixes);
     }
 }

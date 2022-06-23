@@ -24,6 +24,9 @@
                 <td style="text-align: center;" width="120">
                     {!! Form::open(['route' => ['customer.destroy', $customer->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
+                        <a href="{{ route('customer.show', [$customer->id]) }}" class='btn btn-default btn-xs'>
+                          Xem
+                        </a>
                         <a href="{{ route('customer.edit', [$customer->id]) }}" class='btn btn-default btn-xs'>
                             Sửa
                         </a>

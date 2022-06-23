@@ -16,7 +16,7 @@
             <tr>
                 <td style="text-align: center;">{{$lichtaixe->id}}</td>
                 <td style="text-align: center;">{{$lichtaixe->start_time}}</td>
-                <td style="text-align: center;">{{date('d-m-Y',strtotime($lichtaixe->start_day))}}</td>
+                <td style="text-align: center;font-weight: 700;">{{date('d-m-Y',strtotime($lichtaixe->start_day))}}</td>
                 <td>{{ $lichtaixe->xe->license_plate}}</td>
                 <td>{{ $lichtaixe->lotrinh->route??''}}</td>
                 <td>{{$lichtaixe->xe->license_plate??''}}</td>

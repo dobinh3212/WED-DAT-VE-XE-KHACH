@@ -25,13 +25,13 @@ class StatisticalController extends Controller
         $buse_active1 = Buse::where('start_day', '<=', Carbon::today()->format("Y-m-30"))->where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('is_active', 1)->count(); //đang chờ
         $buse_active2 = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->wherein('is_active', [2, 3])->count(); //đang chạy //hoàn thành == đã đi
         $buse_active3 = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('is_active', 3)->count(); //hoàn thành
-        $taixe = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('created_at', '<=', Carbon::now())->where('driver_id', Auth::user()->id ?? '')->count();
+        $taixe = Buse::where('start_day', '>=', Carbon::today()->format("Y-m-00"))->where('is_active',  3)->where('start_day', '<=', Carbon::now()->format("Y-m-30"))->where('driver_id', Auth::user()->id ?? '')->count();
         $chuyenxe = [];
         for ($i = 1; $i < 13; $i++) {
             if ($i < 10) {
-                $chuyenxe[$i] = Buse::where('start_day', '>=',  "2022-0$i-00")->where('created_at', '<=', "2022-0$i-30")->where('driver_id', Auth::user()->id ?? '')->count();
+                $chuyenxe[$i] = Buse::where('start_day', '>=',  "2022-0$i-00")->where('is_active',  3)->where('start_day', '<=', "2022-0$i-30")->where('driver_id', Auth::user()->id ?? '')->count();
             } else {
-                $chuyenxe[$i] = Buse::where('start_day', '>=',  "2022-$i-00")->where('created_at', '<=', "2022-$i-30")->where('driver_id', Auth::user()->id ?? '')->count();
+                $chuyenxe[$i] = Buse::where('start_day', '>=',  "2022-$i-00")->where('is_active', 3)->where('start_day', '<=', "2022-$i-30")->where('driver_id', Auth::user()->id ?? '')->count();
             }
         }
         $thang = Carbon::now()->format("m");
