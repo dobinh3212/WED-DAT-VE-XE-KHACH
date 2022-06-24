@@ -22,7 +22,7 @@
             <li><a href="{{route('buse.index')}}"><i class="fa fa-dashboard"></i> <span>QL Chuyến xe</span></a></li>
             <li><a href="{{route('news.index')}}"><i class="fa fa-file-text"></i> <span>QL Tin tức</span></a></li>
             <li><a href="{{route('province.index')}}"><i class="fa fa-fire"></i> <span>QL Tỉnh thành</span></a></li>
-            <li><a href="{{route('order_ticket.index')}}"><i class="fa fa-file-text"></i> <span>QL Đặt vé</span></a></li>
+            <li><a href="{{route('order_ticket.index')}}"><i class="fa fa-file-text"></i> <span>QL Đơn hàng</span></a></li>
             <li><a href="{{route('contact.index')}}"><i class="fa fa-file-text"></i> <span>QL Liên hệ</span></a></li>
             <li><a href="{{route('customer.index')}}"><i class="fa fa-user"></i> <span>QL Khách hàng</span></a></li>
             <li><a href="{{route('users.index')}}"><i class="fa fa-user"></i> <span>QL Người dùng</span></a></li>

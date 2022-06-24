@@ -38,17 +38,22 @@ class OrderTicketController extends Controller
     //     Flash::success('Thêm tỉnh thành thành công.');
     //     return redirect(route('province.index'));
     // }
-    // public function show($id)
-    // {
-    //     //
-    // }
+    public function show($id)
+    {
+        $order_ticket = $this->orderTicketRepository->find($id);
+        if (empty($order_ticket)) {
+            Flash::error('Không thấy đơn hàng');
+            return redirect(route('order_ticket.index'));
+        }
+        return view('admin.order_ticket.show')->with('order_ticket', $order_ticket);
+    }
     public function edit($id)
     {
         $order_ticket = $this->orderTicketRepository->find($id);
 
         if (empty($order_ticket)) {
-            Flash::error('Vé trống');
-            return redirect(route('province.index'));
+            Flash::error('Không thấy đơn hàng');
+            return redirect(route('order_ticket.index'));
         }
         return view('admin.order_ticket.edit')->with('order_ticket', $order_ticket);
     }
@@ -59,7 +64,7 @@ class OrderTicketController extends Controller
         $input = $request->all();
         $input['user_edit_id'] = Auth::user()->id;
         if (empty($order_ticket)) {
-            Flash::error('Vé trống');
+            Flash::error('Không thấy đơn hàng');
             return redirect(route('order_ticket.index'));
         }
         $order_ticket = $this->orderTicketRepository->update($input, $id);
@@ -72,11 +77,11 @@ class OrderTicketController extends Controller
     {
         $order_ticket = $this->orderTicketRepository->find($id);
         if (empty($order_ticket)) {
-            Flash::error('Vé trống');
+            Flash::error('Không thấy đơn hàng');
             return redirect(route('order_ticket.index'));
         }
         $order_ticket->delete();
-        Flash::success('Xóa vé thành công.');
+        Flash::success('Xóa đơn hàng thành công.');
         return redirect(route('order_ticket.index'));
     }
 }
