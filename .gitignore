@@ -22,3 +22,4 @@ composer.lock
 /public/tenants/
 /public/tenants/*
 /public/upload/
+/docker/db/
