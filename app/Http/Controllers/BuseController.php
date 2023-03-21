@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class BuseController extends Controller
 {
+    #H
     private $buseRepository;
 
     public function __construct(BuseRepository $buseRepo)
