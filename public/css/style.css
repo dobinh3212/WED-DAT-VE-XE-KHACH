@@ -62,12 +62,17 @@ a {
 	list-style-type: none;
 	line-height: 50px;
 	margin: 0px;
-	margin-left: 24em;
+	/* margin-left: 24em; */
+    list-style: none;
+    padding: 0;
+    text-align: center; /* Căn giữa theo chiều ngang */
 }
 
 .menu ul li {
-	float: left;
-	margin-right: 3em;
+	/* float: left;
+	margin-right: 3em; */
+    display: inline-block;
+    margin: 0 10px;
 }
 
 .menu span {
@@ -366,7 +371,7 @@ img {
 	text-align: center;
 	height: 3em;
 	color: #FFF;
-	position: absolute;
+	position: relative;
 	top: 0.5em;
 	left: 3%;
 }
@@ -481,7 +486,7 @@ img {
 /*đặt vé*/
 .maindatve {
 	width: 100%;
-	min-height: 400px;
+	min-height: 600px;
 }
 
 /*địa điểm đặt vé*/

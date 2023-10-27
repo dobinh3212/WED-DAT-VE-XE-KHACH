@@ -79,7 +79,22 @@
 
 <div id="hienloidatve" class="modal fade">
     <div class="modal-dialog" style="width: 400px;">
+        <div class="modal-content">@section('excontent')
+
+<div id="hienloidatve" class="modal fade">
+    <div class="modal-dialog" style="width: 400px;">
         <div class="modal-content">
+            <div class="modal-header" style="background: rgb(0,64,87); color: #FFF; text-align: center;">
+                <button class="close" data-dismiss="modal" style="color: white;opacity: 1;">&times;</button>
+                <h4 class="modal-title">Thông báo</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
             <div class="modal-header" style="background: rgb(0,64,87); color: #FFF; text-align: center;">
                 <button class="close" data-dismiss="modal" style="color: white;opacity: 1;">&times;</button>
                 <h4 class="modal-title">Thông báo</h4>
