@@ -17,7 +17,7 @@ Route::post('/login-customer', 'Auth\Customer\LoginController@loginn')->name("lo
 Route::get('/login_client', 'Auth\Customer\LoginController@showLoginForm')->name('login_client');
 // Route::post('/login', 'Company\Auth\LoginController@login');
 Route::get('/logout_customer', 'Auth\Customer\LoginController@logout')->name('logout_customer');
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout1');
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::Post('/reigster_client', 'Auth\Customer\RegisterController@register')->name('reigster_client');
 Route::group(['middleware' => ['auth:customer']], function () {
